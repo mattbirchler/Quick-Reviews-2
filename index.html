@@ -25,7 +25,7 @@
 
   <div id="review">
     <div id="top">
-      <div id="poster"></div>
+      <img src="https://a.ltrbxd.com/resized/alternative-poster/5/1/8/3/8/p/skA4xsoaIsryNkeLhjtMQkK3NLR-0-1000-0-1500-crop.jpg?v=3d72d9588f" id="poster">
 
       <div id="review_text">
         <div id="title">
@@ -73,6 +73,14 @@
 <script>
 
 function exportDivAsPNG() {
+  const remoteImage = document.getElementById('poster');
+
+  // Using a free CORS proxy to bypass CORS restrictions
+  const corsProxy = 'https://cors-anywhere.herokuapp.com/';
+  const imageUrl = remoteImage.src;
+
+  remoteImage.src = `${corsProxy}${imageUrl}`;
+
   // Get the div element by its ID
   const divElement = document.getElementById("review");
 
