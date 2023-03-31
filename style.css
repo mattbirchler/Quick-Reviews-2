@@ -181,7 +181,7 @@ h1 {
 
 .modal_input {
   width: 100%;
-  font-size: 32px;
+  font-size: 26px;
   outline: none;
   border: none;
   margin-bottom: 10px;
@@ -190,6 +190,19 @@ h1 {
 .modal_input:focus {
   outline: none;
   border: none;
+}
+
+#modal_text_title {
+  font-weight: 750;
+}
+
+#modal_text_meta {
+  font-size: 22px;
+}
+
+#modal_text_text {
+  font-size: 18px;
+  font-family: sans-serif;
 }
 
 .close {

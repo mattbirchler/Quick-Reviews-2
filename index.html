@@ -60,7 +60,8 @@
   <div class="modal-content">
     <input type="text" class="modal_input" id="modal_text_title" placeholder="Media title">
     <input type="text" class="modal_input" id="modal_text_meta" placeholder="YYYY - Director Name">
-    <input type="text" class="modal_input" id="modal_text_text" placeholder="Your review goes here">
+    <textarea id="modal_text_text" cols="30" rows="10"></textarea>
+    <!-- <input type="text" class="modal_input" id="modal_text_text" placeholder="Your review goes here"> -->
     <button class="btn" id="close_modal" onclick="saveData()">Save</button>
   </div>
 </div>
@@ -113,6 +114,7 @@ window.addEventListener('keydown', function (event) {
   // Check if the 'E' key is pressed
   const exportKeyPressed = event.key === 'K' || event.key === 'k';
   const editKeyPressed = event.key === 'E' || event.key === 'e';
+  const enterKeyPressed = event.key === 'Enter' || event.key === 'enter';
 
   // If both conditions are met, call exportImageShortcut
   if (commandKeyPressed && exportKeyPressed) {
@@ -140,16 +142,20 @@ window.addEventListener('keydown', function (event) {
   if (commandKeyPressed && editKeyPressed) {
     $('#edit_title').click();
   }
-  if (keyEnterPressed = event.key === 'Enter') {
+  if (commandKeyPressed && enterKeyPressed) {
+    event.preventDefault();
     saveData();
     $('#close_modal').click();
   }
 });
 
 function saveData() {
+  var formattedReviewText = document.getElementById('modal_text_text').value.split("\n").join("<br/>");
+  console.log(formattedReviewText);
+  
   localStorage.setItem("media_title", $('#modal_text_title').val());
   localStorage.setItem("media_meta", $('#modal_text_meta').val());
-  localStorage.setItem("media_review", $('#modal_text_text').val());
+  localStorage.setItem("media_review", formattedReviewText);
   $("#title").html(localStorage.getItem("media_title"));
   $("#meta").html(localStorage.getItem("media_meta"));
   $("#text").html(localStorage.getItem("media_review"));
