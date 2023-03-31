@@ -151,7 +151,6 @@ window.addEventListener('keydown', function (event) {
 
 function saveData() {
   var formattedReviewText = document.getElementById('modal_text_text').value.split("\n").join("<br/>");
-  console.log(formattedReviewText);
   
   localStorage.setItem("media_title", $('#modal_text_title').val());
   localStorage.setItem("media_meta", $('#modal_text_meta').val());

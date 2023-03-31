@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
 
     openModalBtn.addEventListener('click', () => {
+        var reviewText = localStorage.getItem('media_review');
+        var convertedText = reviewText.split("<br/>").join("\n");
         modal.style.display = 'block';
         $('#modal_text_title').val(localStorage.getItem('media_title')).focus();
         $('#modal_text_meta').val(localStorage.getItem('media_meta'));
-        $('#modal_text_text').val(localStorage.getItem('media_review'));
+        $('#modal_text_text').val(convertedText);
     });
 
     closeModalBtn.addEventListener('click', () => {
