@@ -1,0 +1,871 @@
+// Setting the localStorage values on page load
+$(document).ready(function () {
+    // Pre-fill info
+    if (localStorage.getItem("media_image")) {
+        $("#image_url").val(localStorage.getItem("media_image"));
+        var the_url = $("#image_url").val();
+        $("#poster").attr("src", the_url);
+        $("#poster_mobile").attr("src", the_url);
+    }
+    if (localStorage.getItem("media_title")) {
+        $("#title").val(localStorage.getItem("media_title"));
+        $("#title_mobile").val(localStorage.getItem("media_title"));
+    }
+    if (localStorage.getItem("media_meta")) {
+        $("#metadata").val(localStorage.getItem("media_meta"));
+        $("#metadata_mobile").val(localStorage.getItem("media_meta"));
+    }
+    if (localStorage.getItem("media_review")) {
+        $("#review").val(localStorage.getItem("media_review"));
+        $("#review_mobile").val(localStorage.getItem("media_review"));
+    }
+    if (localStorage.getItem("text_size_title")) {
+        $("#title").css("font-size", localStorage.getItem("text_size_title"));
+        $("#text_size_title").val(localStorage.getItem("text_size_title"));
+    } else {
+        localStorage.setItem("text_size_title", "48");
+    }
+    if (localStorage.getItem("text_size_metadata")) {
+        $("#metadata").css("font-size", localStorage.getItem("text_size_metadata"));
+        $("#text_size_metadata").val(localStorage.getItem("text_size_metadata"));
+    } else {
+        localStorage.setItem("text_size_metadata", "32");
+    }
+    if (localStorage.getItem("text_size_review")) {
+        $("#review").css("font-size", localStorage.getItem("text_size_review"));
+        $("#text_size_review").val(localStorage.getItem("text_size_review"));
+    } else {
+        localStorage.setItem("text_size_review", "26");
+    }
+    if (localStorage.getItem("score") == "1") {
+        $("#poor").trigger("click");
+        $("#poor_mobile").trigger("click");
+    } else if (localStorage.getItem("score") == "2") {
+        $("#solid").trigger("click");
+        $("#solid_mobile").trigger("click");
+    } else if (localStorage.getItem("score") == "3") {
+        $("#good").trigger("click");
+        $("#good_mobile").trigger("click");
+    } else if (localStorage.getItem("score") == "4") {
+        $("#great").trigger("click");
+        $("#great_mobile").trigger("click");
+    }
+    // Score names
+    var score_one = localStorage.getItem("quick_score_1");
+    var score_two = localStorage.getItem("quick_score_2");
+    var score_three = localStorage.getItem("quick_score_3");
+    var score_four = localStorage.getItem("quick_score_4");
+    // Score colors
+    var score_one_color = localStorage.getItem("quick_score_color_1");
+    var score_two_color = localStorage.getItem("quick_score_color_2");
+    var score_three_color = localStorage.getItem("quick_score_color_3");
+    var score_four_color = localStorage.getItem("quick_score_color_4");
+    // Background colors
+    var container_background_color = localStorage.getItem(
+        "container_background_color"
+    );
+    // Encouraging quote
+    if (localStorage.getItem("quote") == "show") {
+        $("#toggle_quote").html("Hide Quote");
+    } else if (localStorage.getItem("quote") == "hide") {
+        $("#end").css("display", "none");
+        $("#toggle_quote").html("Show Quote");
+    } else {
+        localStorage.setItem("quote", "show");
+        $("#toggle_quote").html("Hide Quote");
+    }
+
+    // Change text sizes
+    $("#text_size_title").change(function () {
+        var size = $("#text_size_title").val();
+        console.log(size);
+        localStorage.setItem("text_size_title", size);
+        $("#title").css("font-size", size);
+    });
+    $("#text_size_metadata").change(function () {
+        var size = $("#text_size_metadata").val();
+        console.log(size);
+        localStorage.setItem("text_size_metadata", size);
+        $("#metadata").css("font-size", size);
+    });
+    $("#text_size_review").change(function () {
+        var size = $("#text_size_review").val();
+        console.log(size);
+        localStorage.setItem("text_size_review", size);
+        $("#review").css("font-size", size);
+    });
+    // var container_tint = localStorage.getItem("container_tint");
+    // if (container_tint == null) {
+    //   localStorage.setItem("container_tint", "#c4c4c4");
+    // }
+
+    // Setting default values if null
+    if (score_one == null) {
+        localStorage.setItem("quick_score_1", "Poor");
+        score_one = "Poor";
+    }
+    if (score_two == null) {
+        localStorage.setItem("quick_score_2", "Okay");
+        score_two = "Okay";
+    }
+    if (score_three == null) {
+        localStorage.setItem("quick_score_3", "Good");
+        score_three = "Good";
+    }
+    if (score_four == null) {
+        localStorage.setItem("quick_score_4", "Great");
+        score_four = "Great";
+    }
+    if (score_one_color == null) {
+        localStorage.setItem("quick_score_color_1", "#F28482");
+        score_one = "Poor";
+    }
+    if (score_two_color == null) {
+        localStorage.setItem("quick_score_color_2", "#F6BD60");
+        score_two = "Okay";
+    }
+    if (score_three_color == null) {
+        localStorage.setItem("quick_score_color_3", "#AFC1EF");
+        score_three = "Good";
+    }
+    if (score_four_color == null) {
+        localStorage.setItem("quick_score_color_4", "#8CD4C3");
+        score_four = "Great";
+    }
+    if (container_background_color == null) {
+        localStorage.setItem("container_background_color", "#F7EDE2");
+    }
+    var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
+    console.log(accent);
+    // Applying saved values to the page
+    $("#poor").html(score_one);
+    $("#score_1").val(score_one);
+    $("#solid").html(score_two);
+    $("#score_2").val(score_two);
+    $("#good").html(score_three);
+    $("#score_3").val(score_three);
+    $("#great").html(score_four);
+    $("#score_4").val(score_four);
+    $("#poor_color").val(localStorage.getItem("quick_score_color_1"));
+    $("#okay_color").val(localStorage.getItem("quick_score_color_2"));
+    $("#good_color").val(localStorage.getItem("quick_score_color_3"));
+    $("#great_color").val(localStorage.getItem("quick_score_color_4"));
+    $("#background_color").val(
+        localStorage.getItem("container_background_color")
+    );
+    $("#desktop_container").css("background-color", container_background_color);
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#end").css("color", localStorage.getItem("container_text_color"));
+    // Setting text color based on contrast ratios
+    localStorage.setItem(
+        "container_text_color",
+        getContrastYIQ(localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem(
+        "quick_score_text_color_1",
+        getContrastYIQ(localStorage.getItem("quick_score_color_1"))
+    );
+    localStorage.setItem(
+        "quick_score_text_color_2",
+        getContrastYIQ(localStorage.getItem("quick_score_color_2"))
+    );
+    localStorage.setItem(
+        "quick_score_text_color_3",
+        getContrastYIQ(localStorage.getItem("quick_score_color_3"))
+    );
+    localStorage.setItem(
+        "quick_score_text_color_4",
+        getContrastYIQ(localStorage.getItem("quick_score_color_4"))
+    );
+
+    // Setting container background {
+    $("#desktop_container").css(
+        "background_color",
+        localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+        "border-color",
+        pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+        "color",
+        pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+});
+
+// Setting score colors on click/tap
+// Desktop
+$("#poor").click(function () {
+    $("#poor").css(
+        "background-color",
+        localStorage.getItem("quick_score_color_1")
+    );
+    $("#solid").css("background-color", "#f5f5f500");
+    $("#good").css("background-color", "#f5f5f500");
+    $("#great").css("background-color", "#f5f5f500");
+    // Text Colors
+    $("#poor").css("color", localStorage.getItem("quick_score_text_color_1"));
+    $("#solid").css("color", localStorage.getItem("container_text_color"));
+    $("#good").css("color", localStorage.getItem("container_text_color"));
+    $("#great").css("color", localStorage.getItem("container_text_color"));
+    $("#poor").attr("transition-style", "in:circle:center");
+    $("#solid").removeAttr("transition-style", "in:circle:center");
+    $("#good").removeAttr("transition-style", "in:circle:center");
+    $("#great").removeAttr("transition-style", "in:circle:center");
+    localStorage.setItem("score", "1");
+    $("#desktop_container").queue(function () {
+        $("#desktop_container").css(
+            "background-color",
+            localStorage.getItem("container_background_color")
+        );
+        $("#bottom").css(
+            "border-color",
+            pSBC(-0.5, localStorage.getItem("container_background_color"))
+        );
+    });
+});
+$("#solid").click(function () {
+    $("#poor").css("background-color", "#f5f5f500");
+    $("#solid").css(
+        "background-color",
+        localStorage.getItem("quick_score_color_2")
+    );
+    $("#good").css("background-color", "#f5f5f500");
+    $("#great").css("background-color", "#f5f5f500");
+    // Text Colors
+    $("#poor").css("color", localStorage.getItem("container_text_color"));
+    $("#solid").css("color", localStorage.getItem("quick_score_text_color_2"));
+    $("#good").css("color", localStorage.getItem("container_text_color"));
+    $("#great").css("color", localStorage.getItem("container_text_color"));
+    $("#poor").removeAttr("transition-style", "in:circle:center");
+    $("#solid").attr("transition-style", "in:circle:center");
+    $("#good").removeAttr("transition-style", "in:circle:center");
+    $("#great").removeAttr("transition-style", "in:circle:center");
+    localStorage.setItem("score", "2");
+});
+$("#good").click(function () {
+    $("#poor").css("background-color", "#f5f5f500");
+    $("#solid").css("background-color", "#f5f5f500");
+    $("#good").css(
+        "background-color",
+        localStorage.getItem("quick_score_color_3")
+    );
+    $("#great").css("background-color", "#f5f5f500");
+    // Text Colors
+    $("#poor").css("color", localStorage.getItem("container_text_color"));
+    $("#solid").css("color", localStorage.getItem("container_text_color"));
+    $("#good").css("color", localStorage.getItem("quick_score_text_color_3"));
+    $("#great").css("color", localStorage.getItem("container_text_color"));
+    $("#poor").removeAttr("transition-style", "in:circle:center");
+    $("#solid").removeAttr("transition-style", "in:circle:center");
+    $("#good").attr("transition-style", "in:circle:center");
+    $("#great").removeAttr("transition-style", "in:circle:center");
+    localStorage.setItem("score", "3");
+});
+$("#great").click(function () {
+    $("#poor").css("background-color", "#f5f5f500");
+    $("#solid").css("background-color", "#f5f5f500");
+    $("#good").css("background-color", "#f5f5f500");
+    $("#great").css(
+        "background-color",
+        localStorage.getItem("quick_score_color_4")
+    );
+    // Text Colors
+    $("#poor").css("color", localStorage.getItem("container_text_color"));
+    $("#solid").css("color", localStorage.getItem("container_text_color"));
+    $("#good").css("color", localStorage.getItem("container_text_color"));
+    $("#great").css("color", localStorage.getItem("quick_score_text_color_4"));
+    $("#poor").removeAttr("transition-style", "in:circle:center");
+    $("#solid").removeAttr("transition-style", "in:circle:center");
+    $("#good").removeAttr("transition-style", "in:circle:center");
+    $("#great").attr("transition-style", "in:circle:center");
+    localStorage.setItem("score", "4");
+});
+
+
+// Reset the default scores
+$("#reset_score_names_button").click(function () {
+    localStorage.setItem("quick_score_1", "Poor");
+    localStorage.setItem("quick_score_2", "Okay");
+    localStorage.setItem("quick_score_3", "Good");
+    localStorage.setItem("quick_score_4", "Great");
+    $("#poor").html("Poor");
+    $("#solid").html("Okay");
+    $("#good").html("Good");
+    $("#great").html("Great");
+    $("#poor_mobile").html("Poor");
+    $("#solid_mobile").html("Okay");
+    $("#good_mobile").html("Good");
+    $("#great_mobile").html("Great");
+    $("#score_1").val("Poor");
+    $("#score_2").val("Okay");
+    $("#score_3").val("Good");
+    $("#score_4").val("Great");
+  });
+
+  // Reset the background
+  $("#reset_container_button").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#F7EDE2");
+    $("#background_color").val("#e9eef1");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+  });
+
+  // Reset the colors
+  $("#reset_colors_button").click(function () {
+    localStorage.setItem("quick_score_color_1", "#F28482");
+    localStorage.setItem("quick_score_color_2", "#F6BD60");
+    localStorage.setItem("quick_score_color_3", "#AFC1EF");
+    localStorage.setItem("quick_score_color_4", "#8CD4C3");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#F28482");
+    $("#okay_color").val("#F6BD60");
+    $("#good_color").val("#AFC1EF");
+    $("#great_color").val("#8CD4C3");
+    location.reload();
+  });
+
+  // Reset the font sizes
+  $("#reset_font_size_button").click(function () {
+    localStorage.setItem("text_size_title", "48");
+    $("#title").css("font-size", "48");
+    $("#text_size_title").val("48");
+    localStorage.setItem("text_size_metadata", "32");
+    $("#metadata").css("font-size", "32");
+    $("#text_size_metadata").val("32");
+    localStorage.setItem("text_size_review", "26");
+    $("#review").css("font-size", "26");
+    $("#text_size_review").val("26");
+  });
+
+
+
+  // Save user's custom score names
+  $("#score_1").change(function () {
+    var score_one = $("#score_1").val();
+    localStorage.setItem("quick_score_1", score_one);
+    $("#poor").html(score_one);
+    $("#poor_mobile").html(score_one);
+  });
+  $("#score_2").change(function () {
+    var score_two = $("#score_2").val();
+    localStorage.setItem("quick_score_2", score_two);
+    $("#solid").html(score_two);
+    $("#solid_mobile").html(score_two);
+  });
+  $("#score_3").change(function () {
+    var score_three = $("#score_3").val();
+    localStorage.setItem("quick_score_3", score_three);
+    $("#good").html(score_three);
+    $("#good_mobile").html(score_three);
+  });
+  $("#score_4").change(function () {
+    var score_four = $("#score_4").val();
+    localStorage.setItem("quick_score_4", score_four);
+    $("#great").html(score_four);
+    $("#great_mobile").html(score_four);
+  });
+
+  // Save user's custom colors
+  $("#background_color").change(function () {
+    var score_color_one = $("#background_color").val();
+    localStorage.setItem("container_background_color", score_color_one);
+    localStorage.setItem(
+      "container_text_color",
+      getContrastYIQ(score_color_one)
+    );
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#end").css("color", localStorage.getItem("container_text_color"));
+  });
+  $("#poor_color").change(function () {
+    var score_color_one = $("#poor_color").val();
+    localStorage.setItem("quick_score_color_1", score_color_one);
+    localStorage.setItem(
+      "quick_score_text_color_1",
+      getContrastYIQ(score_color_one)
+    );
+    location.reload();
+  });
+  $("#okay_color").change(function () {
+    var score_color_one = $("#okay_color").val();
+    localStorage.setItem("quick_score_color_2", score_color_one);
+    localStorage.setItem(
+      "quick_score_text_color_2",
+      getContrastYIQ(score_color_one)
+    );
+    location.reload();
+  });
+  $("#good_color").change(function () {
+    var score_color_one = $("#good_color").val();
+    localStorage.setItem("quick_score_color_3", score_color_one);
+    localStorage.setItem(
+      "quick_score_text_color_3",
+      getContrastYIQ(score_color_one)
+    );
+    location.reload();
+  });
+  $("#great_color").change(function () {
+    var score_color_one = $("#great_color").val();
+    localStorage.setItem("quick_score_color_4", score_color_one);
+    localStorage.setItem(
+      "quick_score_text_color_4",
+      getContrastYIQ(score_color_one)
+    );
+    location.reload();
+  });
+
+
+
+  function getContrastYIQ(hexcolor) {
+    hexcolor = hexcolor.replace("#", "");
+    var r = parseInt(hexcolor.substr(0, 2), 16);
+    var g = parseInt(hexcolor.substr(2, 2), 16);
+    var b = parseInt(hexcolor.substr(4, 2), 16);
+    var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    console.log(yiq);
+    return yiq >= 128 ? "#000000" : "#ffffff";
+  }
+
+  // pSBC Version 4.1
+  const pSBC = (p, c0, c1, l) => {
+    let r,
+      g,
+      b,
+      P,
+      f,
+      t,
+      h,
+      m = Math.round,
+      a = typeof c1 == "string";
+    if (
+      typeof p != "number" ||
+      p < -1 ||
+      p > 1 ||
+      typeof c0 != "string" ||
+      (c0[0] != "r" && c0[0] != "#") ||
+      (c1 && !a)
+    )
+      return null;
+    (h = c0.length > 9),
+      (h = a ? (c1.length > 9 ? true : c1 == "c" ? !h : false) : h),
+      (f = pSBC.pSBCr(c0)),
+      (P = p < 0),
+      (t =
+        c1 && c1 != "c"
+          ? pSBC.pSBCr(c1)
+          : P
+          ? { r: 0, g: 0, b: 0, a: -1 }
+          : { r: 255, g: 255, b: 255, a: -1 }),
+      (p = P ? p * -1 : p),
+      (P = 1 - p);
+    if (!f || !t) return null;
+    if (l)
+      (r = m(P * f.r + p * t.r)),
+        (g = m(P * f.g + p * t.g)),
+        (b = m(P * f.b + p * t.b));
+    else
+      (r = m((P * f.r ** 2 + p * t.r ** 2) ** 0.5)),
+        (g = m((P * f.g ** 2 + p * t.g ** 2) ** 0.5)),
+        (b = m((P * f.b ** 2 + p * t.b ** 2) ** 0.5));
+    (a = f.a),
+      (t = t.a),
+      (f = a >= 0 || t >= 0),
+      (a = f ? (a < 0 ? t : t < 0 ? a : a * P + t * p) : 0);
+    if (h)
+      return (
+        "rgb" +
+        (f ? "a(" : "(") +
+        r +
+        "," +
+        g +
+        "," +
+        b +
+        (f ? "," + m(a * 1000) / 1000 : "") +
+        ")"
+      );
+    else
+      return (
+        "#" +
+        (4294967296 + r * 16777216 + g * 65536 + b * 256 + (f ? m(a * 255) : 0))
+          .toString(16)
+          .slice(1, f ? undefined : -2)
+      );
+  };
+
+  pSBC.pSBCr = (d) => {
+    const i = parseInt;
+    let n = d.length,
+      x = {};
+    if (n > 9) {
+      const [r, g, b, a] = (d = d.split(","));
+      n = d.length;
+      if (n < 3 || n > 4) return null;
+      (x.r = i(r[3] == "a" ? r.slice(5) : r.slice(4))),
+        (x.g = i(g)),
+        (x.b = i(b)),
+        (x.a = a ? parseFloat(a) : -1);
+    } else {
+      if (n == 8 || n == 6 || n < 4) return null;
+      if (n < 6)
+        d =
+          "#" +
+          d[1] +
+          d[1] +
+          d[2] +
+          d[2] +
+          d[3] +
+          d[3] +
+          (n > 4 ? d[4] + d[4] : "");
+      d = i(d.slice(1), 16);
+      if (n == 9 || n == 5)
+        (x.r = (d >> 24) & 255),
+          (x.g = (d >> 16) & 255),
+          (x.b = (d >> 8) & 255),
+          (x.a = Math.round((d & 255) / 0.255) / 1000);
+      else (x.r = d >> 16), (x.g = (d >> 8) & 255), (x.b = d & 255), (x.a = -1);
+    }
+    return x;
+  };
+
+
+
+  // Themes
+  // Set Default
+  $("#theme_1").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#F7EDE2");
+    $("#background_color").val("#F7EDE2");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#F28482");
+    localStorage.setItem("quick_score_color_2", "#F6BD60");
+    localStorage.setItem("quick_score_color_3", "#AFC1EF");
+    localStorage.setItem("quick_score_color_4", "#8CD4C3");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#F28482");
+    $("#okay_color").val("#F6BD60");
+    $("#good_color").val("#AFC1EF");
+    $("#great_color").val("#8CD4C3");
+    location.reload();
+  });
+
+  $("#theme_2").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#e9eef1");
+    $("#background_color").val("#e9eef1");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#eac5ca");
+    localStorage.setItem("quick_score_color_2", "#ead6c5");
+    localStorage.setItem("quick_score_color_3", "#c5cbea");
+    localStorage.setItem("quick_score_color_4", "#a9d8b8");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#eac5ca");
+    $("#okay_color").val("#ead6c5");
+    $("#good_color").val("#c5cbea");
+    $("#great_color").val("#a9d8b8");
+    location.reload();
+  });
+
+  $("#theme_3").click(function () {
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#2B2D42");
+    $("#background_color").val("#2B2D42");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#E61043");
+    localStorage.setItem("quick_score_color_2", "#E7A918");
+    localStorage.setItem("quick_score_color_3", "#1C8BB0");
+    localStorage.setItem("quick_score_color_4", "#07C493");
+    localStorage.setItem("quick_score_text_color_1", "#ffffff");
+    localStorage.setItem("quick_score_text_color_2", "#ffffff");
+    localStorage.setItem("quick_score_text_color_3", "#ffffff");
+    localStorage.setItem("quick_score_text_color_4", "#ffffff");
+    $("#poor_color").val("#E61043");
+    $("#okay_color").val("#E7A918");
+    $("#good_color").val("#1C8BB0");
+    $("#great_color").val("#07C493");
+    location.reload();
+  });
+
+  $("#theme_4").click(function () {
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#27272a");
+    $("#background_color").val("#27272a");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#ffffff");
+    localStorage.setItem("quick_score_color_2", "#ffffff");
+    localStorage.setItem("quick_score_color_3", "#ffffff");
+    localStorage.setItem("quick_score_color_4", "#ffffff");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#ffffff");
+    $("#okay_color").val("#ffffff");
+    $("#good_color").val("#ffffff");
+    $("#great_color").val("#ffffff");
+    location.reload();
+  });
+
+  $("#theme_5").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#FEBF00");
+    $("#background_color").val("#FEBF00");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#000000");
+    localStorage.setItem("quick_score_color_2", "#000000");
+    localStorage.setItem("quick_score_color_3", "#000000");
+    localStorage.setItem("quick_score_color_4", "#000000");
+    localStorage.setItem("quick_score_text_color_1", "#ffffff");
+    localStorage.setItem("quick_score_text_color_2", "#ffffff");
+    localStorage.setItem("quick_score_text_color_3", "#ffffff");
+    localStorage.setItem("quick_score_text_color_4", "#ffffff");
+    $("#poor_color").val("#000000");
+    $("#okay_color").val("#000000");
+    $("#good_color").val("#000000");
+    $("#great_color").val("#000000");
+    location.reload();
+  });
+
+  $("#theme_6").click(function () {
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#3B0C95");
+    $("#background_color").val("#3B0C95");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#ED2E6E");
+    localStorage.setItem("quick_score_color_2", "#ED2E6E");
+    localStorage.setItem("quick_score_color_3", "#ED2E6E");
+    localStorage.setItem("quick_score_color_4", "#ED2E6E");
+    localStorage.setItem("quick_score_text_color_1", "#ffffff");
+    localStorage.setItem("quick_score_text_color_2", "#ffffff");
+    localStorage.setItem("quick_score_text_color_3", "#ffffff");
+    localStorage.setItem("quick_score_text_color_4", "#ffffff");
+    $("#poor_color").val("#ED2E6E");
+    $("#okay_color").val("#ED2E6E");
+    $("#good_color").val("#ED2E6E");
+    $("#great_color").val("#ED2E6E");
+    location.reload();
+  });
+
+  $("#theme_7").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#1FCBE2");
+    $("#background_color").val("#1FCBE2");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#000000");
+    localStorage.setItem("quick_score_color_2", "#000000");
+    localStorage.setItem("quick_score_color_3", "#000000");
+    localStorage.setItem("quick_score_color_4", "#000000");
+    localStorage.setItem("quick_score_text_color_1", "#ffffff");
+    localStorage.setItem("quick_score_text_color_2", "#ffffff");
+    localStorage.setItem("quick_score_text_color_3", "#ffffff");
+    localStorage.setItem("quick_score_text_color_4", "#ffffff");
+    $("#poor_color").val("#000000");
+    $("#okay_color").val("#000000");
+    $("#good_color").val("#000000");
+    $("#great_color").val("#000000");
+    location.reload();
+  });
+
+  $("#theme_8").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#E5322F");
+    $("#background_color").val("#E5322F");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#ECECEC");
+    localStorage.setItem("quick_score_color_2", "#ECECEC");
+    localStorage.setItem("quick_score_color_3", "#ECECEC");
+    localStorage.setItem("quick_score_color_4", "#ECECEC");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#ECECEC");
+    $("#okay_color").val("#ECECEC");
+    $("#good_color").val("#ECECEC");
+    $("#great_color").val("#ECECEC");
+    location.reload();
+  });
+
+  $("#theme_9").click(function () {
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#EE9882");
+    $("#background_color").val("#EE9882");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#desktop_container").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#watermark").css(
+      "color",
+      pSBC(-0.7, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#000000");
+    localStorage.setItem("quick_score_color_2", "#000000");
+    localStorage.setItem("quick_score_color_3", "#000000");
+    localStorage.setItem("quick_score_color_4", "#000000");
+    localStorage.setItem("quick_score_text_color_1", "#ffffff");
+    localStorage.setItem("quick_score_text_color_2", "#ffffff");
+    localStorage.setItem("quick_score_text_color_3", "#ffffff");
+    localStorage.setItem("quick_score_text_color_4", "#ffffff");
+    $("#poor_color").val("#000000");
+    $("#okay_color").val("#000000");
+    $("#good_color").val("#000000");
+    $("#great_color").val("#000000");
+    location.reload();
+  });
