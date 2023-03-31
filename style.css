@@ -25,10 +25,10 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "PP Rader Variable", sans-serif;
 }
 
 h1 {
+  font-family: "PP Rader Variable", sans-serif;
   text-align: center;
   font-size: 48px;
   font-weight: 750;
@@ -95,11 +95,13 @@ h1 {
 }
 
 #title {
+  font-family: "PP Rader Variable", sans-serif;
   font-size: 48px;
   font-weight: 750;
 }
 
 #meta {
+  font-family: "PP Rader Variable", sans-serif;
   font-size: 32px;
   font-style: italic;
 }

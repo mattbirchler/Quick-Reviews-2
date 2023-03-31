@@ -15,6 +15,7 @@
   <!-- <script src="localStorage.js"></script> -->
   <script src="html2canvas.js"></script>
   <script src="scripts/modal.js"></script>
+  <script src="scripts/keyboard.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 </head>
 
@@ -28,13 +29,13 @@
 
       <div id="review_text">
         <div id="title">
-          Title Goes Here
+          The Title Goes Here
         </div>
         <div id="meta">
           2023 - Director Name
         </div>
         <div id="text">
-          Jordan Peele just doesn't miss. Was this the best movie of last year? No. Was it better than his historically great debut? Also no. Did I enjoy every minute of this movie? Hell yes.
+          This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
         </div>
       </div>
     </div>
@@ -50,8 +51,8 @@
   </div>
 
   <div id="buttons">
-    <button class="btn" id="edit_title">Edit</button>
-    <button class="btn" id="save_the_image" onclick="exportImageShortcut()">Save Image</button>
+    <button class="btn" id="edit_title">Edit (⌘+E)</button>
+    <button class="btn" id="save_the_image" onclick="exportImageShortcut()">Save Image (⌘+S)</button>
   </div>
 
 </body>
@@ -62,7 +63,7 @@
     <input type="text" class="modal_input" id="modal_text_meta" placeholder="YYYY - Director Name">
     <textarea id="modal_text_text" cols="30" rows="10"></textarea>
     <!-- <input type="text" class="modal_input" id="modal_text_text" placeholder="Your review goes here"> -->
-    <button class="btn" id="close_modal" onclick="saveData()">Save</button>
+    <button class="btn" id="close_modal" onclick="saveData()">Save (⌘+Enter)</button>
   </div>
 </div>
 
@@ -107,48 +108,6 @@ function exportImageShortcut() {
   exportDivAsPNG();
 }
 
-window.addEventListener('keydown', function (event) {
-  // Check if the 'Command' key is pressed on Mac, or the 'Ctrl' key on other systems
-  const commandKeyPressed = event.metaKey || event.ctrlKey;
-
-  // Check if the 'E' key is pressed
-  const exportKeyPressed = event.key === 'K' || event.key === 'k';
-  const editKeyPressed = event.key === 'E' || event.key === 'e';
-  const enterKeyPressed = event.key === 'Enter' || event.key === 'enter';
-
-  // If both conditions are met, call exportImageShortcut
-  if (commandKeyPressed && exportKeyPressed) {
-    // Prevent the default browser behavior, such as opening the search prompt
-    event.preventDefault();
-
-    exportImageShortcut();
-  }
-
-  if (event.key === 'Escape' || event.keyCode === 27) {
-    $('#close_modal').click();
-  }
-  if (event.key === '1') {
-    $('#poor').click();
-  }
-  if (event.key === '2') {
-    $('#solid').click();
-  }
-  if (event.key === '3') {
-    $('#good').click();
-  }
-  if (event.key === '4') {
-    $('#great').click();
-  }
-  if (commandKeyPressed && editKeyPressed) {
-    $('#edit_title').click();
-  }
-  if (commandKeyPressed && enterKeyPressed) {
-    event.preventDefault();
-    saveData();
-    $('#close_modal').click();
-  }
-});
-
 function saveData() {
   var formattedReviewText = document.getElementById('modal_text_text').value.split("\n").join("<br/>");
   
@@ -176,7 +135,7 @@ $(document).ready(function () {
     if (localStorage.getItem("media_meta")) {
         $("#meta").html(localStorage.getItem("media_meta"));
     } else {
-        localStorage.setItem("media_meta", "2022 - Director Name");
+        localStorage.setItem("media_meta", "2023 - Director Name");
     }
     if (localStorage.getItem("media_review")) {
         $("#text").html(localStorage.getItem("media_review"));
