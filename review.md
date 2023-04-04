@@ -36,3 +36,5 @@ The first would be to let me end the workout and delete the last X minutes since
 
 ## macOS
 
+One of the most interesting apps released in recent memory is [Rewind.ai](https://www.rewind.ai/), an app that records everything you do on your computer and lets you search through everything you've done in seconds. It can even record audio and transcribe what you say and hear. But given the cost and privacy concerns of a tool with this remarkable amount of access to your computing habits, I think this is really something that Apple should build into macOS of most people are going to feel comfortable using a tool like this.
+
