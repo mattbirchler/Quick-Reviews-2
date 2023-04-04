@@ -1,4 +1,4 @@
-WWDC is just around the corner, and we're all excited to see what Apple has in store this year. As always, there are plenty of things we expect to see, and there are always a few surprises mixed in there as well. Here are a few specific additions I'd love to see come to Apple's biggets platforms this year.
+WWDC is just around the corner, and we're all excited to see what Apple has in store this year. As always, there are plenty of things we expect to see, and there are always a few surprises mixed in there as well. Here are a few specific additions I'd love to see come to Apple's bigger platforms this year.
 
 ## iOS
 
@@ -8,7 +8,7 @@ In short, apps should be able to start live activities on their own. Currently, 
 
 By all means, make this an elevated permission that requires the user to explicitly allow it (like the "always allow" option for location access), but I think it would be a great addition to iOS. For example, I could let Fantastical always start a live activity for my meetings throughout the day. Or I could let my Formula 1 app, Box Box, automatically start a live activity for all practice, qualifying, and race sessions, since I know I'll want to have those all the time.
 
-Like all permissions, this should be easy to revoke so that users maintain control over their device, but I think it's reasonabnle to trust users to give apps they choose to use this ability.
+Like all permissions, this should be easy to revoke so that users maintain control over their device, but I think it's reasonable to trust users to give apps they choose to use this ability.
 
 ## iPadOS
 
@@ -16,7 +16,7 @@ If the last year has taught us anything, it's that the idea of Stage Manager and
 
 The big change I would make is to remove the fixed sizes that iPad windows snap to. It's pretty clear this was meant as a way to make it easier for users to get started with windowing, but I think it's a bit too restrictive, and actually makes things counterintuitive for users. It's been almost a year of using it and to this day I'm never quite 100% sure what will happen when I resize a window. Will it stick to the size I want? Will it move to another spot on the screen when I let go of the corner? Will it hide the dock because it thinks there's not enough space? Will it hide the recent apps on the left of the screen?
 
-That's too many questions to have when simply trying to resize or move a window on screen. In my opinon, this is an example of a feature being too clever for its own good; they've overengineered for simplicity and instead have created a new complexity.
+That's too many questions to have when simply trying to resize or move a window on screen. In my opinion, this is an example of a feature being too clever for its own good; they've over-engineered for simplicity and instead have created a new complexity.
 
 By allowing apps to freely resize (as the same apps already do on Apple Silicon Macs), Apple will make their windowing solution more intuitive and less frustrating for users.
 
