@@ -1,3 +1,5 @@
+WWDC is just around the corner, and we're all excited to see what Apple has in store this year. As always, there are plenty of things we expect to see, and there are always a few surprises mixed in there as well. Here are a few specific additions I'd love to see come to Apple's biggets platforms this year.
+
 ## iOS
 
 Live activities were one of the headline features of iOS 16 last year, and they're a very good addition to iOS, but they're not perfect, and I think one change could make them more useful and more convenient for users.
@@ -36,5 +38,12 @@ The first would be to let me end the workout and delete the last X minutes since
 
 ## macOS
 
-One of the most interesting apps released in recent memory is [Rewind.ai](https://www.rewind.ai/), an app that records everything you do on your computer and lets you search through everything you've done in seconds. It can even record audio and transcribe what you say and hear. But given the cost and privacy concerns of a tool with this remarkable amount of access to your computing habits, I think this is really something that Apple should build into macOS of most people are going to feel comfortable using a tool like this.
+One of the most interesting apps released in recent memory is [Rewind.ai](https://www.rewind.ai/), an app that records everything you do on your computer and lets you search through everything you've done in seconds. It can even record audio and transcribe what you say and hear. But given the cost and privacy concerns of a tool with this remarkable amount of access to your computing habits, I would suspect most people would not want to have a third party doing this, they'd rather have it built into the OS.
 
+And of course, Apple already has Spotlight, which lets any Mac user find any file on their computer or any info from the web quickly (or not so quickly, your results may vary), so adding the ability to search for anything you've seen, heard, or said on your computer would be a natural extension of Spotlight.
+
+macOS is often on of the more pedestrian parts of WWDC, as it really hasn't changed substantially in many years. Yes, it keeps with most iOS features that come to the iPhone and iPad, but it's been a long time since it got something that really elevates it beyond those platforms, and something like this would really turn heads.
+
+## Expectations
+
+WWDC is scheduled to kick off on June 5, and we expect to see tons of updates to all of Apple's platforms. As always, there will be some things we expected and some that we never saw coming. Here's hoping some of the above wishes come true, but we'll know for sure in just a few short months.
