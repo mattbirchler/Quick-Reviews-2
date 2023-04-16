@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const reader = new FileReader();
       
       reader.onload = (e) => {
-        imageContainer.style.backgroundImage = `url(${e.target.result})`;
+        var the_url = imageContainer.style.backgroundImage = `url(${e.target.result})`;
         imageContainer.style.backgroundSize = 'cover';
         imageContainer.style.backgroundPosition = 'center';
+        localStorage.setItem("poster_image", the_url);
       };
       
       reader.readAsDataURL(file);

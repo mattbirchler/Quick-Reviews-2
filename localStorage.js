@@ -136,7 +136,7 @@ $(document).ready(function () {
         localStorage.setItem("container_background_color", "#F7EDE2");
     }
     var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
-    console.log(accent);
+    console.log("The accent is: " + accent);
     // Applying saved values to the page
     $("#poor").html(score_one);
     $("#score_1").val(score_one);
@@ -153,7 +153,7 @@ $(document).ready(function () {
     $("#background_color").val(
         localStorage.getItem("container_background_color")
     );
-    $("#desktop_container").css("background-color", container_background_color);
+    $("#review").css("background-color", container_background_color);
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -181,8 +181,8 @@ $(document).ready(function () {
     );
 
     // Setting container background {
-    $("#desktop_container").css(
-        "background_color",
+    $("#review").css(
+        "background-color",
         localStorage.getItem("container_background_color")
     );
     $("#bottom").css(
@@ -215,8 +215,8 @@ $("#poor").click(function () {
     $("#good").removeAttr("transition-style", "in:circle:center");
     $("#great").removeAttr("transition-style", "in:circle:center");
     localStorage.setItem("score", "1");
-    $("#desktop_container").queue(function () {
-        $("#desktop_container").css(
+    $("#review").queue(function () {
+        $("#review").css(
             "background-color",
             localStorage.getItem("container_background_color")
         );
@@ -306,25 +306,15 @@ $("#reset_score_names_button").click(function () {
   });
 
   // Reset the background
-  $("#reset_container_button").click(function () {
+  $("#reset_background_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#F7EDE2");
-    $("#background_color").val("#e9eef1");
+    $("#background_color").val("#F7EDE2");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
-      "background-color",
-      localStorage.getItem("container_background_color")
-    );
-    $("#bottom").css(
-      "border-color",
-      pSBC(-0.5, localStorage.getItem("container_background_color"))
-    );
-    $("#watermark").css(
-      "color",
-      pSBC(-0.7, localStorage.getItem("container_background_color"))
-    );
+    $("#review").css("background-color", localStorage.getItem("container_background_color"));
+    $("#bottom").css("border-color", pSBC(-0.5, localStorage.getItem("container_background_color")));
   });
 
   // Reset the colors
@@ -393,7 +383,7 @@ $("#reset_score_names_button").click(function () {
       "container_text_color",
       getContrastYIQ(score_color_one)
     );
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -571,7 +561,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -605,7 +595,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -639,7 +629,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -673,7 +663,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -707,7 +697,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -741,7 +731,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -775,7 +765,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -809,7 +799,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
@@ -843,7 +833,7 @@ $("#reset_score_names_button").click(function () {
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
-    $("#desktop_container").css(
+    $("#review").css(
       "background-color",
       localStorage.getItem("container_background_color")
     );
