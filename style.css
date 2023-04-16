@@ -91,7 +91,7 @@ h1 {
 }
 
 .color_picker {
-  border: none;
+  border: 1px solid #e1e1e1;
   height: 30px;
   width: 30px;
   margin-right: 3px;
@@ -130,7 +130,7 @@ h1 {
   border-radius: 36px;
   /* box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2); */
   margin-right: 30px;
-  border: 9px solid rgb(175, 168, 160);
+  border: 9px solid #9da8aa;
   transform: scale(0.33);
   transform-origin: top left;
   background-position: center;
