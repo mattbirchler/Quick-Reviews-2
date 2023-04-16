@@ -149,6 +149,7 @@ function exportDivAsPNG() {
     useCORS: true, // Enable CORS to load external resources, if any
     allowTaint: true, // Allow cross-origin images to taint the canvas
     logging: true, // Disable logging
+    backgroundColor: null, // Set the background color to transparent
     letterRendering: true, // Improve the rendering of letters
   }).then(canvas => {
     // Create an anchor element to trigger the download
