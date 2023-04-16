@@ -24,6 +24,30 @@
 
   <h1>Quick Reviews</h1>
 
+  <div class="custom">
+    <div class="card">
+      <span class="card_label">Background</span>
+      <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
+      <img src="reset.png" class="reset_button" id="reset_background_button">
+    </div>
+    <div class="card">
+      <span class="card_label">Scores</span>
+        <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
+        <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
+        <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
+        <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
+        <img src="reset.png" class="reset_button" id="reset_colors_button">
+      </div>
+    <div class="card">
+      <span class="card_label">Fonts</span>
+      <input type="number" class="font_size_picker" id="text_size_title" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+      <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+      <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+      <img src="reset.png" class="reset_button" id="reset_font_size_button">
+    </div>
+    </div>
+  </div>
+
   <div id="review">
     <div id="top">
       <div id="poster">
@@ -59,21 +83,7 @@
     <button class="btn" id="save_the_image" onclick="exportImageShortcut()">Save Image (⌘+S)</button>
   </div>
 
-  <div class="card">
-    <div class="card_header">
-      <h3>Background Color</h3><button class="button" id="reset_background_button">Reset</button>
-    </div>
-    <div id="color_controls">
-      <div class="color_picker">
-        <input
-          type="color"
-          id="background_color"
-          name="head"
-          value="#e9eef1"
-        />
-      </div>
-    </div>
-  </div>
+  
 
 </body>
 
@@ -177,19 +187,19 @@ $(document).ready(function () {
         localStorage.setItem("media_review", "This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.");
     }
     if (localStorage.getItem("text_size_title")) {
-        $("#title").css("font-size", localStorage.getItem("text_size_title"));
+        $("#title").css("font-size", localStorage.getItem("text_size_title") + "px");
         $("#text_size_title").val(localStorage.getItem("text_size_title"));
     } else {
         localStorage.setItem("text_size_title", "48");
     }
     if (localStorage.getItem("text_size_metadata")) {
-        $("#metadata").css("font-size", localStorage.getItem("text_size_metadata"));
+        $("#meta").css("font-size", localStorage.getItem("text_size_metadata") + "px");
         $("#text_size_metadata").val(localStorage.getItem("text_size_metadata"));
     } else {
         localStorage.setItem("text_size_metadata", "32");
     }
     if (localStorage.getItem("text_size_review")) {
-        $("#review").css("font-size", localStorage.getItem("text_size_review"));
+        $("#text").css("font-size", localStorage.getItem("text_size_review") + "px");
         $("#text_size_review").val(localStorage.getItem("text_size_review"));
     } else {
         localStorage.setItem("text_size_review", "26");
@@ -235,21 +245,20 @@ $(document).ready(function () {
     // Change text sizes
     $("#text_size_title").change(function () {
         var size = $("#text_size_title").val();
-        console.log(size);
         localStorage.setItem("text_size_title", size);
-        $("#title").css("font-size", size);
+        $("#title").css("font-size", size + "px");
     });
     $("#text_size_metadata").change(function () {
         var size = $("#text_size_metadata").val();
         console.log(size);
         localStorage.setItem("text_size_metadata", size);
-        $("#metadata").css("font-size", size);
+        $("#meta").css("font-size", size + "px");
     });
     $("#text_size_review").change(function () {
         var size = $("#text_size_review").val();
         console.log(size);
         localStorage.setItem("text_size_review", size);
-        $("#review").css("font-size", size);
+        $("#text").css("font-size", size + "px");
     });
     // var container_tint = localStorage.getItem("container_tint");
     // if (container_tint == null) {
@@ -282,15 +291,15 @@ $(document).ready(function () {
         score_two = "Okay";
     }
     if (score_three_color == null) {
-        localStorage.setItem("quick_score_color_3", "#AFC1EF");
+        localStorage.setItem("quick_score_color_3", "#A4BBF4");
         score_three = "Good";
     }
     if (score_four_color == null) {
-        localStorage.setItem("quick_score_color_4", "#8CD4C3");
+        localStorage.setItem("quick_score_color_4", "#05CC9E");
         score_four = "Great";
     }
     if (container_background_color == null) {
-        localStorage.setItem("container_background_color", "#F7EDE2");
+        localStorage.setItem("container_background_color", "#DEEEF1");
     }
     var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
     console.log(accent);
@@ -465,8 +474,8 @@ $("#reset_score_names_button").click(function () {
   // Reset the background
   $("#reset_background_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#F7EDE2");
-    $("#background_color").val("#F7EDE2");
+    localStorage.setItem("container_background_color", "#DEEEF1");
+    $("#background_color").val("#DEEEF1");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -478,35 +487,39 @@ $("#reset_score_names_button").click(function () {
       "border-color",
       pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
+    $("#poster").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
   });
 
   // Reset the colors
   $("#reset_colors_button").click(function () {
     localStorage.setItem("quick_score_color_1", "#F28482");
     localStorage.setItem("quick_score_color_2", "#F6BD60");
-    localStorage.setItem("quick_score_color_3", "#AFC1EF");
-    localStorage.setItem("quick_score_color_4", "#8CD4C3");
+    localStorage.setItem("quick_score_color_3", "#A4BBF4");
+    localStorage.setItem("quick_score_color_4", "#05CC9E");
     localStorage.setItem("quick_score_text_color_1", "#000000");
     localStorage.setItem("quick_score_text_color_2", "#000000");
     localStorage.setItem("quick_score_text_color_3", "#000000");
     localStorage.setItem("quick_score_text_color_4", "#000000");
     $("#poor_color").val("#F28482");
     $("#okay_color").val("#F6BD60");
-    $("#good_color").val("#AFC1EF");
-    $("#great_color").val("#8CD4C3");
+    $("#good_color").val("#A4BBF4");
+    $("#great_color").val("#05CC9E");
     location.reload();
   });
 
   // Reset the font sizes
   $("#reset_font_size_button").click(function () {
     localStorage.setItem("text_size_title", "48");
-    $("#title").css("font-size", "48");
+    $("#title").css("font-size", "48px");
     $("#text_size_title").val("48");
     localStorage.setItem("text_size_metadata", "32");
-    $("#metadata").css("font-size", "32");
+    $("#meta").css("font-size", "32px");
     $("#text_size_metadata").val("32");
     localStorage.setItem("text_size_review", "26");
-    $("#review").css("font-size", "26");
+    $("#text").css("font-size", "26px");
     $("#text_size_review").val("26");
   });
 
@@ -551,6 +564,10 @@ $("#reset_score_names_button").click(function () {
       localStorage.getItem("container_background_color")
     );
     $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#poster").css(
       "border-color",
       pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
@@ -719,8 +736,8 @@ $("#reset_score_names_button").click(function () {
   // Set Default
   $("#theme_1").click(function () {
     localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#F7EDE2");
-    $("#background_color").val("#F7EDE2");
+    localStorage.setItem("container_background_color", "#DEEEF1");
+    $("#background_color").val("#DEEEF1");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -732,22 +749,26 @@ $("#reset_score_names_button").click(function () {
       "border-color",
       pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
+    $("#poster").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
     $("#watermark").css(
       "color",
       pSBC(-0.7, localStorage.getItem("container_background_color"))
     );
     localStorage.setItem("quick_score_color_1", "#F28482");
     localStorage.setItem("quick_score_color_2", "#F6BD60");
-    localStorage.setItem("quick_score_color_3", "#AFC1EF");
-    localStorage.setItem("quick_score_color_4", "#8CD4C3");
+    localStorage.setItem("quick_score_color_3", "#A4BBF4");
+    localStorage.setItem("quick_score_color_4", "#05CC9E");
     localStorage.setItem("quick_score_text_color_1", "#000000");
     localStorage.setItem("quick_score_text_color_2", "#000000");
     localStorage.setItem("quick_score_text_color_3", "#000000");
     localStorage.setItem("quick_score_text_color_4", "#000000");
     $("#poor_color").val("#F28482");
     $("#okay_color").val("#F6BD60");
-    $("#good_color").val("#AFC1EF");
-    $("#great_color").val("#8CD4C3");
+    $("#good_color").val("#A4BBF4");
+    $("#great_color").val("#05CC9E");
     location.reload();
   });
 

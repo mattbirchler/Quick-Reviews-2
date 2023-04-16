@@ -12,7 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         var the_url = imageContainer.style.backgroundImage = `url(${e.target.result})`;
         imageContainer.style.backgroundSize = 'cover';
         imageContainer.style.backgroundPosition = 'center';
-        localStorage.setItem("poster_image", the_url);
+        try {
+          localStorage.setItem("poster_image", the_url);
+        } catch (e) {
+          // Handle the error here
+          console.log('Setting local storage failed');
+          // Do something else, like using cookies or session storage
+        }
+        
       };
       
       reader.readAsDataURL(file);

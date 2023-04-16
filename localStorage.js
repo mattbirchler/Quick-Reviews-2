@@ -133,7 +133,7 @@ $(document).ready(function () {
         score_four = "Great";
     }
     if (container_background_color == null) {
-        localStorage.setItem("container_background_color", "#F7EDE2");
+        localStorage.setItem("container_background_color", "#DEEEF1");
     }
     var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
     console.log("The accent is: " + accent);
@@ -308,8 +308,8 @@ $("#reset_score_names_button").click(function () {
   // Reset the background
   $("#reset_background_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#F7EDE2");
-    $("#background_color").val("#F7EDE2");
+    localStorage.setItem("container_background_color", "#DEEEF1");
+    $("#background_color").val("#DEEEF1");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -556,8 +556,8 @@ $("#reset_score_names_button").click(function () {
   // Set Default
   $("#theme_1").click(function () {
     localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#F7EDE2");
-    $("#background_color").val("#F7EDE2");
+    localStorage.setItem("container_background_color", "#DEEEF1");
+    $("#background_color").val("#DEEEF1");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
