@@ -28,7 +28,7 @@
 }
 
 html {
-  background-color: #b9d1da;
+  background-color: #eedae6;
 }
 
 h1 {
@@ -80,6 +80,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 10px;
 }
 
@@ -95,6 +96,10 @@ h1 {
 }
 
 .color_picker {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
   border: none;
   height: 30px;
   width: 30px;
@@ -103,8 +108,12 @@ h1 {
 }
 
 .font_size_picker {
-  width: 30px;
+  width: 40px;
   margin-right: 3px;
+  background-color: transparent;
+  border: 0.5px solid grey;
+  padding: 3px;
+  border-radius: 4px;
 }
 
 .theme_button {
