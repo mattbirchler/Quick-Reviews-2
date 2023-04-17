@@ -346,7 +346,7 @@ $(document).ready(function () {
         localStorage.setItem("container_background_color", "#DEEEF1");
     }
     var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
-    console.log(accent);
+    // console.log(accent);
     // Applying saved values to the page
     $("#poor").html(score_one);
     $("#score_1").val(score_one);
@@ -669,7 +669,7 @@ $("#reset_score_names_button").click(function () {
     var g = parseInt(hexcolor.substr(2, 2), 16);
     var b = parseInt(hexcolor.substr(4, 2), 16);
     var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-    console.log(yiq);
+    // console.log(yiq);
     return yiq >= 128 ? "#000000" : "#ffffff";
   }
 

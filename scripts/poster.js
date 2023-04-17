@@ -27,3 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+document.addEventListener('paste', function(event) {
+  var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].type.indexOf("image") !== -1) {
+      var file = items[i].getAsFile();
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var dataURL = event.target.result;
+        var base64 = dataURL.split(",")[1];
+        console.log('Someone pasted an image:', base64);
+        var imageForStorage = "url(data:image/jpeg;base64," + base64 + ")";
+        localStorage.setItem("poster_image", imageForStorage);
+        location.reload();
+      };
+      reader.readAsDataURL(file);
+      break;
+    }
+  }
+});
