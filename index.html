@@ -129,7 +129,15 @@
 <div id="alert">
   <span>Your image is too large to save to localStorage. Your review will export perfectly, but your uploaded image won't be here on your next visit.</span>
   <img id="alert_close" src="close-yellow.png">
-  </div>
+</div>
+
+<script>
+  // Alert listener here
+
+  $("#alert_close").click(function() {
+    $("#alert").css("display", "none");
+  });
+</script>
 
 </html>
 
