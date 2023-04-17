@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Handle the error here
           console.log('Setting local storage failed');
           // Do something else, like using cookies or session storage
+          $("#alert").css("display", "flex");
         }
         
       };

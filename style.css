@@ -296,3 +296,28 @@ h1 {
   font-weight: bold;
   cursor: pointer;
 }
+
+#alert {
+  display: none;
+  align-items: flex-start;
+  background-color: #f1f6c2;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 330px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 #00000030;
+  padding: 16px;
+  font-family: Monorope;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#alert_close {
+  height: 20px;
+  width: 20px;
+}
