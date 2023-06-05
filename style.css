@@ -5,6 +5,12 @@
 }
 
 @font-face {
+  font-family: "Bueno";
+  src: url("bueno/Bueno-variable.ttf") format("ttf");
+  font-weight: 1 999;
+}
+
+@font-face {
   font-family: "Monorope";
   src: url("monorope/Manrope-Light.woff2") format("woff2");
   font-weight: 300;
@@ -32,10 +38,11 @@ html {
 }
 
 h1 {
-  font-family: "PP Rader Variable", sans-serif;
+  font-family: Bueno, "PP Rader Variable", sans-serif;
   text-align: center;
   font-size: 48px;
   font-weight: 750;
+  margin-top: 10px;
 }
 
 .btn {
@@ -167,17 +174,19 @@ h1 {
 }
 
 #title {
-  font-family: "PP Rader Variable", sans-serif;
+  font-family: Bueno, "PP Rader Variable", sans-serif;
   font-size: 48px;
-  font-weight: 750;
+  font-weight: 525;
   height: 57px;
 }
 
 #meta {
-  font-family: "PP Rader Variable", sans-serif;
+  font-family: Bueno, "PP Rader Variable", sans-serif;
   font-size: 32px;
   font-style: italic;
   height: 39px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 #text {
