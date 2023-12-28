@@ -82,25 +82,24 @@ html {
 h1 {
   font-family: Belanosima, "Bueno Bold", "PP Rader Variable", sans-serif;
   text-align: center;
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 750;
   margin-top: 10px;
   color: #EDEDED;
-  margin-bottom: -7px;
+  margin-bottom: -2px;
 }
 
 #site_name {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
-  width: 310px;
+  align-items: center;
   margin: auto auto 20px auto;
 }
 
 #underline {
   height: 3px;
-  width: 126px;
+  width: 190px;
   background-color: #DBFEA4;
   border-radius: 10px;
 }
