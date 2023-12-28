@@ -11,6 +11,9 @@
   if (!empty($_GET["review"])) {
     $review = htmlspecialchars($_GET["review"], ENT_QUOTES, 'UTF-8');
   }
+  if (!empty($_GET["score"])) {
+    $score = htmlspecialchars($_GET["score"], ENT_QUOTES, 'UTF-8');
+  }
 ?>
 
 <script>
@@ -18,6 +21,8 @@
   let apiTitle = "<?php echo $title ?>";
   let apiMetadata = "<?php echo $metadata ?>";
   let apiReview = "<?php echo $review ?>";
+  let apiScore = "<?php echo $score ?>";
+  console.log("The score provided is " + apiScore);
   
   if (apiTitle) {
     localStorage.setItem("media_title", apiTitle);
@@ -27,6 +32,9 @@
   }
   if (apiReview) {
     localStorage.setItem("media_review", apiReview);
+  }
+  if (apiScore === "1" || apiScore === "2" || apiScore === "3" || apiScore === "4") {
+    localStorage.setItem("score", apiScore);
   }
 </script>
 
@@ -49,6 +57,7 @@
   <script src="scripts/poster.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
   <a rel="me" href="https://isfeeling.social/@matt" style="display: none">Mastodon</a>
+  <script defer data-domain="quickreviews.app" src="https://plausible.io/js/script.js"></script>
 </head>
 
 <body>
