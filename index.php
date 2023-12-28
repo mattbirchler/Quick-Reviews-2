@@ -19,14 +19,14 @@
   let apiMetadata = "<?php echo $metadata ?>";
   let apiReview = "<?php echo $review ?>";
   
-  if (apiTitle && ) {
+  if (apiTitle) {
     localStorage.setItem("media_title", apiTitle);
   }
-  if (apiMetadata && ) {
-    localStorage.setItem("media_meta", apiTitle);
+  if (apiMetadata) {
+    localStorage.setItem("media_meta", apiMetadata);
   }
-  if (apiReview && ) {
-    localStorage.setItem("media_review", apiTitle);
+  if (apiReview) {
+    localStorage.setItem("media_review", apiReview);
   }
 </script>
 
