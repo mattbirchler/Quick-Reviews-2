@@ -53,12 +53,12 @@
     <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: 2px solid #ffffff">
       Default
     </button>
-    <!-- <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: 2px solid #c5cbea">
-      Classic
-    </button> -->
-    <button class="theme_button" id="theme_3" style="background-color: #2B2D42; color: white; border: 2px solid #07C493">
-      Dark
+    <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: 2px solid #c5cbea">
+      Light
     </button>
+    <!-- <button class="theme_button" id="theme_3" style="background-color: #2B2D42; color: white; border: 2px solid #07C493">
+      Dark
+    </button> -->
     <button class="theme_button" id="theme_4" style="background-color: #27272a; color: white; border: 2px solid #ffffff">
       Mono
     </button>
@@ -815,8 +815,8 @@ $("#reset_score_names_button").click(function () {
 
   $("#theme_2").click(function () {
     localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#e9eef1");
-    $("#background_color").val("#e9eef1");
+    localStorage.setItem("container_background_color", "#F3F6FF");
+    $("#background_color").val("#F3F6FF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -832,18 +832,18 @@ $("#reset_score_names_button").click(function () {
       "border",
       "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
-    localStorage.setItem("quick_score_color_1", "#eac5ca");
-    localStorage.setItem("quick_score_color_2", "#ead6c5");
-    localStorage.setItem("quick_score_color_3", "#c5cbea");
-    localStorage.setItem("quick_score_color_4", "#a9d8b8");
+    localStorage.setItem("quick_score_color_1", "#FB8A99");
+    localStorage.setItem("quick_score_color_2", "#F5F06C");
+    localStorage.setItem("quick_score_color_3", "#ADBBFF");
+    localStorage.setItem("quick_score_color_4", "#16D7A5");
     localStorage.setItem("quick_score_text_color_1", "#000000");
     localStorage.setItem("quick_score_text_color_2", "#000000");
     localStorage.setItem("quick_score_text_color_3", "#000000");
     localStorage.setItem("quick_score_text_color_4", "#000000");
-    $("#poor_color").val("#eac5ca");
-    $("#okay_color").val("#ead6c5");
-    $("#good_color").val("#c5cbea");
-    $("#great_color").val("#a9d8b8");
+    $("#poor_color").val("#FB8A99");
+    $("#okay_color").val("#F5F06C");
+    $("#good_color").val("#ADBBFF");
+    $("#great_color").val("#16D7A5");
     location.reload();
   });
 
