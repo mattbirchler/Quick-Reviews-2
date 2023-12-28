@@ -56,9 +56,9 @@
     <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: none">
       🧊
     </button>
-    <!-- <button class="theme_button" id="theme_3" style="background-color: #2B2D42; color: white; border: none">
-      Dark
-    </button> -->
+    <button class="theme_button" id="theme_3" style="background-color: #e70cdf; color: white; border: none">
+      🩷
+    </button>
     <button class="theme_button" id="theme_4" style="background-color: #424242; color: white; border: none">
       🌖
     </button>
@@ -76,6 +76,9 @@
     </button>
     <button class="theme_button" id="theme_9" style="background-color: #EE9882; color: black; border: none">
       &#127825;
+    </button>
+    <button class="theme_button" id="theme_10" style="background-color: #38571A; color: white; border: none">
+      🌲
     </button>
   </div>
 
@@ -850,8 +853,8 @@ $("#reset_score_names_button").click(function () {
 
   $("#theme_3").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
-    localStorage.setItem("container_background_color", "#2B2D42");
-    $("#background_color").val("#2B2D42");
+    localStorage.setItem("container_background_color", "#E70CDF");
+    $("#background_color").val("#E70CDF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -867,18 +870,18 @@ $("#reset_score_names_button").click(function () {
       "border",
       "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
-    localStorage.setItem("quick_score_color_1", "#E61043");
-    localStorage.setItem("quick_score_color_2", "#E7A918");
-    localStorage.setItem("quick_score_color_3", "#1C8BB0");
-    localStorage.setItem("quick_score_color_4", "#07C493");
-    localStorage.setItem("quick_score_text_color_1", "#ffffff");
-    localStorage.setItem("quick_score_text_color_2", "#ffffff");
-    localStorage.setItem("quick_score_text_color_3", "#ffffff");
-    localStorage.setItem("quick_score_text_color_4", "#ffffff");
-    $("#poor_color").val("#E61043");
-    $("#okay_color").val("#E7A918");
-    $("#good_color").val("#1C8BB0");
-    $("#great_color").val("#07C493");
+    localStorage.setItem("quick_score_color_1", "#ffffff");
+    localStorage.setItem("quick_score_color_2", "#ffffff");
+    localStorage.setItem("quick_score_color_3", "#ffffff");
+    localStorage.setItem("quick_score_color_4", "#ffffff");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#E70CDF");
+    $("#poor_color").val("#ffffff");
+    $("#okay_color").val("#ffffff");
+    $("#good_color").val("#ffffff");
+    $("#great_color").val("#ffffff");
     location.reload();
   });
 
@@ -1019,7 +1022,7 @@ $("#reset_score_names_button").click(function () {
   });
 
   $("#theme_8").click(function () {
-    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#E5322F");
     $("#background_color").val("#E5322F");
     $("#title").css("color", localStorage.getItem("container_text_color"));
@@ -1083,6 +1086,40 @@ $("#reset_score_names_button").click(function () {
     $("#okay_color").val("#000000");
     $("#good_color").val("#000000");
     $("#great_color").val("#000000");
+    location.reload();
+  });
+  
+  $("#theme_10").click(function () {
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#38571A");
+    $("#background_color").val("#38571A");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#poster").css(
+      "border",
+      "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    localStorage.setItem("quick_score_color_1", "#ffffff");
+    localStorage.setItem("quick_score_color_2", "#ffffff");
+    localStorage.setItem("quick_score_color_3", "#ffffff");
+    localStorage.setItem("quick_score_color_4", "#ffffff");
+    localStorage.setItem("quick_score_text_color_1", "#000000");
+    localStorage.setItem("quick_score_text_color_2", "#000000");
+    localStorage.setItem("quick_score_text_color_3", "#000000");
+    localStorage.setItem("quick_score_text_color_4", "#000000");
+    $("#poor_color").val("#ffffff");
+    $("#okay_color").val("#ffffff");
+    $("#good_color").val("#ffffff");
+    $("#great_color").val("#ffffff");
     location.reload();
   });
 

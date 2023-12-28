@@ -46,6 +46,30 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "Belanosima";
+  src: url("Belanosima/belanosima-regular-webfont.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url("Oxygen/oxygen-regular-webfont.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url("Oxygen/oxygen-light-webfont.woff2") format("woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url("Oxygen/oxygen-bold-webfont.woff2") format("woff2");
+  font-weight: 700;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -56,7 +80,7 @@ html {
 }
 
 h1 {
-  font-family: "Bueno Bold", "PP Rader Variable", sans-serif;
+  font-family: Belanosima, "Bueno Bold", "PP Rader Variable", sans-serif;
   text-align: center;
   font-size: 48px;
   font-weight: 750;
@@ -170,7 +194,7 @@ h1 {
   position: absolute;
   height: 1230px;
   width: 819px;
-  border-radius: 36px;
+  border-radius: 44px;
   /* box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2); */
   margin-right: 30px;
   border: 9px solid #9da8aa;
@@ -194,22 +218,23 @@ h1 {
 }
 
 #title {
-  font-family: "Bueno Bold", "PP Rader Variable", sans-serif;
+  font-family: Belanosima, "Bueno Bold", "PP Rader Variable", sans-serif;
   font-size: 48px;
   font-weight: 525;
   height: 57px;
+  letter-spacing: -1px;
 }
 
 #meta {
-  font-family: "Bueno Light", "PP Rader Variable", sans-serif;
-  font-size: 32px;
+  font-family: Oxygen, "Bueno Light", "PP Rader Variable", sans-serif;
+  font-size: 28px;
   height: 39px;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: 0.5px;
 }
 
 #text {
-  font-family: Monorope;
+  font-family: Oxygen;
   font-size: 26px;
   font-weight: 300;
   width: 590px;
@@ -232,11 +257,11 @@ h1 {
   background-color: #2b384f;
   width: 23%;
   text-align: center;
-  font-size: 26px;
+  font-size: 30px;
   margin: 4px;
   border-radius: 40px;
   padding: 8px;
-  font-family: Monorope;
+  font-family: Belanosima;
   font-weight: 500;
   color: white;
 }
