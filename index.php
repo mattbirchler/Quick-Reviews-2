@@ -1,5 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+  
+<?php
+  if (!empty($_GET["title"])) {
+    $title = htmlspecialchars($_GET["title"], ENT_QUOTES, 'UTF-8');
+  }
+  if (!empty($_GET["metadata"])) {
+    $metadata = htmlspecialchars($_GET["metadata"], ENT_QUOTES, 'UTF-8');
+  }
+  if (!empty($_GET["review"])) {
+    $review = htmlspecialchars($_GET["review"], ENT_QUOTES, 'UTF-8');
+  }
+?>
+
+<script>
+  // Check for items in the GET
+  let apiTitle = "<?php echo $title ?>";
+  let apiMetadata = "<?php echo $metadata ?>";
+  let apiReview = "<?php echo $review ?>";
+  
+  if (apiTitle && ) {
+    localStorage.setItem("media_title", apiTitle);
+  }
+  if (apiMetadata && ) {
+    localStorage.setItem("media_meta", apiTitle);
+  }
+  if (apiReview && ) {
+    localStorage.setItem("media_review", apiTitle);
+  }
+</script>
 
 <head>
   <meta charset="UTF-8">
@@ -25,7 +54,7 @@
 <body>
 
   <div id="site_name">
-    <h1>Quick Reviews</h1>
+    <h1><a href="https://quickreviews.app">Quick Reviews</a></h1>
     <div id="underline"></div>
   </div>
   
