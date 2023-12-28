@@ -76,7 +76,7 @@
 }
 
 html {
-  background-color: #f5f7fb;
+  background-color: #1C1C1C;
 }
 
 h1 {
@@ -85,38 +85,41 @@ h1 {
   font-size: 48px;
   font-weight: 750;
   margin-top: 10px;
+  color: #EDEDED;
+  margin-bottom: -7px;
+}
+
+#site_name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  width: 310px;
+  margin: auto auto 20px auto;
+}
+
+#underline {
+  height: 3px;
+  width: 126px;
+  background-color: #DBFEA4;
+  border-radius: 10px;
 }
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  padding: 0.75rem 2.25rem 0.8rem;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(52 141 170 / 35%);
-  border-radius: 50rem;
-  background-color: transparent;
-  background-image: linear-gradient(180deg, #69b5ff 32%, #37b4c5);
-  box-shadow: 0 1px 2px 0 #bdc2c9, inset 0 1px 0 0 hsla(0, 0%, 100%, 0.34);
-  transition: all 175ms cubic-bezier(.25, .46, .45, .94);
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.39);
+  padding: 10px 26px;
+  border: 1px solid #F2FFDE;
+  border-radius: 100px;
+  background-color: #DBFEA4;
+  /* box-shadow: 0 1px 2px 0 #2b2c2c, inset 0 1px 4px 0 hsla(360, 1%, 20%, 0.14); */
+  color: #354B14;
+  font-size: 1rem;
+  font-weight: 500;
   margin-right: 10px;
-  font-family: Monorope;
+  font-family: Oxygen;
   cursor: pointer;
-}
-
-.btn:hover {
-  border-color: rgb(52 141 170 / 100%);
-  background-color: #e3ebf7;
-  background-image: linear-gradient(180deg, #5ea4e8 32%, #2e9cab);
-  /* box-shadow: inset 0 1px 0 0 hsla(0, 0%, 100%, 0.28), 0 2px 5px 0 rgba(54, 43, 99, 0.53); */
-  color: #fff;
 }
 
 .reset_button {
@@ -131,6 +134,7 @@ h1 {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  color: #EDEDED;
 }
 
 .card {
@@ -163,6 +167,7 @@ h1 {
   border: 0.5px solid grey;
   padding: 3px;
   border-radius: 4px;
+  color: #EDEDED;
 }
 
 .theme_button {
@@ -289,7 +294,7 @@ h1 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -297,7 +302,7 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #1c1c1c;
   padding: 30px;
   border: 1px solid #888;
   border-radius: 18px;
@@ -316,7 +321,9 @@ h1 {
   outline: none;
   border: none;
   margin-bottom: 10px;
-  font-family: Monorope;
+  font-family: Oxygen;
+  background-color: #1c1c1c;
+  color: #EDEDED;
 }
 
 .modal_input:focus {
@@ -337,6 +344,8 @@ h1 {
   font-family: sans-serif;
   border: none;
   margin-bottom: 10px;
+  background-color: #1c1c1c;
+  color: #EDEDED;
 }
 
 #modal_text_text:focus {

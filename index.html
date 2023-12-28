@@ -24,7 +24,11 @@
 
 <body>
 
-  <h1>Quick Reviews</h1>
+  <div id="site_name">
+    <h1>Quick Reviews</h1>
+    <div id="underline"></div>
+  </div>
+  
 
   <div class="custom">
     <div class="card">
@@ -59,8 +63,8 @@
     <button class="theme_button" id="theme_3" style="background-color: #e70cdf; color: white; border: none">
       🩷
     </button>
-    <button class="theme_button" id="theme_4" style="background-color: #424242; color: white; border: none">
-      🌖
+    <button class="theme_button" id="theme_4" style="background-color: #13BDFF; color: black; border: none">
+      🫐
     </button>
     <button class="theme_button" id="theme_5" style="background-color: #FEBF00; color: black; border: none">
       🐝
@@ -564,9 +568,9 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("text_size_title", "48");
     $("#title").css("font-size", "48px");
     $("#text_size_title").val("48");
-    localStorage.setItem("text_size_metadata", "32");
-    $("#meta").css("font-size", "32px");
-    $("#text_size_metadata").val("32");
+    localStorage.setItem("text_size_metadata", "28");
+    $("#meta").css("font-size", "28px");
+    $("#text_size_metadata").val("28");
     localStorage.setItem("text_size_review", "26");
     $("#text").css("font-size", "26px");
     $("#text_size_review").val("26");
@@ -886,9 +890,9 @@ $("#reset_score_names_button").click(function () {
   });
 
   $("#theme_4").click(function () {
-    localStorage.setItem("container_text_color", "#ffffff");
-    localStorage.setItem("container_background_color", "#27272a");
-    $("#background_color").val("#27272a");
+    localStorage.setItem("container_text_color", "#000000");
+    localStorage.setItem("container_background_color", "#13BDFF");
+    $("#background_color").val("#13BDFF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
