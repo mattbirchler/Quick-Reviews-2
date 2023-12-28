@@ -50,7 +50,7 @@
   </div>
 
   <div class="custom">
-    <button class="theme_button" id="theme_1" style="background-color: #DEEEF1; color: black; border: 2px solid #AFC1EF">
+    <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: 2px solid #ffffff">
       Default
     </button>
     <!-- <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: 2px solid #c5cbea">
@@ -344,7 +344,7 @@ $(document).ready(function () {
         score_four = "Great";
     }
     if (container_background_color == null) {
-        localStorage.setItem("container_background_color", "#DEEEF1");
+        localStorage.setItem("container_background_color", "#2B384F");
     }
     var accent = pSBC(-0.5, localStorage.getItem("container_background_color"));
     // console.log(accent);
@@ -540,18 +540,18 @@ $("#reset_score_names_button").click(function () {
 
   // Reset the colors
   $("#reset_colors_button").click(function () {
-    localStorage.setItem("quick_score_color_1", "#F28482");
-    localStorage.setItem("quick_score_color_2", "#F6BD60");
-    localStorage.setItem("quick_score_color_3", "#A4BBF4");
-    localStorage.setItem("quick_score_color_4", "#05CC9E");
+    localStorage.setItem("quick_score_color_1", "#E32401");
+    localStorage.setItem("quick_score_color_2", "#FFF995");
+    localStorage.setItem("quick_score_color_3", "#02C7FC");
+    localStorage.setItem("quick_score_color_4", "#B1FC8C");
     localStorage.setItem("quick_score_text_color_1", "#000000");
     localStorage.setItem("quick_score_text_color_2", "#000000");
     localStorage.setItem("quick_score_text_color_3", "#000000");
     localStorage.setItem("quick_score_text_color_4", "#000000");
-    $("#poor_color").val("#F28482");
-    $("#okay_color").val("#F6BD60");
-    $("#good_color").val("#A4BBF4");
-    $("#great_color").val("#05CC9E");
+    $("#poor_color").val("#E32401");
+    $("#okay_color").val("#FFF995");
+    $("#good_color").val("#02C7FC");
+    $("#great_color").val("#B1FC8C");
     location.reload();
   });
 
@@ -780,9 +780,9 @@ $("#reset_score_names_button").click(function () {
   // Themes
   // Set Default
   $("#theme_1").click(function () {
-    localStorage.setItem("container_text_color", "#000000");
-    localStorage.setItem("container_background_color", "#DEEEF1");
-    $("#background_color").val("#DEEEF1");
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#2B384F");
+    $("#background_color").val("#2B384F");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
     $("#review").css("color", localStorage.getItem("container_text_color"));
@@ -798,18 +798,18 @@ $("#reset_score_names_button").click(function () {
       "border",
       "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
-    localStorage.setItem("quick_score_color_1", "#F28482");
-    localStorage.setItem("quick_score_color_2", "#F6BD60");
-    localStorage.setItem("quick_score_color_3", "#A4BBF4");
-    localStorage.setItem("quick_score_color_4", "#05CC9E");
+    localStorage.setItem("quick_score_color_1", "#E32401");
+    localStorage.setItem("quick_score_color_2", "#FFF995");
+    localStorage.setItem("quick_score_color_3", "#02C7FC");
+    localStorage.setItem("quick_score_color_4", "#B1FC8C");
     localStorage.setItem("quick_score_text_color_1", "#000000");
     localStorage.setItem("quick_score_text_color_2", "#000000");
     localStorage.setItem("quick_score_text_color_3", "#000000");
     localStorage.setItem("quick_score_text_color_4", "#000000");
-    $("#poor_color").val("#F28482");
-    $("#okay_color").val("#F6BD60");
-    $("#good_color").val("#A4BBF4");
-    $("#great_color").val("#05CC9E");
+    $("#poor_color").val("#E32401");
+    $("#okay_color").val("#FFF995");
+    $("#good_color").val("#02C7FC");
+    $("#great_color").val("#B1FC8C");
     location.reload();
   });
 
