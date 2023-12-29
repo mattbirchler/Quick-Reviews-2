@@ -286,6 +286,55 @@ h1 {
   margin: 20px 0 50px 0;
 }
 
+#footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #b6b6b6;
+  font-family: Oxygen, sans-serif;
+  font-size: 20px;
+  margin: 0 0 50px 0;
+}
+
+.separator {
+  width: 12px;
+}
+
+.label {
+  text-decoration: none;
+  color: #000000;
+  font-size: 16px;
+  padding: 4px 20px;
+  border-radius: 100px;
+}
+
+.green {
+  background: #F2FFDE;
+  border: 2px solid #DBFEA4;
+}
+
+.blue {
+  background: #E6F6F8;
+  border: 2px solid #91E0E8;
+}
+
+.red {
+  background: #FFE1E7;
+  border: 2px solid #FD738E;
+}
+
+.purple {
+  background: #DAD4E4;
+  border: 2px solid #32195C;
+}
+
+#privacy {
+  width: 700px;
+  max-width: 80%;
+  font-size: 14px;
+}
+
 
 /* Modal */
 
