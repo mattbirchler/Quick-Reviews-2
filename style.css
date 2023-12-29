@@ -283,7 +283,8 @@ h1 {
 #buttons {
   display: flex;
   justify-content: center;
-  margin: 20px 0 50px 0;
+  flex-wrap: wrap;
+  margin: 20px 0 40px 0;
 }
 
 #footer {
@@ -307,6 +308,7 @@ h1 {
   font-size: 16px;
   padding: 4px 20px;
   border-radius: 100px;
+  margin: 0 0 10px 0;
 }
 
 .green {
