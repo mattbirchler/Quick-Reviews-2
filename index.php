@@ -67,7 +67,6 @@
     <div id="underline"></div>
   </div>
   
-
   <div class="custom">
     <div class="card">
       <span class="card_label">Background</span>
@@ -88,6 +87,13 @@
       <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <img src="reset.png" class="reset_button" id="reset_font_size_button">
+    </div>
+    <div class="card">
+      <input type="text" class="font_size_picker name_input" id="score_1">
+      <input type="text" class="font_size_picker name_input" id="score_2">
+      <input type="text" class="font_size_picker name_input" id="score_3">
+      <input type="text" class="font_size_picker name_input" id="score_4">
+      <img src="reset.png" class="reset_button" id="reset_score_names_button">
     </div>
   </div>
 
