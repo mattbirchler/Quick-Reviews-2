@@ -185,7 +185,7 @@ h1 {
 
 #review {
   width: 900px;
-  height: 500px;
+  min-height: 500px;
   margin: auto;
   background-color: #2B384F;
   display: flex;
