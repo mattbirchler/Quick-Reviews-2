@@ -151,11 +151,11 @@
     </div>
 
     <div id="bottom">
-      <div class="score" id="poor">Poor</div>
-      <div class="score" id="solid">Okay</div>
-      <div class="score" id="good">Good</div>
+      <div class="score" id="poor">Didn't Like It</div>
+      <div class="score" id="solid">Decent</div>
+      <div class="score" id="good">Liked It</div>
       <div class="score" id="great" onclick=(party.confetti(this));>
-        Great
+        Loved It!
       </div>
     </div>
   </div>
@@ -378,35 +378,35 @@ $(document).ready(function () {
     // Setting default values if null
     if (score_one == null) {
         localStorage.setItem("quick_score_1", "Poor");
-        score_one = "Poor";
+        score_one = "Didn't Like It";
     }
     if (score_two == null) {
         localStorage.setItem("quick_score_2", "Okay");
-        score_two = "Okay";
+        score_two = "Decent";
     }
     if (score_three == null) {
         localStorage.setItem("quick_score_3", "Good");
-        score_three = "Good";
+        score_three = "Liked It";
     }
     if (score_four == null) {
         localStorage.setItem("quick_score_4", "Great");
-        score_four = "Great";
+        score_four = "Loved It!";
     }
     if (score_one_color == null) {
         localStorage.setItem("quick_score_color_1", "#F28482");
-        score_one = "Poor";
+        score_one = "Didn't Like It";
     }
     if (score_two_color == null) {
         localStorage.setItem("quick_score_color_2", "#F6BD60");
-        score_two = "Okay";
+        score_two = "Decent";
     }
     if (score_three_color == null) {
         localStorage.setItem("quick_score_color_3", "#A4BBF4");
-        score_three = "Good";
+        score_three = "Liked It";
     }
     if (score_four_color == null) {
         localStorage.setItem("quick_score_color_4", "#05CC9E");
-        score_four = "Great";
+        score_four = "Loved It!";
     }
     if (container_background_color == null) {
         localStorage.setItem("container_background_color", "#2B384F");
@@ -564,22 +564,22 @@ $("#great").click(function () {
 
 // Reset the default scores
 $("#reset_score_names_button").click(function () {
-    localStorage.setItem("quick_score_1", "Poor");
-    localStorage.setItem("quick_score_2", "Okay");
-    localStorage.setItem("quick_score_3", "Good");
-    localStorage.setItem("quick_score_4", "Great");
-    $("#poor").html("Poor");
-    $("#solid").html("Okay");
-    $("#good").html("Good");
-    $("#great").html("Great");
-    $("#poor_mobile").html("Poor");
-    $("#solid_mobile").html("Okay");
-    $("#good_mobile").html("Good");
-    $("#great_mobile").html("Great");
-    $("#score_1").val("Poor");
-    $("#score_2").val("Okay");
-    $("#score_3").val("Good");
-    $("#score_4").val("Great");
+    localStorage.setItem("quick_score_1", "Didn't Like It");
+    localStorage.setItem("quick_score_2", "Decent");
+    localStorage.setItem("quick_score_3", "Liked It");
+    localStorage.setItem("quick_score_4", "Loved It!");
+    $("#poor").html("Didn't Like It");
+    $("#solid").html("Decent");
+    $("#good").html("Liked It");
+    $("#great").html("Loved It!");
+    $("#poor_mobile").html("Didn't Like It");
+    $("#solid_mobile").html("Decent");
+    $("#good_mobile").html("Liked It");
+    $("#great_mobile").html("Loved It!");
+    $("#score_1").val("Didn't Like It");
+    $("#score_2").val("Decent");
+    $("#score_3").val("Liked It");
+    $("#score_4").val("Loved It!");
   });
 
   // Reset the background
