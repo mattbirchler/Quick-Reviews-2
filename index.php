@@ -313,7 +313,7 @@ $(document).ready(function () {
         $("#title").css("font-size", localStorage.getItem("text_size_title") + "px");
         $("#text_size_title").val(localStorage.getItem("text_size_title"));
     } else if ($(window).width() < 600) {
-      localStorage.setItem("text_size_title", "16");
+      localStorage.setItem("text_size_title", "17");
     } else {
         localStorage.setItem("text_size_title", "48");
     }
@@ -658,12 +658,12 @@ $("#reset_score_names_button").click(function () {
   // Reset the font sizes
   $("#reset_font_size_button").click(function () {
     if ($(window).width() < 600) {
-      localStorage.setItem("text_size_title", "19");
-      $("#title").css("font-size", "19px");
-      $("#text_size_title").val("19");
-      localStorage.setItem("text_size_metadata", "13");
-      $("#meta").css("font-size", "13px");
-      $("#text_size_metadata").val("13");
+      localStorage.setItem("text_size_title", "17");
+      $("#title").css("font-size", "17px");
+      $("#text_size_title").val("17");
+      localStorage.setItem("text_size_metadata", "10");
+      $("#meta").css("font-size", "10px");
+      $("#text_size_metadata").val("10");
       localStorage.setItem("text_size_review", "9");
       $("#text").css("font-size", "9px");
       $("#text_size_review").val("9");
