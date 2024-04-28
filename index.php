@@ -142,7 +142,7 @@
           The Title Goes Here
         </div>
         <div id="meta">
-          2023 - Director Name
+          2024 - Director Name
         </div>
         <div id="text">
           This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
@@ -289,7 +289,7 @@ $(document).ready(function () {
     if (localStorage.getItem("media_meta")) {
         $("#meta").html(localStorage.getItem("media_meta"));
     } else {
-        localStorage.setItem("media_meta", "2023 - Director Name");
+        localStorage.setItem("media_meta", "2024 - Director Name");
     }
     if (localStorage.getItem("media_review")) {
         $("#text").html(localStorage.getItem("media_review"));
