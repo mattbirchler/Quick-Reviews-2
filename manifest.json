@@ -3,8 +3,8 @@
     "short_name": "Quick Reviews",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#071132",
-    "theme_color": "#071132",
+    "background_color": "#1D222A",
+    "theme_color": "#1D222A",
     "icons": [
       {
         "src": "/icons/icon@192.png",

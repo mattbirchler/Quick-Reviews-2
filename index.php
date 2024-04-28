@@ -43,11 +43,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quick Reviews</title>
   <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/icons/icon@512.png">
-  <link rel="apple-touch-startup-image" href="/icons/splash.png">
+  <link rel="apple-touch-icon" href="icon@512.png">
+  <link rel="apple-touch-startup-image" href="splash.png">
   <link rel="stylesheet" href="style.css?v=2.5.5">
   <link rel="stylesheet" href="transition.css" />
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
   <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
