@@ -46,7 +46,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="icon@512.png">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <link rel="stylesheet" href="style.css?v=2.5.5">
+  <link rel="stylesheet" href="style.css?v=2.6.0">
   <link rel="stylesheet" href="transition.css" />
   <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
   <script
@@ -657,15 +657,27 @@ $("#reset_score_names_button").click(function () {
 
   // Reset the font sizes
   $("#reset_font_size_button").click(function () {
-    localStorage.setItem("text_size_title", "48");
-    $("#title").css("font-size", "48px");
-    $("#text_size_title").val("48");
-    localStorage.setItem("text_size_metadata", "28");
-    $("#meta").css("font-size", "28px");
-    $("#text_size_metadata").val("28");
-    localStorage.setItem("text_size_review", "26");
-    $("#text").css("font-size", "26px");
-    $("#text_size_review").val("26");
+    if ($(window).width() < 600) {
+      localStorage.setItem("text_size_title", "19");
+      $("#title").css("font-size", "19px");
+      $("#text_size_title").val("19");
+      localStorage.setItem("text_size_metadata", "13");
+      $("#meta").css("font-size", "13px");
+      $("#text_size_metadata").val("13");
+      localStorage.setItem("text_size_review", "9");
+      $("#text").css("font-size", "9px");
+      $("#text_size_review").val("9");
+    } else {
+      localStorage.setItem("text_size_title", "48");
+      $("#title").css("font-size", "48px");
+      $("#text_size_title").val("48");
+      localStorage.setItem("text_size_metadata", "28");
+      $("#meta").css("font-size", "28px");
+      $("#text_size_metadata").val("28");
+      localStorage.setItem("text_size_review", "26");
+      $("#text").css("font-size", "26px");
+      $("#text_size_review").val("26");
+    }
   });
 
 
