@@ -40,6 +40,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quick Reviews</title>
   <link rel="manifest" href="/manifest.json">
@@ -101,7 +102,7 @@
     </div>
   </div>
 
-  <div class="custom">
+  <div class="custom" id="theme_list">
     <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: none">
       🏠
     </button>
@@ -225,11 +226,18 @@ function exportDivAsPNG() {
   remoteImage.src = `${corsProxy}${imageUrl}`;
 
   // Get the div element by its ID
+  // $("#review").css("display", "block");
   const divElement = document.getElementById("review");
+
+  if ($(window).width() < 600) {
+    renderScale = 9;
+  } else {
+    renderScale = 3;
+  }
 
   // Use html2canvas to capture the content of the div with additional options
   html2canvas(divElement, {
-    scale: 3, // Increase the scale to improve the image quality
+    scale: renderScale, // Increase the scale to improve the image quality
     useCORS: true, // Enable CORS to load external resources, if any
     allowTaint: true, // Allow cross-origin images to taint the canvas
     logging: true, // Disable logging
@@ -254,6 +262,7 @@ function exportDivAsPNG() {
       document.body.removeChild(link);
     });
   });
+  // $("#review").css("display", "none");
 }
 
 function exportImageShortcut() {
@@ -303,18 +312,24 @@ $(document).ready(function () {
     if (localStorage.getItem("text_size_title")) {
         $("#title").css("font-size", localStorage.getItem("text_size_title") + "px");
         $("#text_size_title").val(localStorage.getItem("text_size_title"));
+    } else if ($(window).width() < 600) {
+      localStorage.setItem("text_size_title", "16");
     } else {
         localStorage.setItem("text_size_title", "48");
     }
     if (localStorage.getItem("text_size_metadata")) {
         $("#meta").css("font-size", localStorage.getItem("text_size_metadata") + "px");
         $("#text_size_metadata").val(localStorage.getItem("text_size_metadata"));
+    } else if ($(window).width() < 600) {
+      localStorage.setItem("text_size_metadata", "10");
     } else {
         localStorage.setItem("text_size_metadata", "32");
     }
     if (localStorage.getItem("text_size_review")) {
         $("#text").css("font-size", localStorage.getItem("text_size_review") + "px");
         $("#text_size_review").val(localStorage.getItem("text_size_review"));
+    } else if ($(window).width() < 600) {
+      localStorage.setItem("text_size_review", "9");
     } else {
         localStorage.setItem("text_size_review", "26");
     }
@@ -478,10 +493,17 @@ $(document).ready(function () {
         "border-color",
         pSBC(-0.5, localStorage.getItem("container_background_color"))
     );
-    $("#poster").css(
-      "border",
-      "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
-    );
+    if ($(window).width() < 600) {
+      $("#poster").css(
+        "border",
+        "3px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
+      );
+    } else {
+      $("#poster").css(
+        "border",
+        "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
+      );
+    }
 });
 
 // Setting score colors on click/tap
