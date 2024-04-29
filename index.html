@@ -276,7 +276,7 @@ function exportDivAsPNG() {
   // Convert the canvas to a Blob object
   canvas.toBlob(blob => {
     // Create a file from the Blob object
-    const file = new File([blob], 'review.png', { type: 'image/png' });
+    const file = new File([blob], 'review.jpg', { type: 'image/jpg' });
 
     // Create a share data object
     const shareData = {
@@ -285,8 +285,11 @@ function exportDivAsPNG() {
       text: 'Check out this review image!',
     };
 
+    // Check if iOS or not
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
     // Check if the Web Share API is supported
-    if (navigator.share) {
+    if (navigator.share && isIOS) {
       // Trigger the iOS share sheet
       navigator.share(shareData)
         .then(() => console.log('Shared successfully'))
@@ -301,7 +304,7 @@ function exportDivAsPNG() {
 
       // Set the anchor properties for download
       link.href = url;
-      link.download = "review.png";
+      link.download = "review.jpg";
       
       // Add the anchor to the DOM, trigger the click event, and remove it
       document.body.appendChild(link);
