@@ -307,8 +307,19 @@ h1 {
   align-items: center;
   color: #ffffff;
   font-family: Oxygen, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   margin: 0 0 50px 0;
+}
+
+#links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0 40px 0;
+}
+
+#links a {
+  color: white;
 }
 
 .separator {
@@ -565,5 +576,8 @@ h1 {
   #save_the_image {
     position: absolute;
     bottom: 60px;
+  }
+  .custom {
+    margin-bottom: 30px;
   }
 }

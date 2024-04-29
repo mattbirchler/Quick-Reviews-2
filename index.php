@@ -174,14 +174,11 @@
 
   <div id="footer">
     <div id="made_by">Made by Matt Birchler</div>
-    <div id="buttons">
-      <a href="https://letterboxd.com/mattbirchler/" target="_blank" class="label green">Letterboxd</a>
-      <div class="separator"></div>
-      <a href="https://www.youtube.com/@ABetterComputer" target="_blank" class="label red">A Better Computer</a>
-      <div class="separator"></div>
-      <a href="https://birchtree.me" target="_blank" class="label blue">Birchtree</a>
-      <div class="separator"></div>
-      <a href="https://isfeeling.social/@matt" target="_blank" class="label purple">Mastodon</a>
+    <div id="links">
+      <a href="https://letterboxd.com/mattbirchler/" target="_blank">Letterboxd</a>
+      <a href="https://www.youtube.com/@ABetterComputer" target="_blank">A Better Computer</a>
+      <a href="https://birchtree.me" target="_blank">Birchtree</a>
+      <a href="https://isfeeling.social/@matt" target="_blank">Mastodon</a>
     </div>
     <div id="privacy">
       Quick Reviews uses basic page hit analytics to track usage numbers. However, all data you enter on this page is stored exclusively in your browser's local storage – we do not have access to this information. Check the page source code, you can see it in my messy JavaScript.
