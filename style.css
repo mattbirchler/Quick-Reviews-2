@@ -131,6 +131,10 @@ h1 {
   cursor: pointer;
 }
 
+#edit_title {
+  display: none;
+}
+
 .reset_button {
   width: 18px;
   height: 18px;
@@ -507,7 +511,7 @@ h1 {
     align-items: center;
   }
   .btn {
-    padding: 8px 18px;
+    padding: 12px 18px;
   }
   #save_the_image {
     width: 95%;
@@ -557,5 +561,9 @@ h1 {
 @media (display-mode: standalone) {
   #site_name, #footer {
     display: none;
+  }
+  #save_the_image {
+    position: absolute;
+    bottom: 60px;
   }
 }

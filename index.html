@@ -168,7 +168,7 @@
   </div>
 
   <div id="buttons">
-    <!-- <button class="btn" id="edit_title">Edit (⌘+E)</button> -->
+    <button class="btn" id="edit_title">Edit (⌘+E)</button>
     <button class="btn" id="save_the_image" onclick="exportImageShortcut()">Save Image (⌘+S)</button>
   </div>
 
@@ -238,19 +238,64 @@ function exportDivAsPNG() {
   }
 
   // Use html2canvas to capture the content of the div with additional options
-  html2canvas(divElement, {
-    scale: renderScale, // Increase the scale to improve the image quality
-    useCORS: true, // Enable CORS to load external resources, if any
-    allowTaint: true, // Allow cross-origin images to taint the canvas
-    logging: true, // Disable logging
-    backgroundColor: null, // Set the background color to transparent
-    letterRendering: true, // Improve the rendering of letters
-  }).then(canvas => {
-    // Create an anchor element to trigger the download
-    const link = document.createElement('a');
+  // html2canvas(divElement, {
+  //   scale: renderScale, // Increase the scale to improve the image quality
+  //   useCORS: true, // Enable CORS to load external resources, if any
+  //   allowTaint: true, // Allow cross-origin images to taint the canvas
+  //   logging: true, // Disable logging
+  //   backgroundColor: null, // Set the background color to transparent
+  //   letterRendering: true, // Improve the rendering of letters
+  // }).then(canvas => {
+  //   // Create an anchor element to trigger the download
+  //   const link = document.createElement('a');
     
-    // Convert the canvas to a Blob object
-    canvas.toBlob(blob => {
+  //   // Convert the canvas to a Blob object
+  //   canvas.toBlob(blob => {
+  //     // Create an object URL from the Blob object
+  //     const url = URL.createObjectURL(blob);
+
+  //     // Set the anchor properties for download
+  //     link.href = url;
+  //     link.download = "review.png";
+      
+  //     // Add the anchor to the DOM, trigger the click event, and remove it
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   });
+  // });
+
+  html2canvas(divElement, {
+  scale: renderScale, // Increase the scale to improve the image quality
+  useCORS: true, // Enable CORS to load external resources, if any
+  allowTaint: true, // Allow cross-origin images to taint the canvas
+  logging: true, // Disable logging
+  backgroundColor: null, // Set the background color to transparent
+  letterRendering: true, // Improve the rendering of letters
+}).then(canvas => {
+  // Convert the canvas to a Blob object
+  canvas.toBlob(blob => {
+    // Create a file from the Blob object
+    const file = new File([blob], 'review.png', { type: 'image/png' });
+
+    // Create a share data object
+    const shareData = {
+      files: [file],
+      title: 'Review Image',
+      text: 'Check out this review image!',
+    };
+
+    // Check if the Web Share API is supported
+    if (navigator.share) {
+      // Trigger the iOS share sheet
+      navigator.share(shareData)
+        .then(() => console.log('Shared successfully'))
+        .catch(error => console.error('Error sharing:', error));
+    } else {
+      // Fallback for browsers that don't support the Web Share API
+      console.log('Web Share API not supported');
+      // Create an anchor element to trigger the download
+      const link = document.createElement('a');
       // Create an object URL from the Blob object
       const url = URL.createObjectURL(blob);
 
@@ -262,8 +307,9 @@ function exportDivAsPNG() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    });
+    }
   });
+});
   // $("#review").css("display", "none");
 }
 
