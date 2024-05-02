@@ -48,6 +48,7 @@
   <link rel="apple-touch-startup-image" href="splash.png">
   <link rel="stylesheet" href="style.css?v=2.6.1">
   <link rel="stylesheet" href="transition.css" />
+  <link rel="stylesheet" href="animate.min.css" />
   <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
   <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -68,7 +69,7 @@
 <body>
 
   <div id="site_name">
-    <h1><a href="https://quickreviews.app">Quick Reviews</a></h1>
+    <h1 class="animate__animated animate__bounceIn"><a href="https://quickreviews.app">Quick Reviews</a></h1>
     <div id="underline"></div>
   </div>
   
@@ -84,7 +85,7 @@
         <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
         <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
         <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
-        <img src="reset.png" class="reset_button" id="reset_colors_button">
+        <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
       </div>
     <div class="card">
       <span class="card_label">Fonts</span>
@@ -158,10 +159,10 @@
     </div>
 
     <div id="bottom">
-      <div class="score" id="poor">Didn't Like It</div>
-      <div class="score" id="solid">Decent</div>
-      <div class="score" id="good">Liked It</div>
-      <div class="score" id="great" onclick=(party.confetti(this));>
+      <div class="score animate__animated" id="poor">Didn't Like It</div>
+      <div class="score animate__animated" id="solid">Decent</div>
+      <div class="score animate__animated" id="good">Liked It</div>
+      <div class="score animate__animated" id="great" onclick=(party.confetti(this));>
         Loved It!
       </div>
     </div>
@@ -169,7 +170,7 @@
 
   <div id="buttons">
     <button class="btn" id="edit_title">Edit (⌘+E)</button>
-    <button class="btn" id="save_the_image" onclick="exportImageShortcut()">Save Image (⌘+S)</button>
+    <button class="btn animate__animated" id="save_the_image" onclick="exportImageShortcut();">Save Image (⌘+S)</button>
   </div>
 
   <div id="footer">
@@ -311,6 +312,12 @@ function exportDivAsPNG() {
   });
 });
   // $("#review").css("display", "none");
+  $("#save_the_image").addClass("animate__pulse");
+  $("#save_the_image").delay(1000).queue(function() {
+    // Code to execute after the pause
+    $("#save_the_image").removeClass("animate__pulse");
+    $(this).dequeue();
+  });
 }
 
 function exportImageShortcut() {
@@ -569,10 +576,10 @@ $("#poor").click(function () {
     $("#solid").css("color", localStorage.getItem("container_text_color"));
     $("#good").css("color", localStorage.getItem("container_text_color"));
     $("#great").css("color", localStorage.getItem("container_text_color"));
-    $("#poor").attr("transition-style", "in:circle:center");
-    $("#solid").removeAttr("transition-style", "in:circle:center");
-    $("#good").removeAttr("transition-style", "in:circle:center");
-    $("#great").removeAttr("transition-style", "in:circle:center");
+    // $("#poor").attr("transition-style", "in:circle:center");
+    // $("#solid").removeAttr("transition-style", "in:circle:center");
+    // $("#good").removeAttr("transition-style", "in:circle:center");
+    // $("#great").removeAttr("transition-style", "in:circle:center");
     localStorage.setItem("score", "1");
     $("#review").queue(function () {
         $("#review").css(
@@ -583,6 +590,12 @@ $("#poor").click(function () {
             "border-color",
             pSBC(-0.5, localStorage.getItem("container_background_color"))
         );
+    });
+    $("#poor").addClass("animate__pulse");
+    $("#poor").delay(200).queue(function() {
+      // Code to execute after the pause
+      $("#poor").removeClass("animate__pulse");
+      $(this).dequeue();
     });
 });
 $("#solid").click(function () {
@@ -598,11 +611,17 @@ $("#solid").click(function () {
     $("#solid").css("color", localStorage.getItem("quick_score_text_color_2"));
     $("#good").css("color", localStorage.getItem("container_text_color"));
     $("#great").css("color", localStorage.getItem("container_text_color"));
-    $("#poor").removeAttr("transition-style", "in:circle:center");
-    $("#solid").attr("transition-style", "in:circle:center");
-    $("#good").removeAttr("transition-style", "in:circle:center");
-    $("#great").removeAttr("transition-style", "in:circle:center");
+    // $("#poor").removeAttr("transition-style", "in:circle:center");
+    // $("#solid").attr("transition-style", "in:circle:center");
+    // $("#good").removeAttr("transition-style", "in:circle:center");
+    // $("#great").removeAttr("transition-style", "in:circle:center");
     localStorage.setItem("score", "2");
+    $("#solid").addClass("animate__pulse");
+    $("#solid").delay(200).queue(function() {
+      // Code to execute after the pause
+      $("#solid").removeClass("animate__pulse");
+      $(this).dequeue();
+    });
 });
 $("#good").click(function () {
     $("#poor").css("background-color", "#f5f5f500");
@@ -617,11 +636,17 @@ $("#good").click(function () {
     $("#solid").css("color", localStorage.getItem("container_text_color"));
     $("#good").css("color", localStorage.getItem("quick_score_text_color_3"));
     $("#great").css("color", localStorage.getItem("container_text_color"));
-    $("#poor").removeAttr("transition-style", "in:circle:center");
-    $("#solid").removeAttr("transition-style", "in:circle:center");
-    $("#good").attr("transition-style", "in:circle:center");
-    $("#great").removeAttr("transition-style", "in:circle:center");
+    // $("#poor").removeAttr("transition-style", "in:circle:center");
+    // $("#solid").removeAttr("transition-style", "in:circle:center");
+    // $("#good").attr("transition-style", "in:circle:center");
+    // $("#great").removeAttr("transition-style", "in:circle:center");
     localStorage.setItem("score", "3");
+    $("#good").addClass("animate__pulse");
+    $("#good").delay(200).queue(function() {
+      // Code to execute after the pause
+      $("#good").removeClass("animate__pulse");
+      $(this).dequeue();
+    });
 });
 $("#great").click(function () {
     $("#poor").css("background-color", "#f5f5f500");
@@ -636,11 +661,17 @@ $("#great").click(function () {
     $("#solid").css("color", localStorage.getItem("container_text_color"));
     $("#good").css("color", localStorage.getItem("container_text_color"));
     $("#great").css("color", localStorage.getItem("quick_score_text_color_4"));
-    $("#poor").removeAttr("transition-style", "in:circle:center");
-    $("#solid").removeAttr("transition-style", "in:circle:center");
-    $("#good").removeAttr("transition-style", "in:circle:center");
-    $("#great").attr("transition-style", "in:circle:center");
+    // $("#poor").removeAttr("transition-style", "in:circle:center");
+    // $("#solid").removeAttr("transition-style", "in:circle:center");
+    // $("#good").removeAttr("transition-style", "in:circle:center");
+    // $("#great").attr("transition-style", "in:circle:center");
     localStorage.setItem("score", "4");
+    $("#great").addClass("animate__pulse");
+    $("#great").delay(200).queue(function() {
+      // Code to execute after the pause
+      $("#great").removeClass("animate__pulse");
+      $(this).dequeue();
+    });
 });
 
 

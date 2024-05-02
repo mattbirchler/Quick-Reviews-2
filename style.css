@@ -581,3 +581,9 @@ h1 {
     margin-bottom: 30px;
   }
 }
+
+
+/* Animation Timing */
+.animate__animated.animate__pulse {
+  --animate-duration: 200ms;
+}
