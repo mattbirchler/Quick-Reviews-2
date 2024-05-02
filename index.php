@@ -273,7 +273,7 @@ function exportDivAsPNG() {
   // Convert the canvas to a Blob object
   canvas.toBlob(blob => {
     // Create a file from the Blob object
-    const file = new File([blob], 'review.jpg', { type: 'image/jpg' });
+    const file = new File([blob], 'review.png', { type: 'image/png' });
 
     // Create a share data object
     const shareData = {
@@ -301,7 +301,7 @@ function exportDivAsPNG() {
 
       // Set the anchor properties for download
       link.href = url;
-      link.download = "review.jpg";
+      link.download = "review.png";
       
       // Add the anchor to the DOM, trigger the click event, and remove it
       document.body.appendChild(link);
