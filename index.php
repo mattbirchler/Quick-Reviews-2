@@ -73,7 +73,38 @@
     <div id="underline"></div>
   </div>
   
-  
+  <div class="custom" id="theme_list">
+    <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: none">
+      🏠
+    </button>
+    <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: none">
+      🧊
+    </button>
+    <button class="theme_button" id="theme_3" style="background-color: #e70cdf; color: white; border: none">
+      🩷
+    </button>
+    <button class="theme_button" id="theme_4" style="background-color: #13BDFF; color: black; border: none">
+      🫐
+    </button>
+    <button class="theme_button" id="theme_5" style="background-color: #FEBF00; color: black; border: none">
+      🐝
+    </button>
+    <button class="theme_button" id="theme_6" style="background-color: #3B0C95; color: white; border: none">
+      🍬
+    </button>
+    <button class="theme_button" id="theme_7" style="background-color: #1FCBE2; color: black; border: none">
+      🌊
+    </button>
+    <button class="theme_button" id="theme_8" style="background-color: #ed6e6c; color: white; border: none">
+      🩸
+    </button>
+    <button class="theme_button" id="theme_9" style="background-color: #EE9882; color: black; border: none">
+      &#127825;
+    </button>
+    <button class="theme_button" id="theme_10" style="background-color: #38571A; color: white; border: none">
+      🌲
+    </button>
+  </div>
 
   <div id="helper">Click anywhere on the review to edit</div>
 
@@ -112,67 +143,132 @@
     <button class="btn animate__animated" id="save_the_image" role="button" onclick="exportImageShortcut();">Save Image (⌘+S)</button>
   </div>
 
+  
+
   <div class="custom">
-    <div class="card">
-      <span class="card_label">Background</span>
-      <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
-      <img src="reset.png" class="reset_button" id="reset_background_button">
+
+    <div class="new_card">
+      <div class="card_header">
+        <div class="card_header_text">Colors</div>
+        <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
+      </div>
+      <div class="card_body">
+        <div class="color_box">
+          <div class="color_box_text">Back</div>
+          <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
+        </div>
+        <div class="color_box">
+          <div class="color_box_text">Bad</div>
+          <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
+        </div>
+        <div class="color_box">
+          <div class="color_box_text">Okay</div>
+          <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
+        </div>
+        <div class="color_box">
+          <div class="color_box_text">Good</div>
+          <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
+        </div>
+        <div class="color_box">
+          <div class="color_box_text">Great</div>
+          <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <span class="card_label">Scores</span>
+
+    <!-- <div class="new_card">
+      <div class="card_header">
+        <div class="card_header_text">Background</div>
+        <img src="reset.png" class="reset_button" id="reset_background_button">
+      </div>
+      <div class="card_body">
+        <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
+      </div>
+    </div> -->
+
+    <!-- <div class="new_card">
+      <div class="card_header">
+        <div class="card_header_text">Score Colors</div>
+        <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
+      </div>
+      <div class="card_body">
         <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
         <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
         <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
         <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
-        <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
       </div>
-    <div class="card">
+    </div> -->
+
+    <div class="new_card">
+      <div class="card_header">
+        <div class="card_header_text">Font Size</div>
+        <img src="reset.png" class="reset_button" id="reset_score_names_button">
+      </div>
+      <div class="card_body">
+        <div class="font_size_box">
+          <div class="color_box_text">Title</div>
+          <input type="number" class="font_size_picker" id="text_size_title" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        </div>
+        <div class="font_size_box">
+          <div class="color_box_text">Metadata</div>
+          <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        </div>
+        <div class="font_size_box">
+          <div class="color_box_text">Body</div>
+          <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+        </div>
+        
+        
+        
+      </div>
+    </div>
+
+    <div class="new_card">
+      <div class="card_header">
+        <div class="card_header_text">Score Names</div>
+        <img src="reset.png" class="reset_button" id="reset_score_names_button">
+      </div>
+      <div class="card_body">
+        <input type="text" class="font_size_picker name_input" id="score_1">
+        <input type="text" class="font_size_picker name_input" id="score_2">
+        <input type="text" class="font_size_picker name_input" id="score_3">
+        <input type="text" class="font_size_picker name_input" id="score_4">
+      </div>
+    </div>
+
+    <!-- <div class="card">
+      <span class="card_label">Background</span>
+      <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
+      <img src="reset.png" class="reset_button" id="reset_background_button">
+    </div> -->
+    
+    <!-- <div class="card">
+      <span class="card_label">Scores</span>
+      <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
+      <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
+      <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
+      <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
+      <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
+    </div> -->
+
+    
+
+    <!-- <div class="card">
       <span class="card_label">Fonts</span>
       <input type="number" class="font_size_picker" id="text_size_title" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <img src="reset.png" class="reset_button" id="reset_font_size_button">
-    </div>
-    <div class="card">
+    </div> -->
+    
+
+    <!-- <div class="card">
       <input type="text" class="font_size_picker name_input" id="score_1">
       <input type="text" class="font_size_picker name_input" id="score_2">
       <input type="text" class="font_size_picker name_input" id="score_3">
       <input type="text" class="font_size_picker name_input" id="score_4">
       <img src="reset.png" class="reset_button" id="reset_score_names_button">
-    </div>
-  </div>
-
-  <div class="custom" id="theme_list">
-    <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: none">
-      🏠
-    </button>
-    <button class="theme_button" id="theme_2" style="background-color: #e9eef1; color: black; border: none">
-      🧊
-    </button>
-    <button class="theme_button" id="theme_3" style="background-color: #e70cdf; color: white; border: none">
-      🩷
-    </button>
-    <button class="theme_button" id="theme_4" style="background-color: #13BDFF; color: black; border: none">
-      🫐
-    </button>
-    <button class="theme_button" id="theme_5" style="background-color: #FEBF00; color: black; border: none">
-      🐝
-    </button>
-    <button class="theme_button" id="theme_6" style="background-color: #3B0C95; color: white; border: none">
-      🍬
-    </button>
-    <button class="theme_button" id="theme_7" style="background-color: #1FCBE2; color: black; border: none">
-      🌊
-    </button>
-    <button class="theme_button" id="theme_8" style="background-color: #ed6e6c; color: white; border: none">
-      🩸
-    </button>
-    <button class="theme_button" id="theme_9" style="background-color: #EE9882; color: black; border: none">
-      &#127825;
-    </button>
-    <button class="theme_button" id="theme_10" style="background-color: #38571A; color: white; border: none">
-      🌲
-    </button>
+    </div> -->
   </div>
 
   <div id="footer">
