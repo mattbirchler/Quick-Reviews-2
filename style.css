@@ -702,10 +702,10 @@ h1 {
   #site_name, #footer {
     display: none;
   }
-  #save_the_image {
+  /* #save_the_image {
     position: absolute;
     bottom: 60px;
-  }
+  } */
   .custom {
     margin-bottom: 30px;
   }

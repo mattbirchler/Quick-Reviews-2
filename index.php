@@ -46,7 +46,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="icon@512.png">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <link rel="stylesheet" href="style.css?v=2.6.1">
+  <link rel="stylesheet" href="style.css?v=2.7.1">
   <link rel="stylesheet" href="transition.css" />
   <link rel="stylesheet" href="animate.min.css" />
   <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
