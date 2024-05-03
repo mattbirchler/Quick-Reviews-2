@@ -817,6 +817,25 @@ $("#reset_score_names_button").click(function () {
 
   // Reset the colors
   $("#reset_colors_button").click(function () {
+    localStorage.setItem("container_text_color", "#ffffff");
+    localStorage.setItem("container_background_color", "#2B384F");
+    $("#background_color").val("#2B384F");
+    $("#title").css("color", localStorage.getItem("container_text_color"));
+    $("#metadata").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css("color", localStorage.getItem("container_text_color"));
+    $("#review").css(
+      "background-color",
+      localStorage.getItem("container_background_color")
+    );
+    $("#bottom").css(
+      "border-color",
+      pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+    $("#poster").css(
+      "border",
+      "9px solid " + pSBC(-0.5, localStorage.getItem("container_background_color"))
+    );
+
     localStorage.setItem("quick_score_color_1", "#E32401");
     localStorage.setItem("quick_score_color_2", "#FFF995");
     localStorage.setItem("quick_score_color_3", "#02C7FC");
