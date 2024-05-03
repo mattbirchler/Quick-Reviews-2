@@ -46,7 +46,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="icon@512.png">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <link rel="stylesheet" href="style.css?v=2.7.1">
+  <link rel="stylesheet" href="style.css?v=2.7.2">
   <link rel="stylesheet" href="transition.css" />
   <link rel="stylesheet" href="animate.min.css" />
   <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
@@ -201,8 +201,8 @@
 
     <div class="new_card">
       <div class="card_header">
-        <div class="card_header_text">Font Size</div>
-        <img src="reset.png" class="reset_button" id="reset_score_names_button">
+        <div class="card_header_text">Font Sizes</div>
+        <img src="reset.png" class="reset_button" id="reset_font_size_button">
       </div>
       <div class="card_body">
         <div class="font_size_box">

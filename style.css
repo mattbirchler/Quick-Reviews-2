@@ -506,7 +506,7 @@ h1 {
   border: 1px solid #888;
   border-radius: 18px;
   width: 400px;
-  /* max-width: 95%; */
+  max-width: 95%;
   box-sizing: border-box;
   box-shadow: 0 4px 20px 0 #00000030;
   display: flex;
@@ -629,7 +629,7 @@ h1 {
     margin-bottom: 5px;
   }
   .modal-content {
-    width: 300px;
+    /* width: 300px; */
   }
   .modal_input, #modal_text_meta, #modal_text_text {
     font-size: 18px;
