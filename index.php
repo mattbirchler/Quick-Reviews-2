@@ -73,6 +73,45 @@
     <div id="underline"></div>
   </div>
   
+  
+
+  <div id="helper">Click anywhere on the review to edit</div>
+
+  <div id="review">
+    <div id="top">
+      <div id="poster">
+        <input type="file" id="image-uploader" accept="image/*">
+        <!-- <img src="https://a.ltrbxd.com/resized/alternative-poster/5/1/8/3/8/p/skA4xsoaIsryNkeLhjtMQkK3NLR-0-1000-0-1500-crop.jpg?v=3d72d9588f"> -->
+      </div>
+
+      <div id="review_text">
+        <div id="title">
+          The Title Goes Here
+        </div>
+        <div id="meta">
+          2024 - Director Name
+        </div>
+        <div id="text">
+          This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
+        </div>
+      </div>
+    </div>
+
+    <div id="bottom">
+      <div class="score animate__animated" id="poor">Didn't Like It</div>
+      <div class="score animate__animated" id="solid">Decent</div>
+      <div class="score animate__animated" id="good">Liked It</div>
+      <div class="score animate__animated" id="great" onclick=(party.confetti(this));>
+        Loved It!
+      </div>
+    </div>
+  </div>
+
+  <div id="buttons">
+    <button class="btn" id="edit_title">Edit (⌘+E)</button>
+    <button class="btn animate__animated" id="save_the_image" role="button" onclick="exportImageShortcut();">Save Image (⌘+S)</button>
+  </div>
+
   <div class="custom">
     <div class="card">
       <span class="card_label">Background</span>
@@ -134,43 +173,6 @@
     <button class="theme_button" id="theme_10" style="background-color: #38571A; color: white; border: none">
       🌲
     </button>
-  </div>
-
-  <div id="helper">Click anywhere on the review to edit</div>
-
-  <div id="review">
-    <div id="top">
-      <div id="poster">
-        <input type="file" id="image-uploader" accept="image/*">
-        <!-- <img src="https://a.ltrbxd.com/resized/alternative-poster/5/1/8/3/8/p/skA4xsoaIsryNkeLhjtMQkK3NLR-0-1000-0-1500-crop.jpg?v=3d72d9588f"> -->
-      </div>
-
-      <div id="review_text">
-        <div id="title">
-          The Title Goes Here
-        </div>
-        <div id="meta">
-          2024 - Director Name
-        </div>
-        <div id="text">
-          This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
-        </div>
-      </div>
-    </div>
-
-    <div id="bottom">
-      <div class="score animate__animated" id="poor">Didn't Like It</div>
-      <div class="score animate__animated" id="solid">Decent</div>
-      <div class="score animate__animated" id="good">Liked It</div>
-      <div class="score animate__animated" id="great" onclick=(party.confetti(this));>
-        Loved It!
-      </div>
-    </div>
-  </div>
-
-  <div id="buttons">
-    <button class="btn" id="edit_title">Edit (⌘+E)</button>
-    <button class="btn animate__animated" id="save_the_image" onclick="exportImageShortcut();">Save Image (⌘+S)</button>
   </div>
 
   <div id="footer">
@@ -539,7 +541,7 @@ $(document).ready(function () {
         "background_color",
         localStorage.getItem("container_background_color")
     );
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     // $("html").css(
     //   "background-color",
     //   localStorage.getItem("container_background_color")
@@ -791,7 +793,7 @@ $("#reset_score_names_button").click(function () {
   $("#background_color").change(function () {
     var score_color_one = $("#background_color").val();
     // Darken color & set page background
-    getAndSetPageBackgroundColor(score_color_one);
+    // getAndSetPageBackgroundColor(score_color_one);
 
     localStorage.setItem("container_background_color", score_color_one);
     localStorage.setItem(
@@ -991,7 +993,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#2B384F");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#2B384F");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1027,7 +1029,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#F3F6FF");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#F3F6FF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1063,7 +1065,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#E70CDF");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#E70CDF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1099,7 +1101,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#13BDFF");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#13BDFF");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1135,7 +1137,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#FEBF00");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#FEBF00");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1171,7 +1173,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#3B0C95");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#3B0C95");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1207,7 +1209,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#1FCBE2");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#1FCBE2");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1243,7 +1245,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#E5322F");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#E5322F");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
@@ -1279,7 +1281,7 @@ $("#reset_score_names_button").click(function () {
     localStorage.setItem("container_text_color", "#000000");
     localStorage.setItem("container_background_color", "#EE9882");
     // Darken color & set page background
-    getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
+    // getAndSetPageBackgroundColor(localStorage.getItem("container_background_color"));
     $("#background_color").val("#EE9882");
     $("#title").css("color", localStorage.getItem("container_text_color"));
     $("#metadata").css("color", localStorage.getItem("container_text_color"));
