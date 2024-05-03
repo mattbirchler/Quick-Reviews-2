@@ -69,7 +69,7 @@
 <body>
 
   <div id="site_name">
-    <h1 class="animate__animated animate__bounceIn"><a href="https://quickreviews.app">Quick Reviews</a></h1>
+    <h1><a href="https://quickreviews.app">Quick Reviews</a></h1>
     <div id="underline"></div>
   </div>
   
@@ -973,7 +973,7 @@ $("#reset_score_names_button").click(function () {
   function getAndSetPageBackgroundColor(reviewBackground) {
     console.log("Function called with " + reviewBackground);
     var color = tinycolor(reviewBackground);
-    color = color.darken(10); // 10% darker
+    color = color.lighten(60); // 10% darker
     color = color.desaturate(10); // 10% less saturation
     color = color.toHexString();
     $("html").css(
