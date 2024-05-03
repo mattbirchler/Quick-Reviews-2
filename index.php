@@ -16,7 +16,7 @@
   }
 ?>
 
-<script>
+<!-- <script>
   // Check for items in the GET
   let apiTitle = "<?php echo $title ?>";
   let apiMetadata = "<?php echo $metadata ?>";
@@ -36,7 +36,7 @@
   if (apiScore === "1" || apiScore === "2" || apiScore === "3" || apiScore === "4") {
     localStorage.setItem("score", apiScore);
   }
-</script>
+</script> -->
 
 <head>
   <meta charset="UTF-8">
@@ -388,6 +388,48 @@ function exportDivAsPNG() {
       text: 'Check out this review image!',
     };
 
+    // Copy the desired text to the clipboard
+    var clipboardReviewScore = localStorage.getItem("score");
+    if (clipboardReviewScore == 1) {
+      var clipboardReviewText = localStorage.getItem("quick_score_1");
+    } else if (clipboardReviewScore == 2) {
+      var clipboardReviewText = localStorage.getItem("quick_score_2");
+    } else if (clipboardReviewScore == 3) {
+      var clipboardReviewText = localStorage.getItem("quick_score_3");
+    } else if (clipboardReviewScore == 4) {
+      var clipboardReviewText = localStorage.getItem("quick_score_4");
+    }
+    
+    const textToCopy = "Title: " + localStorage.getItem("media_title") + "\nMetadata: " + localStorage.getItem("media_meta") + "\nScore: " + clipboardReviewText + "\nReview: " + localStorage.getItem("media_review");
+    copyToClipboard(textToCopy);
+
+    // Add the text as metadata to the image file
+    // const reader = new FileReader();
+    //   reader.onloadend = function () {
+    //     const arrayBuffer = reader.result;
+    //     const uint8Array = new Uint8Array(arrayBuffer);
+    //     const blob = new Blob([uint8Array], { type: 'image/png' });
+    //     const metadata = {
+    //       type: 'text/plain',
+    //       data: clipboardReviewText,
+    //     };
+    //     const files = [
+    //       new File([blob], 'review.png', {
+    //         type: 'image/png',
+    //         lastModified: new Date().getTime(),
+    //       }),
+    //       new File([JSON.stringify(metadata)], 'metadata.json', {
+    //         type: 'application/json',
+    //         lastModified: new Date().getTime(),
+    //       }),
+    //     ];
+    //     const shareDataWithMetadata = {
+    //       files: files,
+    //       title: 'Review Image',
+    //       text: 'Check out this review image!',
+    //     };
+    //   }
+
     // Check if iOS or not
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -432,6 +474,16 @@ function saveData() {
   $("#title").html(localStorage.getItem("media_title"));
   $("#meta").html(localStorage.getItem("media_meta"));
   $("#text").html(localStorage.getItem("media_review"));
+}
+
+// Copy something to the clipboard
+function copyToClipboard(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
 }
 
 // Setting the localStorage values on page load
