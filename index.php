@@ -327,6 +327,13 @@ function exportDivAsPNG() {
   // $("#review").css("display", "block");
   const divElement = document.getElementById("review");
 
+  $("#save_the_image").addClass("animate__pulse");
+  $("#save_the_image").delay(1000).queue(function() {
+    // Code to execute after the pause
+    $("#save_the_image").removeClass("animate__pulse");
+    $(this).dequeue();
+  });
+
   if ($(window).width() < 600) {
     renderScale = 9;
   } else {
@@ -410,12 +417,6 @@ function exportDivAsPNG() {
   });
 });
   // $("#review").css("display", "none");
-  $("#save_the_image").addClass("animate__pulse");
-  $("#save_the_image").delay(1000).queue(function() {
-    // Code to execute after the pause
-    $("#save_the_image").removeClass("animate__pulse");
-    $(this).dequeue();
-  });
 }
 
 function exportImageShortcut() {
