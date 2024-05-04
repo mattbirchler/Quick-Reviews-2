@@ -735,6 +735,9 @@ h1 {
   .custom {
     margin-bottom: 30px;
   }
+  #alert_clipboard {
+    display: none;
+  }
 }
 
 

@@ -16,7 +16,7 @@
   }
 ?>
 
-<!-- <script>
+<script>
   // Check for items in the GET
   let apiTitle = "<?php echo $title ?>";
   let apiMetadata = "<?php echo $metadata ?>";
@@ -36,7 +36,7 @@
   if (apiScore === "1" || apiScore === "2" || apiScore === "3" || apiScore === "4") {
     localStorage.setItem("score", apiScore);
   }
-</script> -->
+</script>
 
 <head>
   <meta charset="UTF-8">
@@ -46,7 +46,7 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="icon@512.png">
   <link rel="apple-touch-startup-image" href="splash.png">
-  <link rel="stylesheet" href="style.css?v=2.7.2">
+  <link rel="stylesheet" href="style.css?v=2.7.4">
   <link rel="stylesheet" href="transition.css" />
   <link rel="stylesheet" href="animate.min.css" />
   <link rel="shortcut icon" href="icon@512.png" type="image/x-icon">
@@ -463,16 +463,19 @@ function exportDivAsPNG() {
     }
   });
 });
-$("#alert_clipboard").css("top", "20px");
-$("#alert_clipboard").css("transform", "scale(1)");
-$("#alert_clipboard").css("opacity", "1.0");
-$("#alert_clipboard").delay(3000).queue(function() {
+
+if (!isIOS) {
+  $("#alert_clipboard").css("top", "20px");
+  $("#alert_clipboard").css("transform", "scale(1)");
+  $("#alert_clipboard").css("opacity", "1.0");
+  $("#alert_clipboard").delay(3000).queue(function() {
     // Code to execute after the pause
     $("#alert_clipboard").css("top", "-40px");
     $("#alert_clipboard").css("transform", "scale(0.3)");
     $("#alert_clipboard").css("opacity", "0.0");
     $(this).dequeue();
   });
+}
   // $("#review").css("display", "none");
 }
 
