@@ -464,7 +464,7 @@ function exportDivAsPNG() {
   });
 });
 
-if (!isIOS) {
+
   $("#alert_clipboard").css("top", "20px");
   $("#alert_clipboard").css("transform", "scale(1)");
   $("#alert_clipboard").css("opacity", "1.0");
@@ -475,7 +475,7 @@ if (!isIOS) {
     $("#alert_clipboard").css("opacity", "0.0");
     $(this).dequeue();
   });
-}
+
   // $("#review").css("display", "none");
 }
 
