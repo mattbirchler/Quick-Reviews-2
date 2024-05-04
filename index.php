@@ -298,7 +298,12 @@
 
 <div id="alert">
   <span>Your image is too large to save to localStorage. Your review will export perfectly, but your uploaded image won't be here on your next visit.</span>
-  <img id="alert_close" src="close-yellow.png">
+  <img class="alert_close" id="alert_close" src="close-yellow.png">
+</div>
+
+<div id="alert_clipboard">
+  <span>Review text copied</span>
+  <!-- <img class="alert_close" id="clipboard_close" src="close-yellow.png"> -->
 </div>
 
 <script>
@@ -458,6 +463,16 @@ function exportDivAsPNG() {
     }
   });
 });
+$("#alert_clipboard").css("top", "20px");
+$("#alert_clipboard").css("transform", "scale(1)");
+$("#alert_clipboard").css("opacity", "1.0");
+$("#alert_clipboard").delay(3000).queue(function() {
+    // Code to execute after the pause
+    $("#alert_clipboard").css("top", "-40px");
+    $("#alert_clipboard").css("transform", "scale(0.3)");
+    $("#alert_clipboard").css("opacity", "0.0");
+    $(this).dequeue();
+  });
   // $("#review").css("display", "none");
 }
 
