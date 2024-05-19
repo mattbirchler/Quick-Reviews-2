@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // Get the user agent from the request
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 

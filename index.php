@@ -17,6 +17,26 @@
 ?>
 
 <script>
+  // Function to log user agent
+  function logUserAgent() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'log_user_agent.php', true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            console.log('User agent logged successfully.');
+        } else {
+            console.error('Failed to log user agent.');
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Request error.');
+    };
+    xhr.send();
+}
+
+// Call the function to log user agent
+logUserAgent();
+
   // Check for items in the GET
   let apiTitle = "<?php echo $title ?>";
   let apiMetadata = "<?php echo $metadata ?>";
@@ -438,16 +458,6 @@ function exportDivAsPNG() {
     // Check if iOS or not
     // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) && !window.MSStream;
-
-    // Function to log user agent
-    function logUserAgent() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'log_user_agent.php', true);
-        xhr.send();
-    }
-
-    // Call the function to log user agent
-    logUserAgent();
 
     // Check if the Web Share API is supported
     if (navigator.share && isIOS) {
