@@ -14,21 +14,6 @@
   if (!empty($_GET["score"])) {
     $score = htmlspecialchars($_GET["score"], ENT_QUOTES, 'UTF-8');
   }
-
-  // Get the user agent from the request
-  $userAgent = $_SERVER['HTTP_USER_AGENT'];
-
-  // Define the log file path
-  $logFile = 'logs.txt';
-
-  // Prepare the log entry with a timestamp
-  $logEntry = date('Y-m-d H:i:s') . " - " . $userAgent . PHP_EOL;
-
-  // Append the log entry to the log file
-  file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
-
-  // Optionally, output a message or perform other actions
-  // echo "User agent logged successfully.";
 ?>
 
 <script>
@@ -454,15 +439,15 @@ function exportDivAsPNG() {
     // const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) && !window.MSStream;
 
-    // // Function to log user agent
-    // function logUserAgent() {
-    //     const xhr = new XMLHttpRequest();
-    //     xhr.open('GET', 'log_user_agent.php', true);
-    //     xhr.send();
-    // }
+    // Function to log user agent
+    function logUserAgent() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'log_user_agent.php', true);
+        xhr.send();
+    }
 
-    // // Call the function to log user agent
-    // logUserAgent();
+    // Call the function to log user agent
+    logUserAgent();
 
     // Check if the Web Share API is supported
     if (navigator.share && isIOS) {
