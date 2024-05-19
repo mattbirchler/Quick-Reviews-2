@@ -28,7 +28,7 @@
   file_put_contents($logFile, $logEntry, FILE_APPEND | LOCK_EX);
 
   // Optionally, output a message or perform other actions
-  echo "User agent logged successfully.";
+  // echo "User agent logged successfully.";
 ?>
 
 <script>
