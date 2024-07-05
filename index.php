@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <?php
   if (!empty($_GET["title"])) {
     $title = htmlspecialchars($_GET["title"], ENT_QUOTES, 'UTF-8');
@@ -43,7 +43,7 @@ logUserAgent();
   let apiReview = "<?php echo $review ?>";
   let apiScore = "<?php echo $score ?>";
   console.log("The score provided is " + apiScore);
-  
+
   if (apiTitle) {
     localStorage.setItem("media_title", apiTitle);
   }
@@ -92,7 +92,7 @@ logUserAgent();
     <h1><a href="https://quickreviews.app">Quick Reviews</a></h1>
     <div id="underline"></div>
   </div>
-  
+
   <div class="custom" id="theme_list">
     <button class="theme_button" id="theme_1" style="background-color: #2B384F; color: white; border: none">
       🏠
@@ -163,7 +163,7 @@ logUserAgent();
     <button class="btn animate__animated" id="save_the_image" role="button" onclick="exportImageShortcut();">Save & Copy (⌘+S)</button>
   </div>
 
-  
+
 
   <div class="custom">
 
@@ -237,9 +237,9 @@ logUserAgent();
           <div class="color_box_text">Body</div>
           <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
         </div>
-        
-        
-        
+
+
+
       </div>
     </div>
 
@@ -261,7 +261,7 @@ logUserAgent();
       <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
       <img src="reset.png" class="reset_button" id="reset_background_button">
     </div> -->
-    
+
     <!-- <div class="card">
       <span class="card_label">Scores</span>
       <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
@@ -271,7 +271,7 @@ logUserAgent();
       <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
     </div> -->
 
-    
+
 
     <!-- <div class="card">
       <span class="card_label">Fonts</span>
@@ -280,7 +280,7 @@ logUserAgent();
       <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
       <img src="reset.png" class="reset_button" id="reset_font_size_button">
     </div> -->
-    
+
 
     <!-- <div class="card">
       <input type="text" class="font_size_picker name_input" id="score_1">
@@ -302,7 +302,7 @@ logUserAgent();
     <div id="privacy">
       Quick Reviews uses basic page hit analytics to track usage numbers. However, all data you enter on this page is stored exclusively in your browser's local storage – we do not have access to this information. Check the page source code, you can see it in my messy JavaScript.
     </div>
-  </div>  
+  </div>
 
 </body>
 
@@ -376,7 +376,7 @@ function exportDivAsPNG() {
   // }).then(canvas => {
   //   // Create an anchor element to trigger the download
   //   const link = document.createElement('a');
-    
+
   //   // Convert the canvas to a Blob object
   //   canvas.toBlob(blob => {
   //     // Create an object URL from the Blob object
@@ -385,7 +385,7 @@ function exportDivAsPNG() {
   //     // Set the anchor properties for download
   //     link.href = url;
   //     link.download = "review.png";
-      
+
   //     // Add the anchor to the DOM, trigger the click event, and remove it
   //     document.body.appendChild(link);
   //     link.click();
@@ -424,7 +424,7 @@ function exportDivAsPNG() {
     } else if (clipboardReviewScore == 4) {
       var clipboardReviewText = localStorage.getItem("quick_score_4");
     }
-    
+
     const textToCopy = "Title: " + localStorage.getItem("media_title") + "\nMetadata: " + localStorage.getItem("media_meta") + "\nScore: " + clipboardReviewText + "\nReview: " + localStorage.getItem("media_review");
     copyToClipboard(textToCopy);
 
@@ -476,7 +476,7 @@ function exportDivAsPNG() {
       // Set the anchor properties for download
       link.href = url;
       link.download = "review.png";
-      
+
       // Add the anchor to the DOM, trigger the click event, and remove it
       document.body.appendChild(link);
       link.click();
@@ -506,7 +506,7 @@ function exportImageShortcut() {
 
 function saveData() {
   var formattedReviewText = document.getElementById('modal_text_text').value.split("\n").join("<br/>");
-  
+
   localStorage.setItem("media_title", $('#modal_text_title').val());
   localStorage.setItem("media_meta", $('#modal_text_meta').val());
   localStorage.setItem("media_review", formattedReviewText);
@@ -1519,7 +1519,7 @@ $("#reset_score_names_button").click(function () {
     $("#great_color").val("#000000");
     location.reload();
   });
-  
+
   $("#theme_10").click(function () {
     localStorage.setItem("container_text_color", "#ffffff");
     localStorage.setItem("container_background_color", "#38571A");
@@ -1555,5 +1555,3 @@ $("#reset_score_names_button").click(function () {
   });
 
 </script>
-
-
