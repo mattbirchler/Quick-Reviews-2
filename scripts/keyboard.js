@@ -118,9 +118,35 @@ function removeShiftKeyHighlight(event) {
 }
 
 function applyShiftKeyStyle(isActive) {
+  // Update the styling for the shift_button element
   const shiftButtonDiv = document.getElementById('shift_button');
-  if (shiftButtonDiv) {
-    shiftButtonDiv.style.border = isActive ? '1px solid #A6FF00' : '1px solid #ffffff50';
-    shiftButtonDiv.style.boxShadow = isActive ? '0 0 10px #A6FF0030, 0 0 20px #A6FF0030' : 'none';
-  }
+
+  // Update the styling for all elements with the "command_shortcut" class
+  const commandShortcuts = document.querySelectorAll('.shift_shortcut');
+  commandShortcuts.forEach(element => {
+    element.style.border = isActive ? '1px solid #A6FF00' : '1px solid #ffffff50';
+    element.style.boxShadow = isActive ? '0 0 10px #A6FF0020, 0 0 20px #A6FF0020' : 'none';
+  });
 }
+
+function applyCommandKeyStyle(isActive) {
+  // Update the styling for all elements with the "command_shortcut" class
+  const commandShortcuts = document.querySelectorAll('.command_shortcut');
+  commandShortcuts.forEach(element => {
+    element.style.border = isActive ? '1px solid #A6FF00' : '1px solid #ffffff50';
+    element.style.boxShadow = isActive ? '0 0 10px #A6FF0020, 0 0 20px #A6FF0020' : 'none';
+  });
+}
+
+// Event listeners for detecting Command or Control key presses
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Meta' || event.key === 'Control') {
+    applyCommandKeyStyle(true);
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  if (event.key === 'Meta' || event.key === 'Control') {
+    applyCommandKeyStyle(false);
+  }
+});
