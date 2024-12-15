@@ -7,6 +7,7 @@ window.addEventListener('keydown', function (event) {
   const editKeyPressed = event.key === 'E' || event.key === 'e';
   const enterKeyPressed = event.key === 'Enter' || event.key === 'enter';
 
+
   // If both conditions are met, call exportImageShortcut
   if (commandKeyPressed && exportKeyPressed) {
     // Prevent the default browser behavior, such as opening the search prompt
@@ -15,6 +16,45 @@ window.addEventListener('keydown', function (event) {
     exportImageShortcut();
   }
 
+  if (event.shiftKey && event.key === 'ArrowUp') {
+    // Get the review text element
+    const reviewText = document.getElementById("text");
+    // Get the input field for the text size
+  const textSizeInput = document.getElementById("text_size_review");
+    // Get the current font size
+    const currentFontSize = window.getComputedStyle(reviewText).fontSize;
+    // Parse the font size and increment it by 1
+    const newFontSize = parseFloat(currentFontSize) + 1;
+    // Apply the new font size back to the element
+    reviewText.style.fontSize = `${newFontSize}px`;
+    // Update the input field value
+  textSizeInput.value = newFontSize;
+  }
+  if (event.shiftKey && event.key === 'ArrowDown') {
+    // Get the review text element
+    const reviewText = document.getElementById("text");
+    // Get the input field for the text size
+  const textSizeInput = document.getElementById("text_size_review");
+    // Get the current font size
+    const currentFontSize = window.getComputedStyle(reviewText).fontSize;
+    // Parse the font size and increment it by 1
+    const newFontSize = parseFloat(currentFontSize) - 1;
+    // Apply the new font size back to the element
+    reviewText.style.fontSize = `${newFontSize}px`;
+    // Update the input field value
+  textSizeInput.value = newFontSize;
+  }
+  if (event.shiftKey && (event.key === "ArrowRight" || event.key === "ArrowLeft")) {
+    if ($(window).width() < 600) {
+      localStorage.setItem("text_size_review", "9");
+      $("#text").css("font-size", "9px");
+      $("#text_size_review").val("9");
+    } else {
+      localStorage.setItem("text_size_review", "26");
+      $("#text").css("font-size", "26px");
+      $("#text_size_review").val("26");
+    }
+  }
   if (event.key === 'Escape' || event.keyCode === 27) {
     $('#close_modal').click();
   }
