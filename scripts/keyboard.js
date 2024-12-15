@@ -8,7 +8,7 @@ function handleKeyDown(event) {
 
   switch (true) {
     // Command or Shift + 'S'
-    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'S' || event.key === 's'):
+    case commandKeyPressed && (event.key === 'S' || event.key === 's'):
       event.preventDefault();
       exportImageShortcut();
       break;
@@ -34,33 +34,33 @@ function handleKeyDown(event) {
       break;
 
     // Command or Shift + '1'
-    case (commandKeyPressed || shiftKeyPressed) && event.key === '1':
+    case commandKeyPressed && event.key === '1':
       event.preventDefault(); // Prevent default behavior like entering "!" or "@"
       triggerClickById('poor');
       break;
 
     // Command or Shift + '2'
-    case (commandKeyPressed || shiftKeyPressed) && event.key === '2':
+    case commandKeyPressed && event.key === '2':
       triggerClickById('solid');
       break;
 
     // Command or Shift + '3'
-    case (commandKeyPressed || shiftKeyPressed) && event.key === '3':
+    case commandKeyPressed && event.key === '3':
       triggerClickById('good');
       break;
 
     // Command or Shift + '4'
-    case (commandKeyPressed || shiftKeyPressed) && event.key === '4':
+    case commandKeyPressed && event.key === '4':
       triggerClickById('great');
       break;
 
     // Command or Shift + 'E'
-    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'E' || event.key === 'e'):
+    case commandKeyPressed && (event.key === 'E' || event.key === 'e'):
       triggerClickById('edit_title');
       break;
 
     // Command or Shift + Enter
-    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'Enter' || event.key === 'enter'):
+    case commandKeyPressed && (event.key === 'Enter' || event.key === 'enter'):
       event.preventDefault();
       saveData();
       triggerClickById('close_modal');
