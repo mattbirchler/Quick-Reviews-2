@@ -374,9 +374,11 @@ h1 {
 
 #shift_button {
   background: #ffffff20;
+  border: 1px solid #ffffff50;
   padding: 4px 12px;
   margin: 0 8px;
   border-radius: 4px;
+  transition: 200ms;
 }
 
 #review {

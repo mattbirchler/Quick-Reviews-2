@@ -84,3 +84,21 @@ window.addEventListener('keydown', function (event) {
     $('#close_modal').click();
   }
 });
+
+document.addEventListener('keydown', function(event) {
+  // Check if the "Shift" key is pressed
+  if (event.key === 'Shift') {
+      const shiftButtonDiv = document.getElementById('shift_button');
+      shiftButtonDiv.style.border = '1px solid #A6FF00';
+      shiftButtonDiv.style.boxShadow = '0 0 10px #A6FF0030, 0 0 20px #A6FF0030';
+  }
+});
+
+document.addEventListener('keyup', function(event) {
+  // Check if the "Shift" key is released
+  if (event.key === 'Shift') {
+      const shiftButtonDiv = document.getElementById('shift_button');
+      shiftButtonDiv.style.border = '1px solid #ffffff50';
+      shiftButtonDiv.style.boxShadow = 'none'; // Remove the glow
+  }
+});
