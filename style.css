@@ -1,4 +1,10 @@
 @font-face {
+  font-family: "Noto Sans";
+  src: url("notosans/NotoSans-Variable.ttf") format("woff2");
+  font-weight: 1 999;
+}
+
+@font-face {
   font-family: "PP Rader Variable";
   src: url("PPRader.woff2") format("woff2");
   font-weight: 1 999;
