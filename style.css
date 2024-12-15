@@ -229,7 +229,7 @@ h1 {
   flex-wrap: wrap;
   margin-bottom: 10px;
   color: #ffffff;
-  margin: 20px 0 0 0;
+  margin: 20px 0 10px 0;
   font-family: Oxygen;
 }
 
@@ -336,6 +336,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: ceneter;
   gap: 8px;
   padding: 10px 0;
 }
@@ -360,6 +361,22 @@ h1 {
 
 .the_shortcut span {
   height: 30px;
+}
+
+#key {
+  font-family: "Noto Sans";
+  display: flex;
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+#shift_button {
+  background: #ffffff20;
+  padding: 4px 12px;
+  margin: 0 8px;
+  border-radius: 4px;
 }
 
 #review {
