@@ -523,16 +523,18 @@ function exportDivAsPNG() {
 });
 
 
-  $("#alert_clipboard").css("top", "20px");
-  $("#alert_clipboard").css("transform", "scale(1)");
-  $("#alert_clipboard").css("opacity", "1.0");
-  $("#alert_clipboard").delay(3000).queue(function() {
-    // Code to execute after the pause
-    $("#alert_clipboard").css("top", "-40px");
-    $("#alert_clipboard").css("transform", "scale(0.3)");
-    $("#alert_clipboard").css("opacity", "0.0");
-    $(this).dequeue();
-  });
+  if (!navigator.userAgent.includes('Safari') || navigator.userAgent.includes('Chrome')) {
+    $("#alert_clipboard").css("top", "20px");
+    $("#alert_clipboard").css("transform", "scale(1)");
+    $("#alert_clipboard").css("opacity", "1.0");
+    $("#alert_clipboard").delay(3000).queue(function() {
+      // Code to execute after the pause
+      $("#alert_clipboard").css("top", "-40px");
+      $("#alert_clipboard").css("transform", "scale(0.3)");
+      $("#alert_clipboard").css("opacity", "0.0");
+      $(this).dequeue();
+    });
+  }
 
   // $("#review").css("display", "none");
 }

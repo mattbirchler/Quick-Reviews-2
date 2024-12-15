@@ -1,104 +1,126 @@
-window.addEventListener('keydown', function (event) {
-  // Check if the 'Command' key is pressed on Mac, or the 'Ctrl' key on other systems
+window.addEventListener('keydown', handleKeyDown);
+document.addEventListener('keydown', highlightShiftKey);
+document.addEventListener('keyup', removeShiftKeyHighlight);
+
+function handleKeyDown(event) {
   const commandKeyPressed = event.metaKey || event.ctrlKey;
+  const shiftKeyPressed = event.shiftKey;
 
-  // Check if the 'E' key is pressed
-  const exportKeyPressed = event.key === 'S' || event.key === 's';
-  const editKeyPressed = event.key === 'E' || event.key === 'e';
-  const enterKeyPressed = event.key === 'Enter' || event.key === 'enter';
+  switch (true) {
+    // Command or Shift + 'S'
+    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'S' || event.key === 's'):
+      event.preventDefault();
+      exportImageShortcut();
+      break;
 
+    // Shift + Arrow Up
+    case event.shiftKey && event.key === 'ArrowUp':
+      adjustFontSize(1);
+      break;
 
-  // If both conditions are met, call exportImageShortcut
-  if (commandKeyPressed && exportKeyPressed) {
-    // Prevent the default browser behavior, such as opening the search prompt
-    event.preventDefault();
+    // Shift + Arrow Down
+    case event.shiftKey && event.key === 'ArrowDown':
+      adjustFontSize(-1);
+      break;
 
-    exportImageShortcut();
+    // Shift + Arrow Right/Left
+    case event.shiftKey && (event.key === 'ArrowRight' || event.key === 'ArrowLeft'):
+      resetFontSizeForDevice();
+      break;
+
+    // Escape
+    case event.key === 'Escape' || event.keyCode === 27:
+      triggerClickById('close_modal');
+      break;
+
+    // Command or Shift + '1'
+    case (commandKeyPressed || shiftKeyPressed) && event.key === '1':
+      event.preventDefault(); // Prevent default behavior like entering "!" or "@"
+      triggerClickById('poor');
+      break;
+
+    // Command or Shift + '2'
+    case (commandKeyPressed || shiftKeyPressed) && event.key === '2':
+      triggerClickById('solid');
+      break;
+
+    // Command or Shift + '3'
+    case (commandKeyPressed || shiftKeyPressed) && event.key === '3':
+      triggerClickById('good');
+      break;
+
+    // Command or Shift + '4'
+    case (commandKeyPressed || shiftKeyPressed) && event.key === '4':
+      triggerClickById('great');
+      break;
+
+    // Command or Shift + 'E'
+    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'E' || event.key === 'e'):
+      triggerClickById('edit_title');
+      break;
+
+    // Command or Shift + Enter
+    case (commandKeyPressed || shiftKeyPressed) && (event.key === 'Enter' || event.key === 'enter'):
+      event.preventDefault();
+      saveData();
+      triggerClickById('close_modal');
+      break;
+
+    default:
+      break;
   }
+}
 
-  if (event.shiftKey && event.key === 'ArrowUp') {
-    // Get the review text element
-    const reviewText = document.getElementById("text");
-    // Get the input field for the text size
+function adjustFontSize(delta) {
+  const reviewText = document.getElementById("text");
   const textSizeInput = document.getElementById("text_size_review");
-    // Get the current font size
-    const currentFontSize = window.getComputedStyle(reviewText).fontSize;
-    // Parse the font size and increment it by 1
-    const newFontSize = parseFloat(currentFontSize) + 1;
-    // Apply the new font size back to the element
+
+  if (reviewText && textSizeInput) {
+    const currentFontSize = parseFloat(window.getComputedStyle(reviewText).fontSize);
+    const newFontSize = currentFontSize + delta;
+
     reviewText.style.fontSize = `${newFontSize}px`;
-    // Update the input field value
-  textSizeInput.value = newFontSize;
+    textSizeInput.value = newFontSize;
   }
-  if (event.shiftKey && event.key === 'ArrowDown') {
-    // Get the review text element
-    const reviewText = document.getElementById("text");
-    // Get the input field for the text size
+}
+
+function resetFontSizeForDevice() {
+  const fontSize = window.innerWidth < 600 ? "9" : "26";
+  localStorage.setItem("text_size_review", fontSize);
+  setFontSize(fontSize);
+}
+
+function setFontSize(size) {
+  const textElement = document.getElementById("text");
   const textSizeInput = document.getElementById("text_size_review");
-    // Get the current font size
-    const currentFontSize = window.getComputedStyle(reviewText).fontSize;
-    // Parse the font size and increment it by 1
-    const newFontSize = parseFloat(currentFontSize) - 1;
-    // Apply the new font size back to the element
-    reviewText.style.fontSize = `${newFontSize}px`;
-    // Update the input field value
-  textSizeInput.value = newFontSize;
-  }
-  if (event.shiftKey && (event.key === "ArrowRight" || event.key === "ArrowLeft")) {
-    if ($(window).width() < 600) {
-      localStorage.setItem("text_size_review", "9");
-      $("#text").css("font-size", "9px");
-      $("#text_size_review").val("9");
-    } else {
-      localStorage.setItem("text_size_review", "26");
-      $("#text").css("font-size", "26px");
-      $("#text_size_review").val("26");
-    }
-  }
-  if (event.key === 'Escape' || event.keyCode === 27) {
-    $('#close_modal').click();
-  }
-  if (commandKeyPressed && event.key === '1') {
-    event.preventDefault();
-    $('#poor').click();
-  }
-  if (commandKeyPressed && event.key === '2') {
-    event.preventDefault();
-    $('#solid').click();
-  }
-  if (commandKeyPressed && event.key === '3') {
-    event.preventDefault();
-    $('#good').click();
-  }
-  if (commandKeyPressed && event.key === '4') {
-    event.preventDefault();
-    $('#great').click();
-  }
-  if (commandKeyPressed && editKeyPressed) {
-    event.preventDefault();
-    $('#edit_title').click();
-  }
-  if (commandKeyPressed && enterKeyPressed) {
-    event.preventDefault();
-    saveData();
-    $('#close_modal').click();
-  }
-});
 
-document.addEventListener('keydown', function(event) {
-  // Check if the "Shift" key is pressed
-  if (event.key === 'Shift') {
-      const shiftButtonDiv = document.getElementById('shift_button');
-      shiftButtonDiv.style.border = '1px solid #A6FF00';
-      shiftButtonDiv.style.boxShadow = '0 0 10px #A6FF0030, 0 0 20px #A6FF0030';
+  if (textElement && textSizeInput) {
+    textElement.style.fontSize = `${size}px`;
+    textSizeInput.value = size;
   }
-});
+}
 
-document.addEventListener('keyup', function(event) {
-  // Check if the "Shift" key is released
+function triggerClickById(elementId) {
+  const element = document.getElementById(elementId) || $(`#${elementId}`);
+  if (element) element.click();
+}
+
+function highlightShiftKey(event) {
   if (event.key === 'Shift') {
-      const shiftButtonDiv = document.getElementById('shift_button');
-      shiftButtonDiv.style.border = '1px solid #ffffff50';
-      shiftButtonDiv.style.boxShadow = 'none'; // Remove the glow
+    applyShiftKeyStyle(true);
   }
-});
+}
+
+function removeShiftKeyHighlight(event) {
+  if (event.key === 'Shift') {
+    applyShiftKeyStyle(false);
+  }
+}
+
+function applyShiftKeyStyle(isActive) {
+  const shiftButtonDiv = document.getElementById('shift_button');
+  if (shiftButtonDiv) {
+    shiftButtonDiv.style.border = isActive ? '1px solid #A6FF00' : '1px solid #ffffff50';
+    shiftButtonDiv.style.boxShadow = isActive ? '0 0 10px #A6FF0030, 0 0 20px #A6FF0030' : 'none';
+  }
+}
