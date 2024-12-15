@@ -433,7 +433,7 @@ function exportDivAsPNG() {
       var clipboardReviewText = localStorage.getItem("quick_score_4");
     }
 
-    const textToCopy = "Title: " + localStorage.getItem("media_title") + "\nMetadata: " + localStorage.getItem("media_meta") + "\nScore: " + clipboardReviewText + "\nReview: " + localStorage.getItem("media_review");
+    const textToCopy = localStorage.getItem("media_review");
     copyToClipboard(textToCopy);
 
     // Add the text as metadata to the image file
