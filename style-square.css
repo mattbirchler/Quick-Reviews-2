@@ -1,0 +1,20 @@
+#poster {
+    width: 1230px;
+}
+
+#review_text {
+    margin-left: 427px;
+}
+
+#text {
+    width: 428px;
+}
+
+@media (max-width: 850px) {
+    #review_text {
+        margin-left: 142px;
+    }
+    #text {
+        width: 142px;
+    }
+}

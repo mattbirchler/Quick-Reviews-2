@@ -239,6 +239,17 @@ h1 {
   font-family: Oxygen;
 }
 
+#beta_notice {
+  text-align: center;
+  color: white;
+  font-family: "Noto Sans";
+  margin: 10px 0 0 0;
+}
+
+#beta_notice a {
+  color: #A6FF00;
+}
+
 .new_card {
   /* background-color: #0e0e88; */
   box-sizing: border-box;
