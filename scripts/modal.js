@@ -1,7 +1,8 @@
 /**
- * Modal Handler for Quick Reviews
+ * Modal Handler for Media Review Editor
  * Manages the opening, closing, and population of a modal form for editing media reviews.
  * The modal can be triggered by either clicking an edit button or the review text area.
+ * Press ESC key to close the modal without saving changes.
  */
 document.addEventListener('DOMContentLoaded', () => {
     // DOM element references
@@ -50,9 +51,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    /**
+     * Event handler for keyboard events
+     * Closes the modal when the Escape key is pressed
+     */
+    const handleKeyPress = (event) => {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    };
+
     // Event listeners
     elements.openModalBtn.addEventListener('click', openModal);
     elements.textArea.addEventListener('click', openModal);
     elements.closeModalBtn.addEventListener('click', closeModal);
     window.addEventListener('click', handleOutsideClick);
+    document.addEventListener('keydown', handleKeyPress);
 });

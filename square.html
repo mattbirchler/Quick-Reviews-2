@@ -308,6 +308,10 @@
       <div class="the_shortcut">&#8984; + S</div>
       <div class="the_description">Save image</div>
     </div>
+    <div class="example_shortcut command_shortcut shift_shortcut">
+      <div class="the_shortcut">&#8984; + Shift + C</div>
+      <div class="the_description">Copy review text</div>
+    </div>
     <div class="example_shortcut command_shortcut">
       <div class="the_shortcut">&#8984; + 1 2 3 4</div>
       <div class="the_description">Set score</div>
@@ -520,20 +524,6 @@ function exportDivAsPNG() {
     }
   });
 });
-
-
-  if (!navigator.userAgent.includes('Safari') || navigator.userAgent.includes('Chrome')) {
-    $("#alert_clipboard").css("top", "20px");
-    $("#alert_clipboard").css("transform", "scale(1)");
-    $("#alert_clipboard").css("opacity", "1.0");
-    $("#alert_clipboard").delay(3000).queue(function() {
-      // Code to execute after the pause
-      $("#alert_clipboard").css("top", "-40px");
-      $("#alert_clipboard").css("transform", "scale(0.3)");
-      $("#alert_clipboard").css("opacity", "0.0");
-      $(this).dequeue();
-    });
-  }
 
   // $("#review").css("display", "none");
 }
