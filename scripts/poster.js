@@ -3,7 +3,13 @@
  * This script handles two main functionalities:
  * 1. Uploading images through a file input
  * 2. Pasting images directly from clipboard
+ * 
+ * Note: Includes size limit checks and compression for large images
  */
+
+// Constants for image handling
+const MAX_IMAGE_SIZE = 4 * 1024 * 1024; // 4MB limit
+const STORAGE_KEY = "poster_image";
 
 // Wait for the DOM to be fully loaded before running
 document.addEventListener('DOMContentLoaded', initializeImageUploader);
@@ -21,7 +27,11 @@ function initializeImageUploader() {
   imageUploader.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (isValidImageFile(file)) {
-      processImageFile(file, imageContainer);
+      if (file.size > MAX_IMAGE_SIZE) {
+        compressImage(file, imageContainer);
+      } else {
+        processImageFile(file, imageContainer);
+      }
     }
   });
 }
@@ -36,6 +46,52 @@ function isValidImageFile(file) {
 }
 
 /**
+ * Compresses an image using canvas
+ * @param {File} file - The image file to compress
+ * @param {HTMLElement} container - The container element to display the image
+ */
+function compressImage(file, container) {
+  console.log('Compressing image...');
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Calculate new dimensions while maintaining aspect ratio
+      let width = img.width;
+      let height = img.height;
+      const maxDimension = 1200;
+
+      if (width > height && width > maxDimension) {
+        height = (height * maxDimension) / width;
+        width = maxDimension;
+      } else if (height > maxDimension) {
+        width = (width * maxDimension) / height;
+        height = maxDimension;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      // Draw and compress
+      ctx.drawImage(img, 0, 0, width, height);
+      const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7); // Adjust quality here (0.7 = 70% quality)
+
+      try {
+        updateImageDisplay(container, `url(${compressedDataUrl})`);
+        saveImageToStorage(`url(${compressedDataUrl})`);
+      } catch (error) {
+        handleStorageError(error);
+      }
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/**
  * Processes an image file and updates the UI
  * @param {File} file - The image file to process
  * @param {HTMLElement} container - The container element to display the image
@@ -45,8 +101,12 @@ function processImageFile(file, container) {
   
   reader.onload = (event) => {
     const imageUrl = `url(${event.target.result})`;
-    updateImageDisplay(container, imageUrl);
-    saveImageToStorage(imageUrl);
+    try {
+      updateImageDisplay(container, imageUrl);
+      saveImageToStorage(imageUrl);
+    } catch (error) {
+      handleStorageError(error);
+    }
   };
   
   reader.readAsDataURL(file);
@@ -64,16 +124,27 @@ function updateImageDisplay(container, imageUrl) {
 }
 
 /**
+ * Handles storage-related errors
+ * @param {Error} error - The error to handle
+ */
+function handleStorageError(error) {
+  console.error('Storage error:', error);
+  const alert = document.getElementById('alert');
+  if (alert) {
+    alert.textContent = 'Failed to save image. The image might be too large.';
+    alert.style.display = 'flex';
+  }
+}
+
+/**
  * Saves the image URL to localStorage
  * @param {string} imageUrl - The image URL to save
  */
 function saveImageToStorage(imageUrl) {
   try {
-    localStorage.setItem("poster_image", imageUrl);
+    localStorage.setItem(STORAGE_KEY, imageUrl);
   } catch (error) {
-    console.log('Setting local storage failed:', error);
-    // Show alert to user
-    document.getElementById('alert').style.display = 'flex';
+    throw new Error('Storage quota exceeded');
   }
 }
 
@@ -88,7 +159,11 @@ function handleImagePaste(event) {
   for (const item of items) {
     if (item.type.indexOf("image") !== -1) {
       const file = item.getAsFile();
-      convertPastedImageToBase64(file);
+      if (file.size > MAX_IMAGE_SIZE) {
+        compressImage(file, document.getElementById('poster'));
+      } else {
+        convertPastedImageToBase64(file);
+      }
       break;
     }
   }
@@ -106,8 +181,12 @@ function convertPastedImageToBase64(file) {
     const base64 = dataURL.split(",")[1];
     const imageForStorage = `url(data:image/jpeg;base64,${base64})`;
     
-    localStorage.setItem("poster_image", imageForStorage);
-    location.reload();
+    try {
+      localStorage.setItem(STORAGE_KEY, imageForStorage);
+      location.reload();
+    } catch (error) {
+      handleStorageError(error);
+    }
   };
   
   reader.readAsDataURL(file);
