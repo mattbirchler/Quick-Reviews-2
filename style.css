@@ -115,6 +115,10 @@ h1 {
   border-radius: 10px;
 }
 
+#site_title {
+  display: flex;
+}
+
 #helper {
   color: #ffffff;
   display: flex;
