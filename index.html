@@ -594,18 +594,24 @@ $(document).ready(function () {
     }
     if (localStorage.getItem("media_title")) {
         $("#title").html(localStorage.getItem("media_title"));
+        $("#modal_text_title").val(localStorage.getItem("media_title"));
     } else {
         localStorage.setItem("media_title", "The Title Goes Here");
+        $("#modal_text_title").val(localStorage.getItem("media_title"));
     }
     if (localStorage.getItem("media_meta")) {
         $("#meta").html(localStorage.getItem("media_meta"));
+        $("#modal_text_meta").val(localStorage.getItem("media_meta"));
     } else {
         localStorage.setItem("media_meta", "2024 - Director Name");
+        $("#modal_text_meta").val(localStorage.getItem("media_meta"));
     }
     if (localStorage.getItem("media_review")) {
         $("#text").html(localStorage.getItem("media_review"));
+        $("#modal_text_text").val(localStorage.getItem("media_review"));
     } else {
         localStorage.setItem("media_review", "This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.");
+        $("#modal_text_text").val(localStorage.getItem("media_review"));
     }
     if (localStorage.getItem("text_size_title")) {
         $("#title").css("font-size", localStorage.getItem("text_size_title") + "px");
