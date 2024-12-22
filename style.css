@@ -243,6 +243,28 @@ h1 {
   font-family: Oxygen;
 }
 
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+.skip-to-content:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
+
+#review_text:focus {
+  border: 2px solid #007bff; /* Adds a blue border on focus */
+  border-radius: 4px; /* Optional: Adds rounded corners to the border */
+}
+
 #beta_notice {
   text-align: center;
   color: white;
@@ -433,6 +455,11 @@ h1 {
   transform-origin: top left;
   background-position: center;
   background-size: cover;
+}
+
+#image-uploader:focus {
+  border: 9px solid #007bff;
+  opacity: 1.0;
 }
 
 #image-uploader {

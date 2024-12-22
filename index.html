@@ -68,6 +68,13 @@
     Reviewing music? Try the <a href="square.html">square art layout</a> currently in beta.
   </div>
 
+  <button 
+    class="skip-to-content" 
+    onclick="document.getElementById('image-uploader').focus()"
+    aria-label="Skip theme selection">
+    Skip to review
+  </button>
+
   <div class="custom" id="theme_list" role="group" aria-label="Theme selection buttons">
     <button class="theme_button" id="theme_1" aria-label="Home theme - Dark blue" title="Home theme" style="background-color: #2B384F; color: white; border: none">
       🏠
@@ -105,12 +112,16 @@
 
   <div id="review">
     <div id="top">
-      <div id="poster">
-        <input type="file" id="image-uploader" accept="image/*">
-        <!-- <img src="https://a.ltrbxd.com/resized/alternative-poster/5/1/8/3/8/p/skA4xsoaIsryNkeLhjtMQkK3NLR-0-1000-0-1500-crop.jpg?v=3d72d9588f"> -->
+      <div id="poster" role="region" aria-label="Poster image upload area">
+        <input 
+          type="file" 
+          id="image-uploader" 
+          accept="image/*"
+          aria-label="Upload poster image"
+          tabindex="0">
       </div>
 
-      <div id="review_text">
+      <div id="review_text" tabindex="0" role="region" aria-labelledby="review text">
         <div id="title">
           The Title Goes Here
         </div>
@@ -121,13 +132,58 @@
           This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
         </div>
       </div>
+      
     </div>
 
-    <div id="bottom">
-      <div class="score animate__animated" id="poor">Didn't Like It</div>
-      <div class="score animate__animated" id="solid">Decent</div>
-      <div class="score animate__animated" id="good">Liked It</div>
-      <div class="score animate__animated" id="great" onclick=(party.confetti(this));>
+    <script>
+      document.getElementById('review_text').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault(); // Prevent default behavior for the Space key
+          this.click(); // Simulate a click
+        }
+      });
+    </script>
+
+    <div id="bottom" role="radiogroup" aria-label="Rate your experience">
+      <div 
+        class="score animate__animated" 
+        id="poor"
+        role="radio"
+        tabindex="0"
+        aria-checked="false"
+        aria-label="Rate as: Didn't Like It"
+        onkeypress="if(event.key === 'Enter') this.click()">
+        Didn't Like It
+      </div>
+      <div 
+        class="score animate__animated" 
+        id="solid"
+        role="radio"
+        tabindex="0"
+        aria-checked="false"
+        aria-label="Rate as: Decent"
+        onkeypress="if(event.key === 'Enter') this.click()">
+        Decent
+      </div>
+      <div 
+        class="score animate__animated" 
+        id="good"
+        role="radio"
+        tabindex="0"
+        aria-checked="false"
+        aria-label="Rate as: Liked It"
+        onkeypress="if(event.key === 'Enter') this.click()">
+        Liked It
+      </div>
+      <div 
+        class="score animate__animated" 
+        id="great"
+        role="radio"
+        tabindex="0"
+        aria-checked="false"
+        aria-label="Rate as: Loved It"
+        onkeypress="if(event.key === 'Enter') this.click()"
+        onclick="party.confetti(this);">
         Loved It!
       </div>
     </div>
