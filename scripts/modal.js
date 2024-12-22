@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const closeModal = () => {
         elements.modal.style.display = 'none';
+        document.querySelector('#review_text').focus();
     };
 
     /**
