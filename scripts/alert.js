@@ -1,11 +1,16 @@
-function updateAlertText(value) {
-    const alertSpan = document.querySelector('#alert_clipboard span');
-    if (alertSpan) {
-        alertSpan.textContent = value;
-    }
-}
+// function updateAlertText(value) {
+//     const alertSpan = document.querySelector('#alert_clipboard span');
+//     if (alertSpan) {
+//         alertSpan.textContent = value;
+//     }
+// }
 
-function showHideAlert(delayMs = 3000) {
+function showAlert(text, delayMs = 3000) {
+  const alertSpan = document.querySelector('#alert_clipboard span');
+  if (alertSpan) {
+    alertSpan.textContent = text;
+  }
+
   if (!navigator.userAgent.includes('Safari') || navigator.userAgent.includes('Chrome')) {
     $("#alert_clipboard")
       .css({

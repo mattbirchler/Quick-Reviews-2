@@ -168,8 +168,7 @@ function copyReviewToClipboard() {
       console.error("Failed to copy text: ", err);
     });
 
-    updateAlertText("Review text copied");
-    showHideAlert();
+    showAlert("Review text copied");
   } else {
     console.log("No content found in localStorage for 'media_review'.");
   }
