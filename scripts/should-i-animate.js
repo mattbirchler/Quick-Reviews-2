@@ -30,6 +30,7 @@ function clearLastVisitTime() {
 document.addEventListener('keydown', (e) => {
     if (e.metaKey && e.shiftKey && e.key === '.') {
         clearLastVisitTime();
+        showAlert('Last visit time cleared');
     }
 });
 
