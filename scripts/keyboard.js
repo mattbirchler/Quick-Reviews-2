@@ -2,6 +2,30 @@ window.addEventListener('keydown', handleKeyDown);
 document.addEventListener('keydown', highlightShiftKey);
 document.addEventListener('keyup', removeShiftKeyHighlight);
 
+let commandPalette = null;
+let selectedIndex = 0;
+
+const commands = [
+  {
+    label: 'Save Review Image',
+    shortcut: '⌘S',
+    action: () => exportImageShortcut()
+  },
+  {
+    label: 'Copy Review Text',
+    shortcut: '⌘⇧C', 
+    action: () => copyReviewToClipboard()
+  },
+  {
+    label: 'Clear Last Visit Time',
+    shortcut: '⌘⇧.',
+    action: () => {
+      clearLastVisitTime();
+      showAlert('Last visit time cleared');
+    }
+  }
+];
+
 function handleKeyDown(event) {
   const commandKeyPressed = event.metaKey || event.ctrlKey;
   const shiftKeyPressed = event.shiftKey;
@@ -64,6 +88,12 @@ function handleKeyDown(event) {
       event.preventDefault();
       saveData();
       triggerClickById('close_modal');
+      break;
+
+    // Command + 'K'
+    case commandKeyPressed && (event.key === 'k' || event.key === 'K'):
+      event.preventDefault();
+      showCommandPalette();
       break;
 
     default:
@@ -179,5 +209,90 @@ document.addEventListener("keydown", function (event) {
   if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.code === "KeyC") {
     event.preventDefault();
     copyReviewToClipboard();
+  }
+});
+
+function createCommandPalette() {
+  const palette = document.createElement('div');
+  palette.className = 'command-palette';
+  
+  commands.forEach((cmd, i) => {
+    const item = document.createElement('div');
+    item.className = 'command-item';
+    item.innerHTML = `
+      <span>${cmd.label}</span>
+      <span class="shortcut-hint">${cmd.shortcut}</span>
+    `;
+    item.onclick = () => {
+      cmd.action();
+      hideCommandPalette();
+    };
+    palette.appendChild(item);
+  });
+
+  document.body.appendChild(palette);
+  return palette;
+}
+
+function showCommandPalette() {
+  if (!commandPalette) {
+    commandPalette = createCommandPalette();
+  }
+  selectedIndex = 0;
+  updateSelectedItem();
+  commandPalette.classList.add('show');
+  commandPalette.setAttribute('tabindex', '-1');  // Make focusable
+  commandPalette.focus();  // Set focus to palette
+}
+
+function hideCommandPalette() {
+  if (commandPalette) {
+    commandPalette.classList.remove('show');
+  }
+}
+
+function updateSelectedItem() {
+  const items = commandPalette.querySelectorAll('.command-item');
+  items.forEach((item, i) => {
+    if (i === selectedIndex) {
+      item.classList.add('selected');
+      item.scrollIntoView({ block: 'nearest' });
+    } else {
+      item.classList.remove('selected');
+    }
+  });
+}
+
+// Add new keyboard handlers for the palette
+document.addEventListener('keydown', (e) => {
+  if (!commandPalette?.classList.contains('show')) return;
+  
+  switch(e.key) {
+    case 'ArrowDown':
+      e.preventDefault();
+      selectedIndex = (selectedIndex + 1) % commands.length;
+      updateSelectedItem();
+      break;
+    case 'ArrowUp':
+      e.preventDefault();
+      selectedIndex = (selectedIndex - 1 + commands.length) % commands.length;
+      updateSelectedItem();
+      break;
+    case 'Enter':
+      e.preventDefault();
+      commands[selectedIndex].action();
+      hideCommandPalette();
+      break;
+    case 'Escape':
+      e.preventDefault();
+      hideCommandPalette();
+      break;
+  }
+});
+
+// Close palette when clicking outside
+document.addEventListener('click', (e) => {
+  if (commandPalette && !commandPalette.contains(e.target)) {
+    hideCommandPalette();
   }
 });
