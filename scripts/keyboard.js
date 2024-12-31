@@ -23,6 +23,13 @@ const commands = [
       clearLastVisitTime();
       showAlert('Last visit time cleared');
     }
+  },
+  {
+    label: 'Reset Review Info',
+    shortcut: '',
+    action: () => {
+      clearAllContent();
+    }
   }
 ];
 
@@ -296,3 +303,10 @@ document.addEventListener('click', (e) => {
     hideCommandPalette();
   }
 });
+
+function clearAllContent() {
+  const itemsToClear = ['media_meta', 'media_title', 'media_review', 'poster_image'];
+  itemsToClear.forEach(item => localStorage.removeItem(item));
+  showAlert('All content cleared');
+  window.location.reload();
+}
