@@ -35,6 +35,7 @@
   <script src="scripts/poster.js"></script>
   <script src="scripts/tinycolor.js"></script>
   <script src="scripts/should-i-animate.js"></script>
+  <script src="scripts/alert.js"></script>
 
   <!-- Analytics & Verification -->
   <script defer data-domain="quickreviews.app" src="https://plausible.io/js/script.js"></script>
@@ -334,7 +335,7 @@
       <div class="the_shortcut">&#8984; + S</div>
       <div class="the_description">Save image</div>
     </div>
-    <div class="example_shortcut command_shortcut shift_shortcut">
+    <div class="example_shortcut command_shortcut shift_shortcut clickable_shortcut" id="copy_review" onclick="copyReviewToClipboard()">
       <div class="the_shortcut">&#8984; + Shift + C</div>
       <div class="the_description">Copy review text</div>
     </div>

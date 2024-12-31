@@ -151,46 +151,34 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
-// Add a keydown event listener for the document
+// Create reusable copy function
+function copyReviewToClipboard() {
+  const htmlContent = localStorage.getItem("media_review");
+
+  if (htmlContent) {
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = htmlContent;
+
+    const htmlWithLineBreaks = tempDiv.innerHTML.replace(/<br\s*\/?>/gi, "\n");
+    const plainText = htmlWithLineBreaks.replace(/<\/?[^>]+(>|$)/g, "");
+
+    navigator.clipboard.writeText(plainText).then(() => {
+      console.log("Text copied to clipboard!");
+    }).catch(err => {
+      console.error("Failed to copy text: ", err);
+    });
+
+    updateAlertText("Review text copied");
+    showHideAlert();
+  } else {
+    console.log("No content found in localStorage for 'media_review'.");
+  }
+}
+
+// Keyboard event listener
 document.addEventListener("keydown", function (event) {
-  // Check if the key combination is Command+Shift+C or Ctrl+Shift+C
   if ((event.metaKey || event.ctrlKey) && event.shiftKey && event.code === "KeyC") {
-    // Prevent the browser's default behavior (e.g., opening the console)
     event.preventDefault();
-    // Retrieve the HTML text from localStorage
-    const htmlContent = localStorage.getItem("media_review");
-
-    if (htmlContent) {
-      // Create a temporary DOM element to parse the HTML
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = htmlContent;
-
-      // Replace <br> tags with actual line breaks
-      const htmlWithLineBreaks = tempDiv.innerHTML.replace(/<br\s*\/?>/gi, "\n");
-
-      // Extract plain text, now with line breaks preserved
-      const plainText = htmlWithLineBreaks.replace(/<\/?[^>]+(>|$)/g, "");
-
-      // Copy the plain text to the clipboard
-      navigator.clipboard.writeText(plainText).then(() => {
-        console.log("Text copied to clipboard!");
-      }).catch(err => {
-        console.error("Failed to copy text: ", err);
-      });
-    } else {
-      console.log("No content found in localStorage for 'media_review'.");
-    }
-    if (!navigator.userAgent.includes('Safari') || navigator.userAgent.includes('Chrome')) {
-      $("#alert_clipboard").css("top", "20px");
-      $("#alert_clipboard").css("transform", "scale(1)");
-      $("#alert_clipboard").css("opacity", "1.0");
-      $("#alert_clipboard").delay(3000).queue(function() {
-        // Code to execute after the pause
-        $("#alert_clipboard").css("top", "-40px");
-        $("#alert_clipboard").css("transform", "scale(0.3)");
-        $("#alert_clipboard").css("opacity", "0.0");
-        $(this).dequeue();
-      });
-    }
+    copyReviewToClipboard();
   }
 });
