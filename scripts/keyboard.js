@@ -30,6 +30,15 @@ const commands = [
     action: () => {
       clearAllContent();
     }
+  },
+  {
+    label: 'You were never here (delete all data)',
+    shortcut: '',
+    action: () => {
+      localStorage.clear();
+      clearAllContent();
+      showAlert('All data has been wiped');
+    }
   }
 ];
 
