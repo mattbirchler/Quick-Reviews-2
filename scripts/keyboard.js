@@ -32,7 +32,7 @@ const commands = [
     }
   },
   {
-    label: 'You were never here (delete all data)',
+    label: 'You were never here (delete all saved data)',
     shortcut: '',
     action: () => {
       localStorage.clear();

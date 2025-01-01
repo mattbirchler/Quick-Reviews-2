@@ -486,7 +486,6 @@ h1 {
   font-size: 48px;
   font-weight: 525;
   height: 57px;
-  letter-spacing: 0.5px;
 }
 
 #meta {
@@ -494,7 +493,6 @@ h1 {
   font-size: 28px;
   height: 39px;
   font-weight: 700;
-  letter-spacing: 0.5px;
 }
 
 #text {
@@ -504,7 +502,6 @@ h1 {
   width: 565px;
   height: 300px;
   margin-top: 10px;
-  letter-spacing: 0.5px;
 }
 
 /* Review Scores */
