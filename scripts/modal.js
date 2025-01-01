@@ -6,11 +6,13 @@
  */
 window.openModal = () => {
     const modal = document.getElementById('modal');
-    // Convert HTML line breaks to newlines for textarea
     const reviewText = localStorage.getItem('media_review').split("<br/>").join("\n");
     
-    // Display modal and populate form fields
     modal.style.display = 'block';
+    // Add show class after a brief delay to trigger animation
+    requestAnimationFrame(() => {
+        modal.classList.add('show');
+    });
     
     // Using jQuery to set values and focus
     $('#modal_text_title')
@@ -35,7 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
      * Closes the modal by setting its display style to 'none'
      */
     const closeModal = () => {
-        elements.modal.style.display = 'none';
+        const modal = elements.modal;
+        modal.classList.remove('show');
+        // Wait for animation to finish before hiding
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 200);
         document.querySelector('#review_text').focus();
     };
 
