@@ -4,6 +4,24 @@
  * The modal can be triggered by either clicking an edit button or the review text area.
  * Press ESC key to close the modal without saving changes.
  */
+window.openModal = () => {
+    const modal = document.getElementById('modal');
+    // Convert HTML line breaks to newlines for textarea
+    const reviewText = localStorage.getItem('media_review').split("<br/>").join("\n");
+    
+    // Display modal and populate form fields
+    modal.style.display = 'block';
+    
+    // Using jQuery to set values and focus
+    $('#modal_text_title')
+        .val(localStorage.getItem('media_title'))
+        .focus();
+    $('#modal_text_meta')
+        .val(localStorage.getItem('media_meta'));
+    $('#modal_text_text')
+        .val(reviewText);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM element references
     const elements = {
@@ -11,27 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         openModalBtn: document.getElementById('edit_title'),
         closeModalBtn: document.getElementById('close_modal'),
         textArea: document.getElementById('review_text')
-    };
-
-    /**
-     * Opens the modal and populates it with data from localStorage
-     * Converts line breaks from HTML (<br/>) to newline characters
-     */
-    const openModal = () => {
-        // Convert HTML line breaks to newlines for textarea
-        const reviewText = localStorage.getItem('media_review').split("<br/>").join("\n");
-        
-        // Display modal and populate form fields
-        elements.modal.style.display = 'block';
-        
-        // Using jQuery to set values and focus
-        $('#modal_text_title')
-            .val(localStorage.getItem('media_title'))
-            .focus();
-        $('#modal_text_meta')
-            .val(localStorage.getItem('media_meta'));
-        $('#modal_text_text')
-            .val(reviewText);
     };
 
     /**

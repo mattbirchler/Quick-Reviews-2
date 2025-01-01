@@ -7,6 +7,11 @@ let selectedIndex = 0;
 
 const commands = [
   {
+    label: 'Edit Review',
+    shortcut: '⌘E',
+    action: () => openModal()
+  },
+  {
     label: 'Save Review Image',
     shortcut: '⌘S',
     action: () => exportImageShortcut()
@@ -47,6 +52,12 @@ function handleKeyDown(event) {
   const shiftKeyPressed = event.shiftKey;
 
   switch (true) {
+    // Command + 'E'
+    case commandKeyPressed && (event.key === 'E' || event.key === 'e'):
+      event.preventDefault();
+      openModal();
+      break;
+
     // Command or Shift + 'S'
     case commandKeyPressed && (event.key === 'S' || event.key === 's'):
       event.preventDefault();
