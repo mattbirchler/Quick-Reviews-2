@@ -239,9 +239,11 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function createCommandPalette() {
-  const palette = document.createElement('div');
-  palette.className = 'command-palette';
+function initCommandPalette() {
+  if (commandPalette) return; // Only create once
+  
+  commandPalette = document.createElement('div');
+  commandPalette.className = 'command-palette';
   
   commands.forEach((cmd, i) => {
     const item = document.createElement('div');
@@ -254,16 +256,15 @@ function createCommandPalette() {
       cmd.action();
       hideCommandPalette();
     };
-    palette.appendChild(item);
+    commandPalette.appendChild(item);
   });
 
-  document.body.appendChild(palette);
-  return palette;
+  document.body.appendChild(commandPalette);
 }
 
 function showCommandPalette() {
   if (!commandPalette) {
-    commandPalette = createCommandPalette();
+    initCommandPalette();
   }
   selectedIndex = 0;
   updateSelectedItem();
@@ -330,3 +331,6 @@ function clearAllContent() {
   showAlert('All content cleared');
   window.location.reload();
 }
+
+// Initialize palette when page loads
+document.addEventListener('DOMContentLoaded', initCommandPalette);
