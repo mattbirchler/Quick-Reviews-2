@@ -99,6 +99,26 @@ html {
   opacity: 0.8;
 }
 
+.command-palette-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: rgb(33, 33, 33);
+  border: 1px solid #ffffff30;
+  border-radius: 6px;
+  color: #fff;
+  font-family: "Noto Sans", "Fira Sans", Oxygen;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.command-palette-button:hover {
+  background: #ffffff15;
+  border-color: #A6FF00;
+}
+
 h1 {
   font-family: "Noto Sans", "Fira Sans", Belanosima, "Bueno Bold", "PP Rader Variable", sans-serif;
   text-align: center;
@@ -779,6 +799,13 @@ h1 {
   transition: all 0.2s ease;
   outline: none;
 }
+
+/* .command-palette {
+  background: red !important;
+  opacity: 1 !important;
+  pointer-events: all !important;
+  z-index: 9999 !important;
+} */
 
 .command-palette.show {
   opacity: 1;

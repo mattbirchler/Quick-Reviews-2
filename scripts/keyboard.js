@@ -242,6 +242,9 @@ document.addEventListener("keydown", function (event) {
 function initCommandPalette() {
   if (commandPalette) return; // Only create once
   
+  // Add debug logging
+  console.log('Initializing command palette');
+  
   commandPalette = document.createElement('div');
   commandPalette.className = 'command-palette';
   
@@ -260,18 +263,33 @@ function initCommandPalette() {
   });
 
   document.body.appendChild(commandPalette);
+  console.log('Command palette initialized:', !!commandPalette);
 }
 
+// In your showCommandPalette function
 function showCommandPalette() {
   if (!commandPalette) {
     initCommandPalette();
   }
   selectedIndex = 0;
   updateSelectedItem();
-  commandPalette.classList.add('show');
-  commandPalette.setAttribute('tabindex', '-1');  // Make focusable
-  commandPalette.focus();  // Set focus to palette
+  
+  // Use setTimeout to ensure this runs after the current event cycle
+  setTimeout(() => {
+    $(commandPalette).addClass('show');
+    commandPalette.setAttribute('tabindex', '-1');
+    commandPalette.focus();
+  }, 0);
 }
+
+// And modify your click-outside handler to ignore clicks from the button
+document.addEventListener('click', (e) => {
+  if (commandPalette && 
+      !commandPalette.contains(e.target) && 
+      !e.target.matches('.reset_button_real')) {  // Add this check
+    hideCommandPalette();
+  }
+});
 
 function hideCommandPalette() {
   if (commandPalette) {
