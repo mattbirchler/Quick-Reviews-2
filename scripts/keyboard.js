@@ -337,7 +337,13 @@ function updateSelectedItem() {
   items.forEach((item, i) => {
     if (i === selectedIndex) {
       item.classList.add('selected');
-      item.scrollIntoView({ block: 'nearest' });
+      if (i === 0) {
+        commandPalette.scrollTop = 0;
+      } else if (i === items.length - 1) {
+        commandPalette.scrollTop = commandPalette.scrollHeight;
+      } else {
+        item.scrollIntoView({ block: 'nearest' });
+      }
     } else {
       item.classList.remove('selected');
     }
