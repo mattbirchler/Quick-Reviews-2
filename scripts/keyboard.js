@@ -22,6 +22,41 @@ const commands = [
     action: () => copyReviewToClipboard()
   },
   {
+    label: `Set score: ${localStorage.getItem('quick_score_1') || 'Poor'}`,
+    shortcut: '⌘1',
+    action: () => triggerClickById('poor')
+  },
+  {
+    label: `Set score: ${localStorage.getItem('quick_score_2') || 'Solid'}`,
+    shortcut: '⌘2',
+    action: () => triggerClickById('solid')
+  },
+  {
+    label: `Set score: ${localStorage.getItem('quick_score_3') || 'Good'}`,
+    shortcut: '⌘3',
+    action: () => triggerClickById('good')
+  },
+  {
+    label: `Set score: ${localStorage.getItem('quick_score_4') || 'Great'}`,
+    shortcut: '⌘4',
+    action: () => triggerClickById('great')
+  },
+  {
+    label: 'Increase Font Size',
+    shortcut: '⇧↑',
+    action: () => adjustFontSize(1)
+  },
+  {
+    label: 'Decrease Font Size', 
+    shortcut: '⇧↓',
+    action: () => adjustFontSize(-1)
+  },
+  {
+    label: 'Reset Font Size',
+    shortcut: '⇧←/→',
+    action: () => resetFontSizeForDevice()
+  },
+  {
     label: 'Clear Last Visit Time',
     shortcut: '⌘⇧.',
     action: () => {
@@ -253,7 +288,7 @@ function initCommandPalette() {
     item.className = 'command-item';
     item.innerHTML = `
       <span>${cmd.label}</span>
-      <span class="shortcut-hint">${cmd.shortcut}</span>
+      <span class="shortcut-hint" style="opacity: ${cmd.shortcut ? '100%' : '0%'}">${cmd.shortcut}</span>
     `;
     item.onclick = () => {
       cmd.action();

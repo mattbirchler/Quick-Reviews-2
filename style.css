@@ -792,12 +792,15 @@ h1 {
   border-radius: 8px;
   width: 500px;
   max-width: 90vw;
+  max-height: 240px;
   padding: 12px;
   z-index: 1000;
   opacity: 0;
   pointer-events: none;
   transition: all 0.2s ease;
   outline: none;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 /* .command-palette {
@@ -836,6 +839,10 @@ h1 {
 .shortcut-hint {
   opacity: 0.5;
   font-size: 0.9em;
+  background: #ffffff30;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.25em;
 }
 
 /* Screenshots bit */
