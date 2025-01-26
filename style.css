@@ -588,6 +588,10 @@ h1 {
   margin: 50px 0 50px 0;
 }
 
+#made_by a {
+  color: #ffffff;
+}
+
 #links {
   display: flex;
   align-items: center;
