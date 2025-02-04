@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App Usage Analytics</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .metrics-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .last-update {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        @keyframes fadeTransition {
+            from { opacity: 0.6; }
+            to { opacity: 1; }
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .metric-card {
+            padding: 15px;
+            border-radius: 6px;
+            background: #f8f9fa;
+        }
+        .metric-title {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .metric-trend {
+            font-size: 0.9rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .trend-up {
+            background: #e3f7e3;
+            color: #2e7d32;
+        }
+        .trend-down {
+            background: #fce4e4;
+            color: #c62828;
+        }
+        .chart-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .pie-charts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .pie-chart-container {
+            flex: 1;
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="metrics-container">
+        <h2>Key Metrics <span id="last-update" class="last-update"></span></h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-title">Reviews Past 7 Days</div>
+                <div class="metric-value" id="current-week-reviews">-</div>
+                <div class="metric-trend" id="review-trend">-</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-title">Daily Average (Past Week)</div>
+                <div class="metric-value" id="daily-average">-</div>
+                <div class="metric-trend" id="average-trend">-</div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-container">
+        <h2>Daily Actions</h2>
+        <canvas id="dailyChart"></canvas>
+    </div>
+    <div class="pie-charts">
+        <div class="chart-container pie-chart-container">
+            <h2>Premium vs Free Users</h2>
+            <canvas id="premiumChart"></canvas>
+        </div>
+        <div class="chart-container pie-chart-container">
+            <h2>Media Types</h2>
+            <canvas id="mediaChart"></canvas>
+        </div>
+        <div class="chart-container pie-chart-container">
+            <h2>Accent Colors</h2>
+            <canvas id="colorChart"></canvas>
+        </div>
+        <div class="chart-container pie-chart-container">
+            <h2>Device Types</h2>
+            <canvas id="deviceChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let charts = {
+            dailyChart: null,
+            premiumChart: null,
+            mediaChart: null,
+            colorChart: null,
+            deviceChart: null
+        };
+
+        // Function to process CSV data
+        function processData(csvText) {
+            const lines = csvText.trim().split('\n');
+            const headers = lines[0].split(',');
+            const data = lines.slice(1).map(line => {
+                const values = line.split(',');
+                return {
+                    timestamp: values[0],
+                    mediaType: values[1],
+                    deviceType: values[2],
+                    isPremium: values[3] === 'true',
+                    action: values[4],
+                    color: values[6] || 'unknown'
+                };
+            });
+
+            // Process weekly metrics
+            const now = new Date();
+            const oneWeekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+            const twoWeeksAgo = new Date(now - 14 * 24 * 60 * 60 * 1000);
+
+            const reviewsLastWeek = data.filter(row => {
+                const date = new Date(row.timestamp);
+                return date >= oneWeekAgo && date <= now && row.action === 'savedReview';
+            }).length;
+
+            const reviewsPriorWeek = data.filter(row => {
+                const date = new Date(row.timestamp);
+                return date >= twoWeeksAgo && date < oneWeekAgo && row.action === 'savedReview';
+            }).length;
+
+            const percentChange = ((reviewsLastWeek - reviewsPriorWeek) / reviewsPriorWeek * 100).toFixed(1);
+            const dailyAverage = (reviewsLastWeek / 7).toFixed(1);
+            const priorDailyAverage = (reviewsPriorWeek / 7).toFixed(1);
+            const averageChange = ((dailyAverage - priorDailyAverage) / priorDailyAverage * 100).toFixed(1);
+
+            // Update metrics display
+            document.getElementById('current-week-reviews').textContent = reviewsLastWeek;
+            const reviewTrendEl = document.getElementById('review-trend');
+            reviewTrendEl.textContent = `${percentChange}% vs prior week`;
+            reviewTrendEl.className = `metric-trend ${percentChange >= 0 ? 'trend-up' : 'trend-down'}`;
+
+            document.getElementById('daily-average').textContent = dailyAverage;
+            const averageTrendEl = document.getElementById('average-trend');
+            averageTrendEl.textContent = `${averageChange}% vs prior week`;
+            averageTrendEl.className = `metric-trend ${averageChange >= 0 ? 'trend-up' : 'trend-down'}`;
+
+            // Process daily actions
+            const dailyActions = data.reduce((acc, row) => {
+                const date = row.timestamp.split(' ')[0];
+                acc[date] = (acc[date] || 0) + 1;
+                return acc;
+            }, {});
+
+            // Process premium vs free actions
+            const premiumStats = data.reduce((acc, row) => {
+                const key = row.isPremium ? 'Premium' : 'Free';
+                acc[key] = (acc[key] || 0) + 1;
+                return acc;
+            }, {});
+
+            // Process media types
+            const mediaStats = data.reduce((acc, row) => {
+                acc[row.mediaType] = (acc[row.mediaType] || 0) + 1;
+                return acc;
+            }, {});
+
+            // Process accent colors
+            const colorStats = data.reduce((acc, row) => {
+                const color = row.color === 'unknown' ? 'Default' : row.color.charAt(0).toUpperCase() + row.color.slice(1);
+                acc[color] = (acc[color] || 0) + 1;
+                return acc;
+            }, {});
+
+            // Process device types
+            const deviceStats = data.reduce((acc, row) => {
+                acc[row.deviceType] = (acc[row.deviceType] || 0) + 1;
+                return acc;
+            }, {});
+
+            return { dailyActions, premiumStats, mediaStats, colorStats, deviceStats };
+        }
+
+        // Function to create charts
+        function createCharts(data) {
+            // Destroy existing charts before creating new ones
+            Object.values(charts).forEach(chart => {
+                if (chart) chart.destroy();
+            });
+
+            // Daily actions chart
+            charts.dailyChart = new Chart(document.getElementById('dailyChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.dailyActions),
+                    datasets: [{
+                        label: 'Number of Actions',
+                        data: Object.values(data.dailyActions),
+                        backgroundColor: '#4CAF50',
+                        borderColor: '#388E3C',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Premium vs Free chart
+            charts.premiumChart = new Chart(document.getElementById('premiumChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.premiumStats),
+                    datasets: [{
+                        data: Object.values(data.premiumStats),
+                        backgroundColor: ['#2196F3', '#FFC107']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+
+            // Media types chart
+            charts.mediaChart = new Chart(document.getElementById('mediaChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.mediaStats),
+                    datasets: [{
+                        data: Object.values(data.mediaStats),
+                        backgroundColor: [
+                            '#FF5722',  // movie
+                            '#9C27B0',  // tv show
+                            '#009688',  // game
+                            '#795548',  // book
+                            '#00BCD4',  // app
+                            '#607D8B'   // other
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+
+            // Accent colors chart
+            const colorToHex = {
+                'Pink': '#E91E63',
+                'Blue': '#2196F3',
+                'Red': '#F44336',
+                'Orange': '#FF9800',
+                'Green': '#4CAF50',
+                'Yellow': '#FFEB3B',
+                'Purple': '#9C27B0',
+                'Default': '#757575'
+            };
+
+            const colorChart = new Chart(document.getElementById('colorChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.colorStats),
+                    datasets: [{
+                        data: Object.values(data.colorStats),
+                        backgroundColor: Object.keys(data.colorStats).map(color => colorToHex[color] || '#757575')
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+
+            // Device types chart
+            charts.deviceChart = new Chart(document.getElementById('deviceChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.deviceStats),
+                    datasets: [{
+                        data: Object.values(data.deviceStats),
+                        backgroundColor: [
+                            '#3498db',  // iPhone
+                            '#2ecc71'   // iPad
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to process metrics only
+        function processMetrics(data) {
+            const now = new Date();
+            const oneWeekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
+            const twoWeeksAgo = new Date(now - 14 * 24 * 60 * 60 * 1000);
+
+            const reviewsLastWeek = data.filter(row => {
+                const date = new Date(row.timestamp);
+                return date >= oneWeekAgo && date <= now && row.action === 'savedReview';
+            }).length;
+
+            const reviewsPriorWeek = data.filter(row => {
+                const date = new Date(row.timestamp);
+                return date >= twoWeeksAgo && date < oneWeekAgo && row.action === 'savedReview';
+            }).length;
+
+            const percentChange = ((reviewsLastWeek - reviewsPriorWeek) / reviewsPriorWeek * 100).toFixed(1);
+            const dailyAverage = (reviewsLastWeek / 7).toFixed(1);
+            const priorDailyAverage = (reviewsPriorWeek / 7).toFixed(1);
+            const averageChange = ((dailyAverage - priorDailyAverage) / priorDailyAverage * 100).toFixed(1);
+
+            return {
+                reviewsLastWeek,
+                percentChange,
+                dailyAverage,
+                averageChange
+            };
+        }
+
+        // Function to update only metrics
+        function updateMetricsDisplay(metrics) {
+            document.getElementById('current-week-reviews').textContent = metrics.reviewsLastWeek;
+            const reviewTrendEl = document.getElementById('review-trend');
+            reviewTrendEl.textContent = `${metrics.percentChange}% vs prior week`;
+            reviewTrendEl.className = `metric-trend ${metrics.percentChange >= 0 ? 'trend-up' : 'trend-down'}`;
+
+            document.getElementById('daily-average').textContent = metrics.dailyAverage;
+            const averageTrendEl = document.getElementById('average-trend');
+            averageTrendEl.textContent = `${metrics.averageChange}% vs prior week`;
+            averageTrendEl.className = `metric-trend ${metrics.averageChange >= 0 ? 'trend-up' : 'trend-down'}`;
+        }
+
+        // Function to update last refresh time
+        function updateLastRefreshTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('last-update').textContent = `(Last updated: ${timeString})`;
+        }
+
+        // Function to fetch and update only metrics
+        async function fetchMetrics() {
+            const metricsContainer = document.querySelector('.metrics-container');
+            metricsContainer.classList.add('loading');
+            
+            try {
+                const response = await fetch('https://quickreviews.app/ios-logs.csv');
+                const csvText = await response.text();
+                const data = csvText.trim().split('\n').slice(1).map(line => {
+                    const values = line.split(',');
+                    return {
+                        timestamp: values[0],
+                        action: values[4]
+                    };
+                });
+                
+                const metrics = processMetrics(data);
+                updateMetricsDisplay(metrics);
+                updateLastRefreshTime();
+            } catch (error) {
+                console.error('Error fetching metrics:', error);
+            } finally {
+                metricsContainer.classList.remove('loading');
+            }
+        }
+
+        // Function to fetch and process all data (for charts)
+        async function fetchAllData() {
+            const chartContainers = document.querySelectorAll('.chart-container');
+            chartContainers.forEach(container => container.classList.add('loading'));
+            
+            try {
+                const response = await fetch('https://quickreviews.app/ios-logs.csv');
+                const csvText = await response.text();
+                const processedData = processData(csvText);
+                createCharts(processedData);
+            } catch (error) {
+                console.error('Error fetching or processing data:', error);
+                const processedData = processData(document.querySelector('pre').textContent);
+                createCharts(processedData);
+            } finally {
+                chartContainers.forEach(container => container.classList.remove('loading'));
+            }
+        }
+
+        // Initialize dashboard
+        fetchAllData();  // Initial load of everything
+        fetchMetrics();  // Initial load of metrics
+        
+        // Set up auto-refresh for metrics only
+        setInterval(fetchMetrics, 60000);  // Refresh metrics every 60 seconds
+        
+        // Optional: Refresh charts less frequently
+        setInterval(fetchAllData, 300000);  // Refresh charts every 5 minutes
+    </script>
+</body>
+</html>

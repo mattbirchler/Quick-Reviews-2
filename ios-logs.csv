@@ -1,0 +1,723 @@
+Timestamp,MediaType,DeviceType,IsPremium,action,records,accentColor
+2025-01-26 15:08:39,movie,iPhone,true,clearHistory,283
+2025-01-26 15:09:41,movie,iPhone,true,importReviews,283
+2025-01-26 15:14:55,movie,iPhone,true,savedReview,0
+2025-01-26 15:24:29,movie,iPad,false,savedReview,0
+2025-01-26 15:34:01,movie,iPhone,false,clearHistory,0
+2025-01-26 16:03:34,tv show,iPhone,false,savedReview,0
+2025-01-26 16:04:04,tv show,iPhone,false,savedReview,0
+2025-01-26 16:07:29,movie,iPhone,true,savedReview,0
+2025-01-26 16:10:45,movie,iPhone,true,savedReview,0
+2025-01-26 16:10:54,tv show,iPhone,true,savedReview,0
+2025-01-26 16:13:38,tv show,iPhone,true,savedReview,0
+2025-01-26 16:18:05,tv show,iPhone,true,savedReview,0
+2025-01-26 16:20:18,movie,iPhone,true,savedReview,0
+2025-01-26 16:20:48,tv show,iPhone,true,savedReview,0
+2025-01-26 16:20:56,movie,iPhone,true,savedReview,0
+2025-01-26 16:22:02,movie,iPhone,true,savedReview,0
+2025-01-26 16:23:02,movie,iPhone,true,savedReview,0
+2025-01-26 16:23:23,tv show,iPhone,true,savedReview,0
+2025-01-26 16:26:22,tv show,iPhone,true,savedReview,0
+2025-01-26 16:26:46,tv show,iPhone,true,savedReview,0
+2025-01-26 16:30:12,tv show,iPhone,true,savedReview,0
+2025-01-26 16:33:42,tv show,iPhone,true,savedReview,0
+2025-01-26 16:35:40,tv show,iPhone,true,savedReview,0
+2025-01-26 16:50:47,tv show,iPhone,true,savedReview,0
+2025-01-26 16:51:21,tv show,iPhone,true,savedReview,0
+2025-01-26 16:51:50,tv show,iPhone,true,savedReview,0
+2025-01-26 16:53:47,tv show,iPhone,true,savedReview,0
+2025-01-26 16:54:07,tv show,iPhone,true,savedReview,0
+2025-01-26 16:54:56,tv show,iPhone,true,savedReview,0
+2025-01-26 16:58:20,tv show,iPhone,true,savedReview,0
+2025-01-26 17:01:10,tv show,iPhone,true,savedReview,0
+2025-01-26 17:02:03,tv show,iPhone,true,savedReview,0
+2025-01-26 17:06:49,tv show,iPhone,true,savedReview,0
+2025-01-26 17:07:01,tv show,iPhone,true,savedReview,0
+2025-01-26 17:12:04,tv show,iPhone,true,savedReview,0
+2025-01-26 17:13:24,tv show,iPhone,true,savedReview,0
+2025-01-26 17:15:02,tv show,iPhone,true,savedReview,0
+2025-01-26 17:15:15,tv show,iPhone,true,savedReview,0
+2025-01-26 17:17:56,tv show,iPhone,true,savedReview,0
+2025-01-26 23:00:00,movie,iPhone,true,savedReview,0
+2025-01-27 01:17:43,movie,iPhone,true,savedReview,0
+2025-01-27 01:25:27,movie,iPhone,true,savedReview,0
+2025-01-27 01:27:11,movie,iPhone,true,savedReview,0
+2025-01-27 14:59:52,movie,iPhone,true,savedReview,0
+2025-01-27 15:04:22,movie,iPhone,true,savedReview,0
+2025-01-27 15:05:01,movie,iPhone,true,savedReview,0
+2025-01-27 15:10:22,movie,iPhone,true,savedReview,0
+2025-01-27 15:11:45,movie,iPhone,true,savedReview,0
+2025-01-27 15:16:08,movie,iPhone,true,savedReview,0
+2025-01-27 15:17:15,movie,iPhone,true,savedReview,0
+2025-01-27 15:17:43,movie,iPhone,true,savedReview,0
+2025-01-27 15:20:42,movie,iPad,false,exportReviews,0
+2025-01-27 15:22:12,movie,iPad,false,clearHistory,0
+2025-01-27 15:25:27,movie,iPad,false,exportReviews,0
+2025-01-27 15:35:47,movie,iPhone,true,savedReview,0
+2025-01-27 15:36:14,movie,iPhone,true,savedReview,0
+2025-01-27 15:36:48,movie,iPhone,true,savedReview,0
+2025-01-28 02:09:40,movie,iPhone,false,clearHistory,0
+2025-01-28 02:10:15,movie,iPhone,false,exportReviews,0
+2025-01-28 02:12:50,movie,iPhone,false,exportReviews,0
+2025-01-28 11:17:01,movie,iPad,false,savedReview,0
+2025-01-29 00:24:44,movie,iPhone,true,savedReview,0
+2025-01-29 12:43:05,movie,iPhone,true,importReviews,285
+2025-01-29 12:43:12,movie,iPhone,true,savedReview,0
+2025-01-29 12:44:37,movie,iPhone,true,savedReview,0
+2025-01-29 12:50:24,movie,iPhone,true,savedReview,0
+2025-01-29 12:55:01,movie,iPhone,true,savedReview,0
+2025-01-29 18:14:02,movie,iPhone,true,savedReview,0
+2025-01-29 21:42:45,movie,iPhone,true,savedReview,0
+2025-01-29 21:48:06,movie,iPhone,false,savedReview,0
+2025-01-29 21:55:46,movie,iPhone,true,savedReview,0
+2025-01-29 22:13:22,movie,iPhone,true,savedReview,0
+2025-01-29 23:58:55,movie,iPad,false,exportReviews,0
+2025-01-30 00:13:07,tv show,iPhone,true,savedReview,0
+2025-01-30 02:58:03,movie,iPhone,true,savedReview,0
+2025-01-30 02:58:17,movie,iPhone,true,savedReview,0
+2025-01-30 03:33:21,movie,iPhone,true,savedReview,0
+2025-01-30 16:31:51,movie,iPhone,true,savedReview,0
+2025-01-30 22:11:09,movie,iPhone,false,savedReview,0
+2025-02-01 00:08:00,movie,iPhone,false,savedReview,0
+2025-02-01 00:19:30,movie,iPhone,false,savedReview,0
+2025-02-01 00:25:10,movie,iPhone,false,savedReview,0
+2025-02-01 00:28:24,movie,iPhone,false,savedReview,0
+2025-02-01 02:12:55,movie,iPhone,false,savedReview,0
+2025-02-01 02:13:54,movie,iPhone,false,savedReview,0
+2025-02-01 02:24:05,movie,iPhone,false,savedReview,0
+2025-02-01 02:24:19,movie,iPhone,false,savedReview,0
+2025-02-01 02:26:23,movie,iPhone,false,savedReview,0
+2025-02-01 02:32:50,movie,iPhone,false,savedReview,0
+2025-02-01 02:38:36,movie,iPhone,false,savedReview,0
+2025-02-01 02:47:13,movie,iPhone,false,savedReview,0
+2025-02-01 02:47:41,movie,iPhone,false,savedReview,0
+2025-02-01 12:58:17,movie,iPhone,true,savedReview,0
+2025-02-01 13:06:35,movie,iPhone,true,savedReview,0
+2025-02-01 13:06:48,movie,iPhone,true,savedReview,0
+2025-02-01 13:26:02,movie,iPhone,true,savedReview,0
+2025-02-01 13:26:39,movie,iPhone,true,savedReview,0
+2025-02-01 16:37:39,movie,iPhone,false,savedReview,0
+2025-02-01 16:49:37,movie,iPhone,true,savedReview,0
+2025-02-01 16:49:59,movie,iPhone,true,savedReview,0
+2025-02-01 16:50:51,movie,iPhone,true,savedReview,0
+2025-02-01 16:56:06,movie,iPhone,true,savedReview,0
+2025-02-01 16:58:35,movie,iPhone,true,savedReview,0
+2025-02-01 16:59:38,movie,iPhone,true,savedReview,0
+2025-02-01 17:45:37,movie,iPhone,true,savedReview,0
+2025-02-01 17:47:26,movie,iPhone,true,savedReview,0
+2025-02-01 18:01:23,movie,iPhone,true,savedReview,0
+2025-02-01 18:01:42,movie,iPhone,true,savedReview,0
+2025-02-01 19:13:02,movie,iPhone,true,savedReview,0
+2025-02-01 19:21:15,movie,iPhone,true,savedReview,0
+2025-02-01 19:21:28,movie,iPhone,true,savedReview,0
+2025-02-01 19:21:43,movie,iPhone,true,savedReview,0
+2025-02-01 19:25:28,movie,iPhone,true,savedReview,0
+2025-02-01 19:26:18,movie,iPhone,true,savedReview,0
+2025-02-01 19:26:29,movie,iPhone,true,savedReview,0
+2025-02-01 19:26:35,movie,iPhone,true,savedReview,0
+2025-02-01 19:29:38,movie,iPhone,true,savedReview,0
+2025-02-01 19:34:09,movie,iPhone,true,savedReview,0
+2025-02-01 19:36:32,movie,iPhone,true,savedReview,0
+2025-02-01 19:41:19,movie,iPhone,true,savedReview,0
+2025-02-01 19:42:36,movie,iPhone,true,savedReview,0
+2025-02-01 19:42:49,movie,iPhone,true,savedReview,0
+2025-02-01 19:44:30,movie,iPhone,true,savedReview,0
+2025-02-01 20:00:25,movie,iPhone,true,savedReview,0
+2025-02-01 20:01:32,movie,iPhone,true,savedReview,0
+2025-02-01 20:05:58,movie,iPhone,true,savedReview,0
+2025-02-01 20:07:09,movie,iPhone,true,savedReview,0
+2025-02-01 20:13:23,movie,iPhone,true,savedReview,0
+2025-02-01 20:14:51,movie,iPhone,true,savedReview,0
+2025-02-01 20:27:27,movie,iPhone,true,savedReview,0
+2025-02-01 20:28:15,movie,iPhone,true,savedReview,0
+2025-02-01 20:28:26,movie,iPhone,true,savedReview,0
+2025-02-01 20:34:43,movie,iPhone,true,savedReview,0
+2025-02-01 20:38:46,movie,iPhone,true,savedReview,0
+2025-02-01 20:54:17,movie,iPhone,true,savedReview,0
+2025-02-01 20:59:29,movie,iPhone,true,savedReview,0
+2025-02-01 20:59:57,movie,iPhone,true,savedReview,0
+2025-02-01 21:00:01,movie,iPhone,true,savedReview,0
+2025-02-01 21:00:22,movie,iPhone,true,savedReview,0
+2025-02-01 21:03:41,movie,iPhone,true,savedReview,0
+2025-02-01 21:03:59,movie,iPhone,true,savedReview,0
+2025-02-01 21:07:23,movie,iPhone,true,savedReview,0
+2025-02-01 21:07:41,movie,iPhone,true,savedReview,0
+2025-02-01 21:15:00,movie,iPhone,true,savedReview,0
+2025-02-01 21:15:20,movie,iPhone,true,savedReview,0
+2025-02-01 22:28:02,movie,iPhone,true,savedReview,0
+2025-02-01 22:29:05,movie,iPhone,true,savedReview,0
+2025-02-01 22:33:51,movie,iPhone,true,savedReview,0
+2025-02-01 22:34:16,movie,iPhone,true,savedReview,0
+2025-02-01 22:38:07,movie,iPhone,true,savedReview,0
+2025-02-01 22:38:35,movie,iPhone,true,savedReview,0
+2025-02-01 22:41:32,movie,iPhone,true,savedReview,0
+2025-02-01 22:43:47,movie,iPhone,true,savedReview,0
+2025-02-01 22:48:26,movie,iPhone,true,savedReview,0
+2025-02-01 22:48:38,movie,iPhone,true,savedReview,0
+2025-02-01 22:48:52,movie,iPhone,true,savedReview,0
+2025-02-01 22:49:03,movie,iPhone,true,savedReview,0
+2025-02-01 22:49:11,movie,iPhone,true,savedReview,0
+2025-02-01 22:49:27,movie,iPhone,true,savedReview,0
+2025-02-01 22:49:35,movie,iPhone,true,savedReview,0
+2025-02-01 22:49:51,movie,iPhone,true,savedReview,0
+2025-02-01 22:50:18,movie,iPhone,true,savedReview,0
+2025-02-01 22:50:58,movie,iPhone,true,savedReview,0
+2025-02-01 22:51:07,movie,iPhone,true,savedReview,0
+2025-02-01 22:51:20,movie,iPhone,true,savedReview,0
+2025-02-01 22:52:02,movie,iPhone,true,savedReview,0
+2025-02-01 22:52:59,movie,iPhone,true,savedReview,0
+2025-02-01 22:53:04,movie,iPhone,true,savedReview,0
+2025-02-01 22:57:08,movie,iPhone,true,savedReview,0
+2025-02-01 22:57:24,movie,iPhone,true,savedReview,0
+2025-02-01 22:57:36,movie,iPhone,true,savedReview,0
+2025-02-01 22:58:09,movie,iPhone,true,savedReview,0
+2025-02-01 22:58:40,movie,iPhone,true,savedReview,0
+2025-02-01 23:01:16,movie,iPhone,true,savedReview,0
+2025-02-01 23:01:27,movie,iPhone,true,savedReview,0
+2025-02-01 23:01:49,movie,iPhone,true,savedReview,0
+2025-02-01 23:02:14,movie,iPhone,false,savedReview,0
+2025-02-02 00:07:33,movie,iPhone,true,savedReview,0
+2025-02-02 10:36:07,movie,iPad,true,savedReview,0
+2025-02-02 10:36:40,movie,iPad,true,savedReview,0
+2025-02-02 13:07:11,movie,iPhone,true,savedReview,0
+2025-02-02 13:27:02,movie,iPhone,true,savedReview,0
+2025-02-02 13:27:23,movie,iPhone,true,exportReviews,284
+2025-02-02 13:39:48,movie,iPhone,true,savedReview,0
+2025-02-02 13:51:38,movie,iPhone,false,importReviews,284
+2025-02-02 13:52:02,movie,iPhone,false,savedReview,0
+2025-02-02 13:52:16,movie,iPhone,false,savedReview,0
+2025-02-02 13:52:56,movie,iPhone,false,savedReview,0
+2025-02-02 14:00:23,movie,iPhone,false,savedReview,0
+2025-02-02 14:00:29,movie,iPhone,false,savedReview,0
+2025-02-02 14:00:36,movie,iPhone,false,savedReview,0
+2025-02-02 14:00:43,movie,iPhone,false,savedReview,0
+2025-02-02 14:43:36,movie,iPhone,true,savedReview,0
+2025-02-02 14:53:41,movie,iPhone,true,letterboxdImport,8
+2025-02-02 14:55:34,movie,iPhone,true,letterboxdImport,499
+2025-02-02 14:57:47,movie,iPhone,true,savedReview,0
+2025-02-02 15:01:07,movie,iPhone,true,savedReview,0
+2025-02-02 15:09:20,movie,iPhone,true,savedReview,0
+2025-02-02 15:21:56,movie,iPad,false,savedReview,0
+2025-02-02 15:22:42,movie,iPad,false,savedReview,0
+2025-02-02 15:24:48,tv show,iPhone,true,savedReview,0
+2025-02-02 15:27:45,tv show,iPhone,true,savedReview,0
+2025-02-02 15:28:58,tv show,iPhone,true,savedReview,0
+2025-02-02 15:31:04,tv show,iPhone,true,savedReview,0
+2025-02-02 15:45:00,tv show,iPhone,true,savedReview,0
+2025-02-02 15:45:47,tv show,iPhone,true,savedReview,0
+2025-02-02 16:01:28,movie,iPhone,true,savedReview,0
+2025-02-02 16:02:11,movie,iPhone,true,savedReview,0
+2025-02-02 16:02:51,movie,iPhone,true,savedReview,0
+2025-02-02 16:03:43,movie,iPhone,false,savedReview,0
+2025-02-02 16:40:16,movie,iPhone,true,savedReview,0
+2025-02-02 17:25:49,movie,iPhone,true,savedReview,0
+2025-02-02 17:29:02,movie,iPhone,true,savedReview,0
+2025-02-02 17:40:44,movie,iPhone,false,savedReview,0
+2025-02-02 17:43:17,movie,iPhone,true,savedReview,0
+2025-02-02 17:43:49,movie,iPhone,false,savedReview,0
+2025-02-02 17:49:22,movie,iPhone,true,savedReview,0
+2025-02-02 17:49:38,movie,iPhone,true,savedReview,0
+2025-02-02 17:50:46,movie,iPhone,true,savedReview,0
+2025-02-02 17:50:50,movie,iPhone,true,savedReview,0
+2025-02-02 17:50:59,movie,iPhone,true,savedReview,0
+2025-02-02 17:51:43,movie,iPhone,false,clearHistory,0
+2025-02-02 17:51:56,movie,iPhone,true,savedReview,0
+2025-02-02 17:52:30,movie,iPhone,true,savedReview,0
+2025-02-02 17:53:07,movie,iPhone,true,savedReview,0
+2025-02-02 17:54:53,movie,iPhone,true,savedReview,0
+2025-02-02 17:56:11,movie,iPhone,true,savedReview,0
+2025-02-02 17:56:39,movie,iPad,true,clearHistory,10
+2025-02-02 17:56:47,movie,iPhone,false,savedReview,0
+2025-02-02 17:56:52,movie,iPad,true,importReviews,284
+2025-02-02 17:57:26,movie,iPhone,true,savedReview,0
+2025-02-02 17:58:54,movie,iPhone,false,savedReview,0
+2025-02-02 17:58:59,movie,iPhone,true,savedReview,0
+2025-02-02 17:59:28,movie,iPhone,false,savedReview,0
+2025-02-02 18:02:49,movie,iPhone,false,exportReviews,0
+2025-02-02 18:05:22,movie,iPad,false,savedReview,0
+2025-02-02 18:13:12,movie,iPhone,false,exportReviews,0
+2025-02-02 18:15:06,game,iPhone,true,savedReview,0
+2025-02-02 18:15:55,game,iPhone,true,savedReview,0
+2025-02-02 18:17:18,game,iPhone,true,savedReview,0
+2025-02-02 18:17:35,movie,iPhone,false,savedReview,0
+2025-02-02 18:18:56,game,iPhone,true,savedReview,0
+2025-02-02 18:19:22,game,iPhone,true,savedReview,0
+2025-02-02 18:20:43,game,iPhone,true,savedReview,0
+2025-02-02 18:20:53,game,iPhone,true,savedReview,0
+2025-02-02 18:20:59,game,iPhone,true,savedReview,0
+2025-02-02 18:22:14,movie,iPhone,false,savedReview,0
+2025-02-02 18:22:45,movie,iPhone,false,savedReview,0
+2025-02-02 18:22:49,movie,iPhone,true,savedReview,0
+2025-02-02 18:24:07,movie,iPad,true,savedReview,0
+2025-02-02 18:24:35,movie,iPhone,true,savedReview,0
+2025-02-02 18:24:57,movie,iPhone,true,savedReview,0
+2025-02-02 18:42:24,movie,iPad,true,savedReview,0
+2025-02-02 18:44:48,movie,iPhone,false,savedReview,0
+2025-02-02 18:49:28,movie,iPad,false,savedReview,0
+2025-02-02 18:56:00,movie,iPhone,false,savedReview,0
+2025-02-02 18:59:34,movie,iPhone,false,savedReview,0
+2025-02-02 19:06:38,movie,iPhone,false,savedReview,0
+2025-02-02 19:07:14,movie,iPhone,false,savedReview,0
+2025-02-02 19:14:13,movie,iPhone,true,savedReview,0
+2025-02-02 19:16:29,movie,iPhone,true,savedReview,0
+2025-02-02 19:18:51,movie,iPhone,true,savedReview,0
+2025-02-02 19:19:35,movie,iPhone,false,savedReview,0
+2025-02-02 19:19:42,movie,iPhone,false,savedReview,0
+2025-02-02 19:19:48,movie,iPhone,false,savedReview,0
+2025-02-02 19:19:55,movie,iPhone,false,savedReview,0
+2025-02-02 19:22:27,movie,iPhone,true,savedReview,0
+2025-02-02 19:23:00,movie,iPhone,false,savedReview,0
+2025-02-02 19:24:12,movie,iPhone,false,savedReview,0
+2025-02-02 19:24:19,movie,iPhone,false,savedReview,0
+2025-02-02 19:24:47,movie,iPhone,true,savedReview,0
+2025-02-02 19:25:03,movie,iPhone,true,savedReview,0
+2025-02-02 19:25:16,movie,iPhone,true,savedReview,0
+2025-02-02 19:25:41,movie,iPhone,true,savedReview,0
+2025-02-02 19:26:45,movie,iPhone,false,savedReview,0
+2025-02-02 19:27:09,movie,iPhone,false,savedReview,0
+2025-02-02 19:27:14,movie,iPhone,false,savedReview,0
+2025-02-02 19:27:20,movie,iPhone,true,exportReviews,1
+2025-02-02 19:27:50,movie,iPhone,true,savedReview,0
+2025-02-02 19:27:51,movie,iPhone,false,savedReview,0
+2025-02-02 19:28:07,movie,iPhone,true,savedReview,0
+2025-02-02 19:28:34,movie,iPhone,false,savedReview,0
+2025-02-02 19:28:51,movie,iPhone,true,savedReview,0
+2025-02-02 19:33:05,movie,iPad,false,savedReview,0
+2025-02-02 19:34:54,movie,iPhone,false,savedReview,0
+2025-02-02 19:34:58,movie,iPad,false,savedReview,0
+2025-02-02 19:35:06,movie,iPhone,false,savedReview,0
+2025-02-02 19:39:26,movie,iPhone,false,savedReview,0
+2025-02-02 19:40:34,movie,iPhone,false,savedReview,0
+2025-02-02 19:41:30,movie,iPhone,true,savedReview,0
+2025-02-02 19:42:07,movie,iPhone,true,savedReview,0
+2025-02-02 19:43:02,movie,iPhone,true,savedReview,0
+2025-02-02 19:43:42,book,iPhone,false,savedReview,0
+2025-02-02 19:44:51,movie,iPhone,true,savedReview,0
+2025-02-02 19:46:32,movie,iPhone,false,savedReview,0
+2025-02-02 19:46:54,movie,iPhone,false,savedReview,0
+2025-02-02 19:47:52,movie,iPhone,false,savedReview,0
+2025-02-02 19:47:54,movie,iPhone,false,savedReview,0
+2025-02-02 19:48:18,movie,iPhone,false,savedReview,0
+2025-02-02 19:48:30,movie,iPhone,false,exportReviews,1
+2025-02-02 19:56:25,movie,iPhone,false,savedReview,0
+2025-02-02 20:00:21,movie,iPhone,false,savedReview,0
+2025-02-02 20:01:40,movie,iPhone,false,savedReview,0
+2025-02-02 20:02:37,movie,iPad,false,savedReview,0
+2025-02-02 20:03:06,movie,iPad,false,savedReview,0
+2025-02-02 20:03:13,movie,iPad,false,savedReview,0
+2025-02-02 20:03:19,movie,iPad,false,savedReview,0
+2025-02-02 20:03:25,movie,iPad,false,savedReview,0
+2025-02-02 20:05:11,movie,iPad,false,savedReview,0
+2025-02-02 20:05:41,movie,iPhone,true,savedReview,0
+2025-02-02 20:06:50,movie,iPad,false,savedReview,0
+2025-02-02 20:07:07,movie,iPad,false,savedReview,0
+2025-02-02 20:20:29,movie,iPhone,false,savedReview,0
+2025-02-02 20:20:47,movie,iPhone,false,savedReview,0
+2025-02-02 20:21:56,movie,iPhone,true,savedReview,0
+2025-02-02 20:23:54,book,iPhone,false,savedReview,0
+2025-02-02 20:27:22,movie,iPad,true,savedReview,0
+2025-02-02 20:28:22,movie,iPad,true,savedReview,0
+2025-02-02 20:31:08,movie,iPad,true,savedReview,0
+2025-02-02 20:51:41,movie,iPhone,true,letterboxdImport,88
+2025-02-02 20:53:23,movie,iPhone,true,savedReview,0
+2025-02-02 20:54:12,movie,iPhone,true,savedReview,0
+2025-02-02 20:54:29,movie,iPhone,true,savedReview,0
+2025-02-02 20:54:43,movie,iPhone,true,savedReview,0
+2025-02-02 20:55:20,movie,iPhone,true,savedReview,0
+2025-02-02 20:55:46,movie,iPhone,true,savedReview,0
+2025-02-02 20:55:59,movie,iPhone,true,savedReview,0
+2025-02-02 20:56:24,movie,iPhone,false,savedReview,0
+2025-02-02 20:58:25,movie,iPhone,false,savedReview,0
+2025-02-02 20:58:37,movie,iPhone,true,savedReview,0
+2025-02-02 20:59:55,movie,iPhone,true,savedReview,0
+2025-02-02 21:03:06,movie,iPhone,false,savedReview,0
+2025-02-02 21:04:09,movie,iPhone,false,savedReview,0
+2025-02-02 21:17:41,movie,iPhone,false,savedReview,0
+2025-02-02 21:20:53,movie,iPhone,false,savedReview,0
+2025-02-02 21:26:18,movie,iPad,false,savedReview,0
+2025-02-02 21:29:36,movie,iPad,false,savedReview,0
+2025-02-02 21:31:19,movie,iPad,false,savedReview,0
+2025-02-02 21:35:45,movie,iPad,false,savedReview,0
+2025-02-02 21:45:57,movie,iPad,false,exportReviews,0
+2025-02-02 21:46:09,movie,iPhone,false,savedReview,0
+2025-02-02 21:46:14,movie,iPhone,false,savedReview,0
+2025-02-02 21:46:29,movie,iPhone,false,savedReview,0
+2025-02-02 21:53:03,movie,iPhone,false,savedReview,0,orange
+2025-02-02 21:55:14,movie,iPad,false,savedReview,0,unknown
+2025-02-02 22:00:26,movie,iPad,false,savedReview,0,unknown
+2025-02-02 22:01:38,movie,iPad,false,savedReview,0,unknown
+2025-02-02 22:01:46,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 22:02:44,movie,iPhone,true,savedReview,0,unknown
+2025-02-02 22:03:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-02 22:09:02,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 22:12:37,movie,iPhone,true,savedReview,0,unknown
+2025-02-02 22:16:40,movie,iPhone,true,savedReview,0,unknown
+2025-02-02 22:43:15,tv show,iPhone,true,savedReview,0,unknown
+2025-02-02 23:15:46,movie,iPad,false,savedReview,0,unknown
+2025-02-02 23:33:56,movie,iPad,false,savedReview,0,unknown
+2025-02-02 23:35:03,movie,iPad,false,savedReview,0,unknown
+2025-02-02 23:36:10,movie,iPad,false,savedReview,0,unknown
+2025-02-02 23:36:19,movie,iPhone,true,savedReview,0,unknown
+2025-02-02 23:44:14,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 23:46:54,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 23:48:05,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 23:49:29,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 23:51:12,movie,iPhone,false,savedReview,0,unknown
+2025-02-02 23:57:33,movie,iPad,false,savedReview,0,unknown
+2025-02-03 00:27:10,movie,iPhone,true,savedReview,0,orange
+2025-02-03 00:28:38,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 00:29:18,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 00:32:05,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:32:19,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:32:42,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:32:50,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:33:07,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:33:29,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:34:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:34:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:35:07,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 00:35:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:35:40,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:35:55,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:36:12,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:37:23,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:37:34,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:38:31,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:40:04,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:41:01,movie,iPhone,true,exportReviews,4,unknown
+2025-02-03 00:41:15,movie,iPhone,true,exportReviews,4,unknown
+2025-02-03 00:41:26,movie,iPhone,true,exportReviews,4,unknown
+2025-02-03 00:43:13,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 00:43:29,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 00:43:42,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:44:03,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:44:17,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:45:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:57:00,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 00:59:35,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:00:09,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:02:17,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:02:51,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:03:46,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:04:09,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:06:32,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 01:08:50,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:11:10,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:19:03,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:20:07,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:24:35,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:29:35,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:30:46,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:31:07,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:31:38,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:32:46,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:33:54,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:34:11,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:34:45,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:37:04,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:37:50,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:38:06,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:38:49,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:39:51,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 01:40:47,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 01:42:36,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:43:34,movie,iPhone,true,savedReview,0,orange
+2025-02-03 01:47:40,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:47:52,movie,iPhone,true,savedReview,0,blue
+2025-02-03 01:48:34,movie,iPhone,true,savedReview,0,blue
+2025-02-03 01:50:03,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 01:53:52,movie,iPhone,true,savedReview,0,blue
+2025-02-03 01:54:34,movie,iPhone,true,savedReview,0,blue
+2025-02-03 01:55:01,movie,iPhone,true,savedReview,0,blue
+2025-02-03 02:00:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:01:01,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:02:10,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:03:34,book,iPhone,false,savedReview,0,unknown
+2025-02-03 02:03:56,movie,iPhone,true,savedReview,0,blue
+2025-02-03 02:04:35,movie,iPhone,true,savedReview,0,blue
+2025-02-03 02:10:40,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 02:13:48,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:14:12,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:14:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:19:15,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 02:22:21,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 02:23:01,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 02:25:39,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 02:26:06,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 02:26:48,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 02:38:58,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 02:42:24,movie,iPad,false,savedReview,0,unknown
+2025-02-03 02:42:54,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 02:43:10,movie,iPad,false,savedReview,0,unknown
+2025-02-03 02:46:49,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:47:18,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:53:53,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 02:54:41,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 03:00:10,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 03:01:36,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 03:07:11,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 03:14:41,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 03:14:57,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 03:15:58,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 04:01:55,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 04:21:39,movie,iPad,true,savedReview,0,unknown
+2025-02-03 04:21:58,movie,iPhone,false,exportReviews,0,unknown
+2025-02-03 04:24:47,movie,iPad,true,savedReview,0,unknown
+2025-02-03 04:29:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 04:36:52,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 04:37:10,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 04:37:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 05:03:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 05:41:22,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 05:41:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 05:44:36,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 05:46:15,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 06:34:04,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 06:34:30,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 06:45:03,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 06:53:04,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 06:54:15,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 06:59:57,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 07:03:43,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 07:04:48,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 07:21:44,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 07:26:41,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 07:30:32,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 07:32:13,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 08:00:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 08:01:16,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 08:07:40,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 08:24:16,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 08:25:10,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 08:25:23,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 08:26:34,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 08:28:59,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 08:30:00,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 09:35:08,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 09:45:18,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 09:46:31,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 09:46:50,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 09:47:09,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 09:50:11,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 09:53:12,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 11:31:53,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 11:50:44,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 11:57:11,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:00:32,movie,iPad,true,savedReview,0,unknown
+2025-02-03 12:04:14,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:36:34,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:38:04,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:38:24,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:39:25,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:42:58,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 12:43:48,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 13:49:45,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 13:50:28,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 13:53:03,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 13:58:35,movie,iPhone,false,clearHistory,0,unknown
+2025-02-03 14:19:00,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 14:21:12,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:22:37,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:28:53,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 14:30:31,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 14:37:02,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 14:37:40,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 14:40:23,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:50:02,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:52:17,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:53:07,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:53:22,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:58:48,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 14:58:49,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 15:13:43,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 15:18:56,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 15:20:51,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 15:26:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 15:28:53,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 15:29:28,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 15:29:50,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 15:39:27,tv show,iPhone,false,savedReview,0,unknown
+2025-02-03 15:50:29,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 15:54:41,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 15:57:18,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 16:28:01,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 16:28:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 16:29:32,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 16:42:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 17:33:55,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 17:34:09,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:00:05,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:05:53,tv show,iPhone,true,savedReview,0,unknown
+2025-02-03 18:16:20,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:17:26,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:18:56,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:19:31,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:26:32,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:33:32,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:35:45,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 18:40:14,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 19:01:30,movie,iPad,false,savedReview,0,unknown
+2025-02-03 19:02:41,movie,iPad,false,savedReview,0,unknown
+2025-02-03 19:03:09,movie,iPad,false,savedReview,0,unknown
+2025-02-03 19:33:23,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 19:33:43,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 19:55:13,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 20:01:39,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 20:27:36,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 20:39:56,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 21:02:55,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 22:38:48,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 22:38:52,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 22:51:06,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:04:22,movie,iPhone,false,clearHistory,287,blue
+2025-02-03 23:06:51,movie,iPhone,true,letterboxdImport,278,blue
+2025-02-03 23:12:02,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:35:39,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:37:08,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:39:33,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:40:39,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:41:12,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:41:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:44:19,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:44:40,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:45:19,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:48:42,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:49:18,movie,iPad,true,exportReviews,2,unknown
+2025-02-03 23:49:36,movie,iPad,true,exportReviews,2,unknown
+2025-02-03 23:50:31,movie,iPhone,true,importReviews,2,unknown
+2025-02-03 23:51:13,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:51:43,movie,iPhone,true,savedReview,0,unknown
+2025-02-03 23:52:07,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:55:40,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:56:01,movie,iPhone,false,savedReview,0,unknown
+2025-02-03 23:56:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 00:05:21,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 00:08:07,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 00:09:14,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 00:23:03,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 00:23:15,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 00:27:56,movie,iPhone,false,clearHistory,0,unknown
+2025-02-04 00:32:37,movie,iPhone,true,exportReviews,278,purple
+2025-02-04 00:40:44,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:00:36,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:02:21,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:04:46,movie,iPhone,false,clearHistory,0,unknown
+2025-02-04 01:04:50,movie,iPhone,false,exportReviews,0,unknown
+2025-02-04 01:05:52,movie,iPad,false,savedReview,0,unknown
+2025-02-04 01:09:47,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 01:12:38,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 01:19:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 01:19:45,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 01:20:48,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 01:34:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 01:49:02,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:50:25,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:51:29,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:51:48,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:53:22,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:53:35,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:53:52,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:54:03,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:55:49,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:56:44,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:58:22,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:59:21,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:59:34,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 01:59:43,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 02:00:05,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 02:02:13,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 02:08:55,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 02:21:34,movie,iPhone,true,letterboxdImport,3,unknown
+2025-02-04 02:22:00,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 02:27:10,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 02:40:00,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 02:40:35,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:02:25,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:02:42,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:05:16,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:10:58,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:12:26,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:13:10,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 03:23:48,movie,iPad,false,savedReview,0,unknown
+2025-02-04 03:35:27,movie,iPhone,true,savedReview,0,purple
+2025-02-04 04:35:20,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 04:43:10,movie,iPad,false,savedReview,0,unknown
+2025-02-04 04:43:46,movie,iPad,false,savedReview,0,unknown
+2025-02-04 05:37:40,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 05:42:23,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 06:05:30,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 06:18:00,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 06:19:56,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 06:24:47,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 06:28:08,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:29:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:30:26,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:31:19,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:34:38,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:38:38,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:57:33,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:58:35,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:59:03,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:59:20,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 06:59:42,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:04:53,movie,iPad,false,savedReview,0,unknown
+2025-02-04 07:07:25,movie,iPad,false,savedReview,0,unknown
+2025-02-04 07:32:13,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:34:30,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:36:56,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:47:29,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:47:58,game,iPhone,false,savedReview,0,unknown
+2025-02-04 07:50:10,game,iPhone,false,savedReview,0,unknown
+2025-02-04 07:54:06,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 07:58:27,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 07:59:09,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 08:14:40,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 08:19:03,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 08:21:21,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 08:21:44,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 08:23:08,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 08:37:11,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 09:01:55,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:02:54,movie,iPhone,false,clearHistory,0,unknown
+2025-02-04 09:25:44,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:27:57,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:28:40,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:35:14,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:38:52,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 09:41:21,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 09:50:25,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:51:46,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:52:15,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:56:58,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 09:59:17,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 10:18:52,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 10:19:08,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 10:20:04,tv show,iPad,true,savedReview,0,unknown
+2025-02-04 10:22:38,tv show,iPad,true,savedReview,0,unknown
+2025-02-04 10:28:29,tv show,iPad,true,savedReview,0,unknown
+2025-02-04 10:43:28,something else,iPhone,false,savedReview,0,unknown
+2025-02-04 10:45:44,something else,iPhone,false,savedReview,0,unknown
+2025-02-04 11:32:48,tv show,iPad,false,savedReview,0,unknown
+2025-02-04 11:34:56,tv show,iPad,false,savedReview,0,unknown
+2025-02-04 11:58:00,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 11:59:10,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:00:13,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 12:01:34,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:02:28,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:03:57,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:04:36,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:05:17,movie,iPad,false,savedReview,0,unknown
+2025-02-04 12:30:39,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 12:33:08,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 12:34:31,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 12:34:42,tv show,iPhone,true,savedReview,0,unknown
+2025-02-04 12:41:20,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 12:51:25,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 12:52:00,movie,iPhone,false,savedReview,0,unknown
+2025-02-04 13:04:04,game,iPhone,true,savedReview,0,unknown
+2025-02-04 13:05:36,movie,iPad,false,savedReview,0,unknown
+2025-02-04 13:12:51,game,iPhone,true,savedReview,0,unknown
+2025-02-04 13:41:12,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 14:23:38,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 14:24:50,movie,iPhone,true,savedReview,0,unknown
+2025-02-04 14:32:28,book,iPhone,false,savedReview,0,unknown
