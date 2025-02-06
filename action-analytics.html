@@ -4,6 +4,48 @@
     <title>App Usage Analytics</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+                color: #e0e0e0;
+            }
+
+            .metrics-container,
+            .chart-container {
+                background: #2d2d2d;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+
+            .metric-card {
+                background: #383838;
+            }
+
+            .metric-title {
+                color: #b0b0b0;
+            }
+
+            .metric-value {
+                color: #e0e0e0;
+            }
+
+            h2 {
+                color: #e0e0e0;
+            }
+
+            .last-update {
+                color: #b0b0b0;
+            }
+
+            .trend-up {
+                background: #1b3a1b;
+                color: #4caf50;
+            }
+
+            .trend-down {
+                background: #3e1c1c;
+                color: #ef5350;
+            }
+        }
         .metrics-container {
             width: 80%;
             max-width: 800px;
@@ -99,14 +141,19 @@
         <h2>Key Metrics <span id="last-update" class="last-update"></span></h2>
         <div class="metrics-grid">
             <div class="metric-card">
+                <div class="metric-title">All Time Reviews</div>
+                <div class="metric-value" id="all-time-reviews">-</div>
+                <div class="metric-trend">Total</div>
+            </div>
+            <div class="metric-card">
                 <div class="metric-title">Reviews Past 7 Days</div>
                 <div class="metric-value" id="current-week-reviews">-</div>
                 <div class="metric-trend" id="review-trend">-</div>
             </div>
             <div class="metric-card">
-                <div class="metric-title">Daily Average (Past Week)</div>
-                <div class="metric-value" id="daily-average">-</div>
-                <div class="metric-trend" id="average-trend">-</div>
+                <div class="metric-title">Images Exported</div>
+                <div class="metric-value" id="exported-images">-</div>
+                <div class="metric-trend">Total</div>
             </div>
         </div>
     </div>
@@ -131,6 +178,10 @@
             <h2>Device Types</h2>
             <canvas id="deviceChart"></canvas>
         </div>
+        <div class="chart-container pie-chart-container">
+            <h2>Image Styles</h2>
+            <canvas id="imageStyleChart"></canvas>
+        </div>
     </div>
 
     <script>
@@ -139,7 +190,8 @@
             premiumChart: null,
             mediaChart: null,
             colorChart: null,
-            deviceChart: null
+            deviceChart: null,
+            imageStyleChart: null
         };
 
         // Function to process CSV data
@@ -149,45 +201,16 @@
             const data = lines.slice(1).map(line => {
                 const values = line.split(',');
                 return {
-                    timestamp: values[0],
-                    mediaType: values[1],
-                    deviceType: values[2],
+                    timestamp: values[0] || '',
+                    mediaType: (values[1] || 'unknown').toLowerCase(),
+                    deviceType: (values[2] || 'unknown').toLowerCase(),
                     isPremium: values[3] === 'true',
-                    action: values[4],
-                    color: values[6] || 'unknown'
+                    action: (values[4] || 'unknown').toLowerCase(),
+                    records: values[5] || '0',
+                    color: (values[6] || 'unknown').toLowerCase(),
+                    imageStyle: (values[7] || 'standard').toLowerCase()  // Always default to 'standard'
                 };
             });
-
-            // Process weekly metrics
-            const now = new Date();
-            const oneWeekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
-            const twoWeeksAgo = new Date(now - 14 * 24 * 60 * 60 * 1000);
-
-            const reviewsLastWeek = data.filter(row => {
-                const date = new Date(row.timestamp);
-                return date >= oneWeekAgo && date <= now && row.action === 'savedReview';
-            }).length;
-
-            const reviewsPriorWeek = data.filter(row => {
-                const date = new Date(row.timestamp);
-                return date >= twoWeeksAgo && date < oneWeekAgo && row.action === 'savedReview';
-            }).length;
-
-            const percentChange = ((reviewsLastWeek - reviewsPriorWeek) / reviewsPriorWeek * 100).toFixed(1);
-            const dailyAverage = (reviewsLastWeek / 7).toFixed(1);
-            const priorDailyAverage = (reviewsPriorWeek / 7).toFixed(1);
-            const averageChange = ((dailyAverage - priorDailyAverage) / priorDailyAverage * 100).toFixed(1);
-
-            // Update metrics display
-            document.getElementById('current-week-reviews').textContent = reviewsLastWeek;
-            const reviewTrendEl = document.getElementById('review-trend');
-            reviewTrendEl.textContent = `${percentChange}% vs prior week`;
-            reviewTrendEl.className = `metric-trend ${percentChange >= 0 ? 'trend-up' : 'trend-down'}`;
-
-            document.getElementById('daily-average').textContent = dailyAverage;
-            const averageTrendEl = document.getElementById('average-trend');
-            averageTrendEl.textContent = `${averageChange}% vs prior week`;
-            averageTrendEl.className = `metric-trend ${averageChange >= 0 ? 'trend-up' : 'trend-down'}`;
 
             // Process daily actions
             const dailyActions = data.reduce((acc, row) => {
@@ -209,7 +232,7 @@
                 return acc;
             }, {});
 
-            // Process accent colors
+            // Process accent colors - capitalize first letter for display
             const colorStats = data.reduce((acc, row) => {
                 const color = row.color === 'unknown' ? 'Default' : row.color.charAt(0).toUpperCase() + row.color.slice(1);
                 acc[color] = (acc[color] || 0) + 1;
@@ -222,11 +245,33 @@
                 return acc;
             }, {});
 
-            return { dailyActions, premiumStats, mediaStats, colorStats, deviceStats };
+            // Count total exported images
+            const exportedImages = data.filter(row => row.action === 'exportedreviewimage').length;
+            
+            // Process image styles - capitalize first letter for display
+            const imageStyleStats = data.reduce((acc, row) => {
+                if (row.action === 'exportedreviewimage') {
+                    // Always use 'Standard' if the value is missing or unknown
+                    const style = (!row.imageStyle || row.imageStyle === 'unknown') ? 'Standard' : 
+                                 row.imageStyle.charAt(0).toUpperCase() + row.imageStyle.slice(1);
+                    acc[style] = (acc[style] || 0) + 1;
+                }
+                return acc;
+            }, {});
+
+            return { dailyActions, premiumStats, mediaStats, colorStats, deviceStats, imageStyleStats, exportedImages };
         }
 
         // Function to create charts
         function createCharts(data) {
+            // Add this at the beginning of createCharts function
+            const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const chartTextColor = isDarkMode ? '#e0e0e0' : '#666666';
+            
+            // Update Chart.js defaults for dark mode
+            Chart.defaults.color = chartTextColor;
+            Chart.defaults.scale.grid.color = isDarkMode ? '#404040' : '#ddd';
+            
             // Destroy existing charts before creating new ones
             Object.values(charts).forEach(chart => {
                 if (chart) chart.destroy();
@@ -252,7 +297,19 @@
                         y: {
                             beginAtZero: true,
                             ticks: {
-                                stepSize: 1
+                                stepSize: 1,
+                                color: chartTextColor
+                            },
+                            grid: {
+                                color: isDarkMode ? '#404040' : '#ddd'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: chartTextColor
+                            },
+                            grid: {
+                                color: isDarkMode ? '#404040' : '#ddd'
                             }
                         }
                     }
@@ -363,6 +420,31 @@
                     }
                 }
             });
+
+            // Image styles chart
+            charts.imageStyleChart = new Chart(document.getElementById('imageStyleChart'), {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.imageStyleStats),
+                    datasets: [{
+                        data: Object.values(data.imageStyleStats),
+                        backgroundColor: [
+                            '#FF6B6B',  // Standard
+                            '#4ECDC4',  // Square
+                            '#45B7D1'   // Showcase
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
+            });
         }
 
         // Function to process metrics only
@@ -371,14 +453,17 @@
             const oneWeekAgo = new Date(now - 7 * 24 * 60 * 60 * 1000);
             const twoWeeksAgo = new Date(now - 14 * 24 * 60 * 60 * 1000);
 
+            // Add this line to count all reviews
+            const allTimeReviews = data.filter(row => row.action === 'savedreview').length;
+
             const reviewsLastWeek = data.filter(row => {
                 const date = new Date(row.timestamp);
-                return date >= oneWeekAgo && date <= now && row.action === 'savedReview';
+                return date >= oneWeekAgo && date <= now && row.action === 'savedreview';
             }).length;
 
             const reviewsPriorWeek = data.filter(row => {
                 const date = new Date(row.timestamp);
-                return date >= twoWeeksAgo && date < oneWeekAgo && row.action === 'savedReview';
+                return date >= twoWeeksAgo && date < oneWeekAgo && row.action === 'savedreview';
             }).length;
 
             const percentChange = ((reviewsLastWeek - reviewsPriorWeek) / reviewsPriorWeek * 100).toFixed(1);
@@ -386,25 +471,28 @@
             const priorDailyAverage = (reviewsPriorWeek / 7).toFixed(1);
             const averageChange = ((dailyAverage - priorDailyAverage) / priorDailyAverage * 100).toFixed(1);
 
+            // Count total exported images
+            const exportedImages = data.filter(row => row.action === 'exportedreviewimage').length;
+
             return {
+                allTimeReviews,
                 reviewsLastWeek,
                 percentChange,
                 dailyAverage,
-                averageChange
+                averageChange,
+                exportedImages
             };
         }
 
         // Function to update only metrics
         function updateMetricsDisplay(metrics) {
+            document.getElementById('all-time-reviews').textContent = metrics.allTimeReviews;
             document.getElementById('current-week-reviews').textContent = metrics.reviewsLastWeek;
+            document.getElementById('exported-images').textContent = metrics.exportedImages;
+            
             const reviewTrendEl = document.getElementById('review-trend');
             reviewTrendEl.textContent = `${metrics.percentChange}% vs prior week`;
             reviewTrendEl.className = `metric-trend ${metrics.percentChange >= 0 ? 'trend-up' : 'trend-down'}`;
-
-            document.getElementById('daily-average').textContent = metrics.dailyAverage;
-            const averageTrendEl = document.getElementById('average-trend');
-            averageTrendEl.textContent = `${metrics.averageChange}% vs prior week`;
-            averageTrendEl.className = `metric-trend ${metrics.averageChange >= 0 ? 'trend-up' : 'trend-down'}`;
         }
 
         // Function to update last refresh time
@@ -425,8 +513,8 @@
                 const data = csvText.trim().split('\n').slice(1).map(line => {
                     const values = line.split(',');
                     return {
-                        timestamp: values[0],
-                        action: values[4]
+                        timestamp: values[0] || '',
+                        action: (values[4] || 'unknown').toLowerCase()
                     };
                 });
                 
@@ -452,8 +540,6 @@
                 createCharts(processedData);
             } catch (error) {
                 console.error('Error fetching or processing data:', error);
-                const processedData = processData(document.querySelector('pre').textContent);
-                createCharts(processedData);
             } finally {
                 chartContainers.forEach(container => container.classList.remove('loading'));
             }
