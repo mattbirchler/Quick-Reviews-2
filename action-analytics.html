@@ -486,9 +486,9 @@
 
         // Function to update only metrics
         function updateMetricsDisplay(metrics) {
-            document.getElementById('all-time-reviews').textContent = metrics.allTimeReviews;
-            document.getElementById('current-week-reviews').textContent = metrics.reviewsLastWeek;
-            document.getElementById('exported-images').textContent = metrics.exportedImages;
+            document.getElementById('all-time-reviews').textContent = metrics.allTimeReviews.toLocaleString();
+            document.getElementById('current-week-reviews').textContent = metrics.reviewsLastWeek.toLocaleString();
+            document.getElementById('exported-images').textContent = metrics.exportedImages.toLocaleString();
             
             const reviewTrendEl = document.getElementById('review-trend');
             reviewTrendEl.textContent = `${metrics.percentChange}% vs prior week`;

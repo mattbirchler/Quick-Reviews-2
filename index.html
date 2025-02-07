@@ -43,9 +43,16 @@
   <a rel="me" href="https://isfeeling.social/@matt" style="display: none">Mastodon</a>
 </head>
 
-<div id="background_image"></div>
-
 <body>
+  <!-- New iOS banner added for one-time appearance -->
+  <div id="ios-banner" style="display:none; position: fixed; top: 0; left: 0; width: 100%; background: #b1fc8c; color: #000; text-align: center; padding: 10px; z-index: 9999; font-family: Oxygen, sans-serif;">
+    Quick Reviews is now available on iOS! 
+    <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank" style="font-weight: bold; color: inherit;">Check it out!</a>
+    <button id="close-ios-banner" aria-label="Dismiss iOS Info" style="margin-left: 20px; border: none; background: none; cursor: pointer;">&#10006;</button>
+  </div>
+
+  <div id="background_image"></div>
+
   <div id="site_name">
     <h1 aria-label="Quick Reviews">
       <a id="site_title" href="https://quickreviews.app">
@@ -352,6 +359,12 @@
 
   <div id="beta_notice">
     Reviewing music? Try the <a href="square.html">square art layout</a> currently in beta.
+  </div>
+
+  <div id="app_store">
+    <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank">
+      <img src="app-store.svg" alt="Download on the App Store" height="40">
+    </a>
   </div>
 
   <div id="footer">
@@ -1257,5 +1270,18 @@ $("#reset_score_names_button").click(function () {
     );
     console.log("HTML set to " + color);
   }
+
+  $(document).ready(function(){
+    // If the banner hasn't been dismissed before, show it
+    if (!localStorage.getItem("iosBannerDismissed")) {
+      $("#ios-banner").slideDown();
+    }
+    
+    // When the user clicks the dismiss button, hide the banner and set the flag
+    $("#close-ios-banner").click(function(){
+      $("#ios-banner").slideUp();
+      localStorage.setItem("iosBannerDismissed", "true");
+    });
+  });
 
 </script>
