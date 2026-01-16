@@ -1,18 +1,18 @@
 'use client';
 
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
+import { useEffect, useState } from 'react';
 import {
   ReviewData,
   createEmptyReview,
-  DEFAULT_SCORE_NAMES,
-  DEFAULT_FONT_SIZES,
   ScoreValue,
 } from '@/config/defaults';
 
 interface ReviewState {
   // Current review being edited
   currentReview: ReviewData;
+  _hasHydrated: boolean;
 
   // Actions
   setTitle: (title: string) => void;
@@ -26,12 +26,14 @@ interface ReviewState {
   setFontSize: (key: 'title' | 'metadata' | 'body', size: number) => void;
   resetReview: () => void;
   loadReview: (review: ReviewData) => void;
+  setHasHydrated: (state: boolean) => void;
 }
 
 export const useReviewStore = create<ReviewState>()(
   persist(
     (set) => ({
       currentReview: createEmptyReview(),
+      _hasHydrated: false,
 
       setTitle: (title) =>
         set((state) => ({
@@ -118,10 +120,43 @@ export const useReviewStore = create<ReviewState>()(
         set({
           currentReview: review,
         }),
+
+      setHasHydrated: (state) => {
+        set({
+          _hasHydrated: state,
+        });
+      },
     }),
     {
       name: 'quick-reviews-current',
+      storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ currentReview: state.currentReview }),
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );
+
+// Hook to check if store has hydrated
+export function useHasHydrated() {
+  const [hasHydrated, setHasHydrated] = useState(false);
+
+  useEffect(() => {
+    // Wait for Zustand to rehydrate
+    const unsubscribe = useReviewStore.persist.onFinishHydration(() => {
+      setHasHydrated(true);
+    });
+
+    // If already hydrated
+    if (useReviewStore.persist.hasHydrated()) {
+      setHasHydrated(true);
+    }
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  return hasHydrated;
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import {
   ReviewCard,
   ReviewEditor,
@@ -22,9 +22,26 @@ export default function Home() {
   const reviewRef = useRef<HTMLDivElement>(null);
   const { openEditModal } = useUIStore();
   const { resetReview } = useReviewStore();
+  const [mounted, setMounted] = useState(false);
+
+  // Wait for client-side hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Enable keyboard shortcuts
   useKeyboardShortcuts();
+
+  // Show loading state until client hydrates
+  if (!mounted) {
+    return (
+      <main className="py-8 px-4">
+        <div className="max-w-6xl mx-auto flex justify-center items-center min-h-[60vh]">
+          <div className="animate-pulse text-white/40">Loading...</div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="py-8 px-4">
