@@ -1,14 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
-import { Command, History, Plus, LogIn } from 'lucide-react';
+import { Command } from 'lucide-react';
 import { useUIStore } from '@/stores/uiStore';
-import { cn } from '@/lib/utils';
 
 export function Header() {
-  const pathname = usePathname();
   const { openCommandPalette } = useUIStore();
 
   return (
@@ -21,36 +17,6 @@ export function Header() {
 
         {/* Navigation */}
         <nav className="flex items-center gap-2">
-          {/* Create new */}
-          <Link
-            href="/"
-            className={cn(
-              'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors',
-              pathname === '/'
-                ? 'bg-blue-500 text-white'
-                : 'text-white/60 hover:text-white hover:bg-white/10'
-            )}
-          >
-            <Plus className="w-4 h-4" />
-            <span className="hidden sm:inline">Create</span>
-          </Link>
-
-          {/* Reviews history */}
-          <SignedIn>
-            <Link
-              href="/reviews"
-              className={cn(
-                'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-colors',
-                pathname === '/reviews'
-                  ? 'bg-white/10 text-white'
-                  : 'text-white/60 hover:text-white hover:bg-white/10'
-              )}
-            >
-              <History className="w-4 h-4" />
-              <span className="hidden sm:inline">My Reviews</span>
-            </Link>
-          </SignedIn>
-
           {/* Command palette */}
           <button
             onClick={openCommandPalette}
@@ -63,27 +29,6 @@ export function Header() {
               ⌘K
             </kbd>
           </button>
-
-          {/* Auth */}
-          <SignedIn>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: 'w-8 h-8',
-                },
-              }}
-            />
-          </SignedIn>
-          <SignedOut>
-            <Link
-              href="/sign-in"
-              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm
-                       bg-white/10 hover:bg-white/20 transition-colors"
-            >
-              <LogIn className="w-4 h-4" />
-              <span className="hidden sm:inline">Sign In</span>
-            </Link>
-          </SignedOut>
         </nav>
       </div>
     </header>

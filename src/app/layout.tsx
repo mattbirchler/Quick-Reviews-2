@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { ClerkProvider } from '@clerk/nextjs';
 import { Header } from '@/components/layout/Header';
 import { CommandPalette } from '@/components/layout/CommandPalette';
 import { MigrationBanner } from '@/components/layout/MigrationBanner';
@@ -28,15 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className="min-h-screen bg-[#1a1a2e] text-white antialiased">
-          <Header />
-          {children}
-          <CommandPalette />
-          <MigrationBanner />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <body className="min-h-screen bg-[#1a1a2e] text-white antialiased">
+        <Header />
+        {children}
+        <CommandPalette />
+        <MigrationBanner />
+      </body>
+    </html>
   );
 }
