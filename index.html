@@ -45,10 +45,11 @@
 
 <body>
   <!-- New iOS banner added for one-time appearance -->
-  <div id="ios-banner" style="display:none; position: fixed; top: 0; left: 0; width: 100%; background: #b1fc8c; color: #000; text-align: center; padding: 10px; z-index: 9999; font-family: Oxygen, sans-serif;">
-    Quick Reviews is now available on iOS! 
-    <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank" style="font-weight: bold; color: inherit;">Check it out!</a>
-    <button id="close-ios-banner" aria-label="Dismiss iOS Info" style="margin-left: 20px; border: none; background: none; cursor: pointer;">&#10006;</button>
+  <div id="ios-banner" class="ios-banner">
+    <span class="ios-banner-icon">📱</span>
+    <span>Quick Reviews is now on iOS!</span>
+    <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank" class="ios-banner-link">Get the app</a>
+    <button id="close-ios-banner" class="ios-banner-close" aria-label="Dismiss">×</button>
   </div>
 
   <div id="background_image"></div>
@@ -74,54 +75,27 @@
     <div id="underline"></div>
   </div>
 
-  <button 
-    class="skip-to-content" 
+  <button
+    class="skip-to-content"
     onclick="document.getElementById('image-uploader').focus()"
     aria-label="Skip theme selection">
     Skip to review
   </button>
 
-  <div class="custom" id="theme_list" role="group" aria-label="Theme selection buttons">
-    <button class="theme_button" id="theme_1" aria-label="Home theme - Dark blue" title="Home theme" style="background-color: #2B384F; color: white; border: none">
-      🏠
-    </button>
-    <button class="theme_button" id="theme_2" aria-label="Ice theme - Light gray" title="Ice theme" style="background-color: #e9eef1; color: black; border: none">
-      🧊
-    </button>
-    <button class="theme_button" id="theme_3" aria-label="Pink heart theme - Bright pink" title="Pink heart theme" style="background-color: #e70cdf; color: white; border: none">
-      🩷
-    </button>
-    <button class="theme_button" id="theme_4" aria-label="Blueberry theme - Light blue" title="Blueberry theme" style="background-color: #13BDFF; color: black; border: none">
-      🫐
-    </button>
-    <button class="theme_button" id="theme_5" aria-label="Bee theme - Yellow" title="Bee theme" style="background-color: #FEBF00; color: black; border: none">
-      🐝
-    </button>
-    <button class="theme_button" id="theme_6" aria-label="Candy theme - Deep purple" title="Candy theme" style="background-color: #3B0C95; color: white; border: none">
-      🍬
-    </button>
-    <button class="theme_button" id="theme_7" aria-label="Ocean theme - Turquoise" title="Ocean theme" style="background-color: #1FCBE2; color: black; border: none">
-      🌊
-    </button>
-    <button class="theme_button" id="theme_8" aria-label="Blood theme - Red" title="Blood theme" style="background-color: #ed6e6c; color: white; border: none">
-      🩸
-    </button>
-    <button class="theme_button" id="theme_9" aria-label="Peach theme - Salmon pink" title="Peach theme" style="background-color: #EE9882; color: black; border: none">
-      &#127825;
-    </button>
-    <button class="theme_button" id="theme_10" aria-label="Forest theme - Dark green" title="Forest theme" style="background-color: #38571A; color: white; border: none">
-      🌲
-    </button>
-  </div>
-
-  <div class="custom">
-    <button 
-      class="reset_button_real" 
-      onclick="showCommandPalette()"
-      aria-label="Show command palette">
-      Commands (⌘K)
-    </button>
-  </div>
+  <section class="themes-section" role="group" aria-label="Theme selection">
+    <div class="themes-row" id="theme_list">
+      <button class="theme-dot" id="theme_1" aria-label="Home theme - Dark blue" title="Home" style="background-color: #2B384F"></button>
+      <button class="theme-dot" id="theme_2" aria-label="Ice theme - Light gray" title="Ice" style="background-color: #F3F6FF"></button>
+      <button class="theme-dot" id="theme_3" aria-label="Pink heart theme - Bright pink" title="Pink" style="background-color: #E70CDF"></button>
+      <button class="theme-dot" id="theme_4" aria-label="Blueberry theme - Light blue" title="Blueberry" style="background-color: #13BDFF"></button>
+      <button class="theme-dot" id="theme_5" aria-label="Bee theme - Yellow" title="Bee" style="background-color: #FEBF00"></button>
+      <button class="theme-dot" id="theme_6" aria-label="Candy theme - Deep purple" title="Candy" style="background-color: #3B0C95"></button>
+      <button class="theme-dot" id="theme_7" aria-label="Ocean theme - Turquoise" title="Ocean" style="background-color: #1FCBE2"></button>
+      <button class="theme-dot" id="theme_8" aria-label="Blood theme - Red" title="Blood" style="background-color: #E5322F"></button>
+      <button class="theme-dot" id="theme_9" aria-label="Peach theme - Salmon pink" title="Peach" style="background-color: #EE9882"></button>
+      <button class="theme-dot" id="theme_10" aria-label="Forest theme - Dark green" title="Forest" style="background-color: #38571A"></button>
+    </div>
+  </section>
 
   <!-- <div id="shortcut_key">
     <div class="example_shortcut command_shortcut clickable_shortcut" id="open_command_palette">
@@ -131,41 +105,42 @@
 
   <!-- <div id="helper">Click anywhere on the review to edit</div> -->
 
-  <div id="review">
-    <div id="top">
-      <div id="poster" role="region" aria-label="Poster image upload area">
-        <input 
-          type="file" 
-          id="image-uploader" 
-          accept="image/*"
-          aria-label="Upload poster image"
-          tabindex="0">
+  <div class="review-container">
+    <div id="review">
+      <div id="top">
+        <div id="poster" role="region" aria-label="Poster image upload area">
+          <input
+            type="file"
+            id="image-uploader"
+            accept="image/*"
+            aria-label="Upload poster image"
+            tabindex="0">
+        </div>
+
+        <div id="review_text" tabindex="0" role="region" aria-labelledby="review text">
+          <div id="title">
+            The Title Goes Here
+          </div>
+          <div id="meta">
+            2024 - Director Name
+          </div>
+          <div id="text">
+            This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
+          </div>
+        </div>
+
       </div>
 
-      <div id="review_text" tabindex="0" role="region" aria-labelledby="review text">
-        <div id="title">
-          The Title Goes Here
-        </div>
-        <div id="meta">
-          2024 - Director Name
-        </div>
-        <div id="text">
-          This is the review text. It can be as long as you want it to be. You can also use line breaks to make it look nice.
-        </div>
-      </div>
-      
-    </div>
+      <script>
+        document.getElementById('review_text').addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Prevent default behavior for the Space key
+            this.click(); // Simulate a click
+          }
+        });
+      </script>
 
-    <script>
-      document.getElementById('review_text').addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault(); // Prevent default behavior for the Space key
-          this.click(); // Simulate a click
-        }
-      });
-    </script>
-
-    <div id="bottom" role="radiogroup" aria-label="Rate your experience">
+      <div id="bottom" role="radiogroup" aria-label="Rate your experience">
       <div 
         class="score animate__animated" 
         id="poor"
@@ -209,6 +184,27 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <div class="text-size-slider" aria-label="Adjust review text size">
+    <div class="slider-hints">
+      <span class="hint-small">A</span>
+    </div>
+    <div class="slider-track">
+      <input
+        type="range"
+        id="text_size_slider"
+        class="horizontal-slider"
+        min="8"
+        max="60"
+        value="26"
+        aria-label="Review text size">
+    </div>
+    <div class="slider-hints">
+      <span class="hint-large">A</span>
+    </div>
+    <div class="slider-value" id="slider_value_display">26<span class="slider-unit">px</span></div>
+  </div>
 
   <div id="buttons">
     <button class="btn" id="edit_title">Edit (⌘+E)</button>
@@ -217,170 +213,218 @@
 
 
 
-  <div class="custom">
+  <section class="customize-section">
+    <div class="customize-header">
+      <h2 class="customize-title">Customize</h2>
+      <p class="customize-subtitle">Fine-tune your review card's appearance</p>
+    </div>
 
-    <div class="new_card">
-      <div class="card_header">
-        <div class="card_header_text">Colors</div>
-        <!-- <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button"> -->
-        <button class="reset_button_real" id="reset_colors_button" aria-label="Reset custom colors" title="Reset custom colors">Reset</button>
+    <div class="customize-panels">
+      <!-- Colors Panel -->
+      <div class="panel" id="colors-panel">
+        <div class="panel-header">
+          <div class="panel-title-row">
+            <svg class="panel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a10 10 0 0 1 0 20"/>
+            </svg>
+            <h3 class="panel-title">Colors</h3>
+          </div>
+          <button class="panel-reset" id="reset_colors_button" aria-label="Reset colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            Reset
+          </button>
+        </div>
+        <div class="panel-content">
+          <div class="color-grid">
+            <div class="color-item color-item-large">
+              <label class="color-label">Background</label>
+              <div class="color-input-wrap">
+                <input type="color" class="color_picker" id="background_color" value="#e9eef1" />
+                <span class="color-value" id="background_color_value">#e9eef1</span>
+              </div>
+            </div>
+            <div class="color-row">
+              <div class="color-item">
+                <label class="color-label">Bad</label>
+                <input type="color" class="color_picker color-small" id="poor_color" value="#F28482" />
+              </div>
+              <div class="color-item">
+                <label class="color-label">Okay</label>
+                <input type="color" class="color_picker color-small" id="okay_color" value="#F6BD60" />
+              </div>
+              <div class="color-item">
+                <label class="color-label">Good</label>
+                <input type="color" class="color_picker color-small" id="good_color" value="#A4BBF4" />
+              </div>
+              <div class="color-item">
+                <label class="color-label">Great</label>
+                <input type="color" class="color_picker color-small" id="great_color" value="#05CC9E" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card_body">
-        <div class="color_box">
-          <div class="color_box_text">Back</div>
-          <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
+
+      <!-- Typography Panel -->
+      <div class="panel" id="typography-panel">
+        <div class="panel-header">
+          <div class="panel-title-row">
+            <svg class="panel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="4 7 4 4 20 4 20 7"/>
+              <line x1="9" y1="20" x2="15" y2="20"/>
+              <line x1="12" y1="4" x2="12" y2="20"/>
+            </svg>
+            <h3 class="panel-title">Typography</h3>
+          </div>
+          <button class="panel-reset" id="reset_font_size_button" aria-label="Reset font sizes">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            Reset
+          </button>
         </div>
-        <div class="color_box">
-          <div class="color_box_text">Bad</div>
-          <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
+        <div class="panel-content">
+          <div class="size-controls">
+            <div class="size-item">
+              <label class="size-label">Title</label>
+              <div class="size-input-group">
+                <button class="size-btn size-decrease" data-target="text_size_title">−</button>
+                <input type="number" class="size-input" id="text_size_title" value="48" min="8" max="120" />
+                <button class="size-btn size-increase" data-target="text_size_title">+</button>
+                <span class="size-unit">px</span>
+              </div>
+            </div>
+            <div class="size-item">
+              <label class="size-label">Metadata</label>
+              <div class="size-input-group">
+                <button class="size-btn size-decrease" data-target="text_size_metadata">−</button>
+                <input type="number" class="size-input" id="text_size_metadata" value="28" min="8" max="80" />
+                <button class="size-btn size-increase" data-target="text_size_metadata">+</button>
+                <span class="size-unit">px</span>
+              </div>
+            </div>
+            <div class="size-item">
+              <label class="size-label">Body</label>
+              <div class="size-input-group">
+                <button class="size-btn size-decrease" data-target="text_size_review">−</button>
+                <input type="number" class="size-input" id="text_size_review" value="26" min="8" max="60" />
+                <button class="size-btn size-increase" data-target="text_size_review">+</button>
+                <span class="size-unit">px</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="color_box">
-          <div class="color_box_text">Okay</div>
-          <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
+      </div>
+
+      <!-- Score Labels Panel -->
+      <div class="panel" id="labels-panel">
+        <div class="panel-header">
+          <div class="panel-title-row">
+            <svg class="panel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+            </svg>
+            <h3 class="panel-title">Score Labels</h3>
+          </div>
+          <button class="panel-reset" id="reset_score_names_button" aria-label="Reset score names">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            Reset
+          </button>
         </div>
-        <div class="color_box">
-          <div class="color_box_text">Good</div>
-          <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
-        </div>
-        <div class="color_box">
-          <div class="color_box_text">Great</div>
-          <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
+        <div class="panel-content">
+          <div class="label-grid">
+            <div class="label-item">
+              <span class="label-indicator" style="background: var(--score-bad, #F28482)"></span>
+              <input type="text" class="label-input" id="score_1" placeholder="Didn't Like It">
+            </div>
+            <div class="label-item">
+              <span class="label-indicator" style="background: var(--score-okay, #F6BD60)"></span>
+              <input type="text" class="label-input" id="score_2" placeholder="Decent">
+            </div>
+            <div class="label-item">
+              <span class="label-indicator" style="background: var(--score-good, #A4BBF4)"></span>
+              <input type="text" class="label-input" id="score_3" placeholder="Liked It">
+            </div>
+            <div class="label-item">
+              <span class="label-indicator" style="background: var(--score-great, #05CC9E)"></span>
+              <input type="text" class="label-input" id="score_4" placeholder="Loved It!">
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- <div class="new_card">
-      <div class="card_header">
-        <div class="card_header_text">Background</div>
-        <img src="reset.png" class="reset_button" id="reset_background_button">
-      </div>
-      <div class="card_body">
-        <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
-      </div>
-    </div> -->
-
-    <!-- <div class="new_card">
-      <div class="card_header">
-        <div class="card_header_text">Score Colors</div>
-        <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
-      </div>
-      <div class="card_body">
-        <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
-        <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
-        <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
-        <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
-      </div>
-    </div> -->
-
-    <div class="new_card">
-      <div class="card_header">
-        <div class="card_header_text">Font Sizes</div>
-        <button class="reset_button_real" id="reset_font_size_button" aria-label="Reset text size" title="Reset custom text sizes">Reset</button>
-        <!-- <img src="reset.png" class="reset_button" id="reset_font_size_button"> -->
-      </div>
-      <div class="card_body">
-        <div class="font_size_box">
-          <div class="color_box_text">Title</div>
-          <input type="number" class="font_size_picker" id="text_size_title" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-        </div>
-        <div class="font_size_box">
-          <div class="color_box_text">Metadata</div>
-          <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-        </div>
-        <div class="font_size_box">
-          <div class="color_box_text">Body</div>
-          <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-        </div>
-
-
-
-      </div>
-    </div>
-
-    <div class="new_card">
-      <div class="card_header">
-        <div class="card_header_text">Score Names</div>
-        <button class="reset_button_real" id="reset_score_names_button" aria-label="Reset custom score names" title="Reset custom score names">Reset</button>
-        <!-- <img src="reset.png" class="reset_button" id="reset_score_names_button"> -->
-      </div>
-      <div class="card_body">
-        <input type="text" class="font_size_picker name_input" id="score_1">
-        <input type="text" class="font_size_picker name_input" id="score_2">
-        <input type="text" class="font_size_picker name_input" id="score_3">
-        <input type="text" class="font_size_picker name_input" id="score_4">
-      </div>
-    </div>
-
-    <!-- <div class="card">
-      <span class="card_label">Background</span>
-      <input type="color" class="color_picker" id="background_color" name="head" value="#e9eef1" />
-      <img src="reset.png" class="reset_button" id="reset_background_button">
-    </div> -->
-
-    <!-- <div class="card">
-      <span class="card_label">Scores</span>
-      <input type="color" class="color_picker" id="poor_color" name="head" value="#F28482" />
-      <input type="color" class="color_picker" id="okay_color" name="head" value="#F6BD60" />
-      <input type="color" class="color_picker" id="good_color" name="head" value="#A4BBF4" />
-      <input type="color" class="color_picker" id="great_color" name="head" value="#05CC9E" />
-      <img src="reset.png" class="reset_button animate__animated" id="reset_colors_button">
-    </div> -->
-
-
-
-    <!-- <div class="card">
-      <span class="card_label">Fonts</span>
-      <input type="number" class="font_size_picker" id="text_size_title" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-      <input type="number" class="font_size_picker" id="text_size_metadata" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-      <input type="number" class="font_size_picker" id="text_size_review" placeholder="48" name="name1" value="48" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-      <img src="reset.png" class="reset_button" id="reset_font_size_button">
-    </div> -->
-
-
-    <!-- <div class="card">
-      <input type="text" class="font_size_picker name_input" id="score_1">
-      <input type="text" class="font_size_picker name_input" id="score_2">
-      <input type="text" class="font_size_picker name_input" id="score_3">
-      <input type="text" class="font_size_picker name_input" id="score_4">
-      <img src="reset.png" class="reset_button" id="reset_score_names_button">
-    </div> -->
+  <div class="alt-layout-notice">
+    <span class="alt-layout-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M9 3v18"/>
+        <path d="M3 9h6"/>
+      </svg>
+    </span>
+    <span>Reviewing music? Try the <a href="square.html">square art layout</a></span>
   </div>
 
-  <!-- <div id="shortcut_key">
-    <div class="example_shortcut shift_shortcut">
-      <div class="the_shortcut">Shift + &#8593; &#8595;</div>
-      <div class="the_description">Text size</div>
-    </div>
-    <div class="example_shortcut shift_shortcut">
-      <div class="the_shortcut">Shift + &#8592; &#8594;</div>
-      <div class="the_description">Reset text size</div>
-    </div>
-  </div> -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">QR</div>
+        <div class="footer-tagline">Quick Reviews</div>
+      </div>
 
-  <div id="beta_notice">
-    Reviewing music? Try the <a href="square.html">square art layout</a> currently in beta.
-  </div>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4 class="footer-heading">Download</h4>
+          <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank" class="app-store-link">
+            <img src="app-store.svg" alt="Download on the App Store" height="36">
+          </a>
+        </div>
 
-  <div id="app_store">
-    <a href="https://apps.apple.com/us/app/quick-reviews/id6740369719?ref=quickreviews.app" target="_blank">
-      <img src="app-store.svg" alt="Download on the App Store" height="40">
-    </a>
-  </div>
+        <div class="footer-section">
+          <h4 class="footer-heading">Creator</h4>
+          <div class="footer-links">
+            <a href="https://birchtree.me" target="_blank">Birchtree</a>
+            <a href="https://www.youtube.com/@ABetterComputer" target="_blank">A Better Computer</a>
+            <a href="https://letterboxd.com/mattbirchler/" target="_blank">Letterboxd</a>
+          </div>
+        </div>
 
-  <div id="footer">
-    <div id="made_by">Made by Matt Birchler (support on <a href="https://isfeeling.social/home">social</a> or <a href="mailto:matt@birchtree.me">email</a>)</div>
-    <div id="links">
-      <a href="https://letterboxd.com/mattbirchler/" target="_blank">Letterboxd</a>
-      <a href="https://www.youtube.com/@ABetterComputer" target="_blank">A Better Computer</a>
-      <a href="https://birchtree.me" target="_blank">Birchtree</a>
-      <a href="https://isfeeling.social/@matt" target="_blank">Mastodon</a>
-      <a href="https://bsky.app/profile/birchtree.me" target="_blank">Bluesky</a>
-      <a href="privacy.html" target="_blank">Privacy Policy</a>
+        <div class="footer-section">
+          <h4 class="footer-heading">Connect</h4>
+          <div class="footer-links">
+            <a href="https://bsky.app/profile/birchtree.me" target="_blank">Bluesky</a>
+            <a href="https://isfeeling.social/@matt" target="_blank">Mastodon</a>
+            <a href="mailto:matt@birchtree.me">Email</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-heading">Legal</h4>
+          <div class="footer-links">
+            <a href="privacy.html" target="_blank">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-privacy">
+          Your data stays private. All review content is stored locally in your browser - we never see it.
+        </p>
+        <p class="footer-credit">
+          Made with care by <a href="https://birchtree.me" target="_blank">Matt Birchler</a>
+        </p>
+      </div>
     </div>
-    <div id="privacy">
-      Quick Reviews uses basic page hit analytics to track usage numbers. However, all data you enter on this page is stored exclusively in your browser's local storage – we do not have access to this information. Check the page source code, you can see it in my messy JavaScript.
-    </div>
-  </div>
+  </footer>
 
 </body>
 
@@ -388,7 +432,7 @@
   <div class="modal-content">
     <input type="text" class="modal_input" id="modal_text_title" placeholder="Media title">
     <input type="text" class="modal_input" id="modal_text_meta" placeholder="YYYY - Director Name">
-    <textarea id="modal_text_text" cols="48" rows="8"></textarea>
+    <textarea id="modal_text_text" cols="48" rows="8" placeholder="Write your review..."></textarea>
     <!-- <input type="text" class="modal_input" id="modal_text_text" placeholder="Your review goes here"> -->
     <button class="btn" id="close_modal" onclick="saveData()">Save (⌘+Enter)</button>
   </div>
@@ -1274,13 +1318,86 @@ $("#reset_score_names_button").click(function () {
   $(document).ready(function(){
     // If the banner hasn't been dismissed before, show it
     if (!localStorage.getItem("iosBannerDismissed")) {
-      $("#ios-banner").slideDown();
+      $("#ios-banner").addClass("show");
     }
-    
+
     // When the user clicks the dismiss button, hide the banner and set the flag
     $("#close-ios-banner").click(function(){
-      $("#ios-banner").slideUp();
+      $("#ios-banner").removeClass("show");
       localStorage.setItem("iosBannerDismissed", "true");
+    });
+
+    // Size button controls
+    $(".size-decrease").click(function() {
+      var targetId = $(this).data("target");
+      var input = $("#" + targetId);
+      var currentVal = parseInt(input.val()) || 0;
+      var minVal = parseInt(input.attr("min")) || 8;
+      if (currentVal > minVal) {
+        input.val(currentVal - 1).trigger("change");
+      }
+    });
+
+    $(".size-increase").click(function() {
+      var targetId = $(this).data("target");
+      var input = $("#" + targetId);
+      var currentVal = parseInt(input.val()) || 0;
+      var maxVal = parseInt(input.attr("max")) || 120;
+      if (currentVal < maxVal) {
+        input.val(currentVal + 1).trigger("change");
+      }
+    });
+
+    // Update background color hex display
+    function updateColorValue() {
+      var colorVal = $("#background_color").val();
+      $("#background_color_value").text(colorVal.toUpperCase());
+    }
+    updateColorValue();
+    $("#background_color").on("input change", updateColorValue);
+
+    // Update label indicators to match score colors
+    function updateLabelIndicators() {
+      var poorColor = localStorage.getItem("quick_score_color_1") || "#F28482";
+      var okayColor = localStorage.getItem("quick_score_color_2") || "#F6BD60";
+      var goodColor = localStorage.getItem("quick_score_color_3") || "#A4BBF4";
+      var greatColor = localStorage.getItem("quick_score_color_4") || "#05CC9E";
+
+      $(".label-item:nth-child(1) .label-indicator").css("background", poorColor);
+      $(".label-item:nth-child(2) .label-indicator").css("background", okayColor);
+      $(".label-item:nth-child(3) .label-indicator").css("background", goodColor);
+      $(".label-item:nth-child(4) .label-indicator").css("background", greatColor);
+    }
+    updateLabelIndicators();
+
+    // Vertical text size slider
+    var textSlider = $("#text_size_slider");
+    var sliderDisplay = $("#slider_value_display");
+
+    // Initialize slider with current value
+    var currentSize = localStorage.getItem("text_size_review") || "26";
+    textSlider.val(currentSize);
+    sliderDisplay.text(currentSize);
+
+    // Update on slider input (real-time as user drags)
+    textSlider.on("input", function() {
+      var size = $(this).val();
+      sliderDisplay.text(size);
+      $("#text").css("font-size", size + "px");
+    });
+
+    // Save to localStorage when user releases slider
+    textSlider.on("change", function() {
+      var size = $(this).val();
+      localStorage.setItem("text_size_review", size);
+      $("#text_size_review").val(size); // Sync with panel input
+    });
+
+    // Sync slider when panel input changes
+    $("#text_size_review").on("change", function() {
+      var size = $(this).val();
+      textSlider.val(size);
+      sliderDisplay.text(size);
     });
   });
 

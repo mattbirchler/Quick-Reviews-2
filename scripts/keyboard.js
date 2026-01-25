@@ -319,9 +319,10 @@ function showCommandPalette() {
 
 // And modify your click-outside handler to ignore clicks from the button
 document.addEventListener('click', (e) => {
-  if (commandPalette && 
-      !commandPalette.contains(e.target) && 
-      !e.target.matches('.reset_button_real')) {  // Add this check
+  if (commandPalette &&
+      !commandPalette.contains(e.target) &&
+      !e.target.matches('.reset_button_real') &&
+      !e.target.closest('.commands-trigger')) {  // Also ignore commands trigger button
     hideCommandPalette();
   }
 });
